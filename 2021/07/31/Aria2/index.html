@@ -6,7 +6,7 @@
 <meta property="og:description" content="Aria2是一款开源下载工具，可简化不同设备和服务器之间的下载过程，支持磁力链接、BT种子、http等类型的文件下载，具有优秀性能及较低的资源占用，架构轻巧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-31T09:09:26.000Z">
-<meta property="article:modified_time" content="2021-08-13T14:23:55.448Z">
+<meta property="article:modified_time" content="2021-08-13T14:28:37.736Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Aria2">
 <meta property="article:tag" content="Settings">
@@ -56,9 +56,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
         <h3 id="设置环境变量"   >
           <a href="#设置环境变量" class="heading-link"><i class="fas fa-link"></i></a><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3>
       <blockquote>
-<p>1.将aria2c.exe放置在自定义文件夹。</p>
+<p>1.将<code>aria2c.exe</code>放置在自定义文件夹。</p>
 <p>2.将<code>&lt;自定义文件路径&gt;</code>添加至<code>环境变量 PATH</code>即可。</p>
-<p>3.终端中输入aria2c即可（可自定义该执行文件名称）。</p>
+<p>3.终端中输入<code>aria2c</code>即可（可自定义该执行文件名称）。</p>
 </blockquote>
 
         <h3 id="Start-vbs"   >
@@ -188,7 +188,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <figure class="highlight awk"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls.txt</span></span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span><span class="number">8</span>o/wallhaven-<span class="number">8</span>ok7vk.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/g</span>7/wallhaven-g75r7d.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span><span class="number">8</span>o/wallhaven-<span class="number">8</span>oev1j.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>j3/wallhaven-j3wqwm.jpg</span><br></pre></td></tr></table></div></figure>
 
 <blockquote>
-<p>You can specify multiple sources for a single entity by putting multiple URIs on a single line separated by the TAB character. Additionally, options can be specified after each URI line. <code>Option lines must start with one or more white space characters (SPACE or TAB) and must only contain one option per line. Input files can use gzip compression. </code></p>
+<p><code>You can specify multiple sources for a single entity by putting multiple URIs on a single line separated by the TAB character. Additionally, options can be specified after each URI line.</code> <code>Option lines must start with one or more white space characters (SPACE or TAB) and must only contain one option per line. Input files can use gzip compression. </code></p>
 </blockquote>
 <ol start="3">
 <li><strong>The file name of the log file.</strong></li>
@@ -196,7 +196,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <figure class="highlight 1c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-l, --<span class="built_in">log</span>=&lt;<span class="built_in">LOG</span>&gt;</span><br></pre></td></tr></table></div></figure>
 
 <blockquote>
-<p><code>If - is specified, log is written to stdout</code>. If empty string(“ “) is specified, or this option is omitted, no log is written to disk at all.</p>
+<p><code>If - is specified, log is written to stdout</code>. <code>If empty string(&quot; &quot;) is specified, or this option is omitted, no log is written to disk at all.</code></p>
 </blockquote>
 <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -l aria2.log https://w.wallhaven.cc/full/rd/wallhaven-rdqxmm.jpg</span><br></pre></td></tr></table></div></figure>
 
@@ -217,14 +217,14 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 </ol>
 <blockquote>
 <p>Default: <code>false</code></p>
-<p><code>Check file integrity by validating piece hashes or a hash of entire file.</code>  If piece hashes are provided, this option can detect damaged portions of a file and re-download them. If a hash of entire file is provided, hash check is only done when file has been already download.`</p>
+<p><code>Check file integrity by validating piece hashes or a hash of entire file.</code>  <code>If piece hashes are provided, this option can detect damaged portions of a file and re-download them. If a hash of entire file is provided, hash check is only done when file has been already download.</code></p>
 </blockquote>
 <ol start="6">
 <li><strong>-c, –continue [true|false]</strong></li>
 </ol>
 <blockquote>
 <p>default :<code>true</code></p>
-<p><code>Continue downloading a partially downloaded file.</code> Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads</p>
+<p><code>Continue downloading a partially downloaded file.</code> <code>Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads</code></p>
 </blockquote>
 <figure class="highlight awk"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -cfalse https:<span class="regexp">//</span>dldir1.qq.com<span class="regexp">/music/</span>clntupate/QQMusicSetup.exe</span><br></pre></td></tr></table></div></figure>
 
