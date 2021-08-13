@@ -6,8 +6,13 @@
 <meta property="og:description" content="Hexo是一个快速、简洁且高效的博客框架。Hexo使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页，配合Github即可搭建初级个人博客。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/hexo.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/nodejs.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/git.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/github.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/show.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/show2.png">
 <meta property="article:published_time" content="2021-08-12T17:28:37.000Z">
-<meta property="article:modified_time" content="2021-08-12T17:31:09.310Z">
+<meta property="article:modified_time" content="2021-08-13T07:18:21.572Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -50,9 +55,19 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
           <a href="#准备工作" class="heading-link"><i class="fas fa-link"></i></a><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2>
       <ol>
 <li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://nodejs.org/en/" >Node.js</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ol>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/nodejs.jpg"  />
+
+<ol start="2">
 <li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://git-scm.com/" >Git</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ol>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/git.png"  />
+
+<ol start="3">
 <li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
 </ol>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/github.png" style="zoom: 25%;" />
+
 <hr>
 
         <h2 id="安装Hexo"   >
@@ -60,16 +75,24 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
       <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. npm install hexo-cli -g</span><br><span class="line">2. hexo init blogName</span><br><span class="line">3. <span class="built_in">cd</span> blogName</span><br><span class="line">4. npm install</span><br><span class="line">5. hexo server</span><br><span class="line"></span><br><span class="line">6. npm install hexo-deployer-git --save <span class="comment">#Git部署插件</span></span><br><span class="line"></span><br><span class="line">7. hexo new page tags</span><br><span class="line">8. hexo new page categories <span class="comment">#生成 categories 分类页</span></span><br></pre></td></tr></table></div></figure>
 
 <ol>
-<li><strong>常用命令</strong></li>
-</ol>
-<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;BlogName&quot;</span>/hexo new <span class="string">&quot;BlogName&quot;</span>   <span class="comment">#新建文章 *.md</span></span><br><span class="line">hexo g/hexo generate </span><br><span class="line">hexo s/hexo server <span class="comment">#启动服务器</span></span><br><span class="line">hexo d/hexo deploy <span class="comment">#部署到服务器</span></span><br><span class="line">hexo clean <span class="comment">#清理缓存</span></span><br></pre></td></tr></table></div></figure>
-
-<ol start="2">
-<li><strong>Front-matter</strong></li>
+<li>常用命令</li>
 </ol>
 <blockquote>
-<ul>
-<li><p>设置标签和分类等参数值</p>
+<ol>
+<li>hexo n “BlogName”/hexo new “BlogName”   #新建文章 *.md</li>
+<li>hexo g/hexo generate </li>
+<li>hexo s/hexo server #启动服务器</li>
+<li>hexo d/hexo deploy #部署到服务器</li>
+<li>hexo clean #清理缓存</li>
+</ol>
+</blockquote>
+<ol start="2">
+<li>Front-matter</li>
+</ol>
+<blockquote>
+<ol>
+<li>设置标签和分类等参数值</li>
+</ol>
 <ul>
 <li><code>layout</code>   布局</li>
 <li><code>title</code>    标题</li>
@@ -80,14 +103,14 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <li><code>categories</code>  分类（不适用于分页）</li>
 <li><code>permalink</code>   覆盖文章网址</li>
 </ul>
-</li>
-<li><p>文章摘要：摘要内容后添 <code>&lt;!-- more --&gt;</code></p>
+<ol start="2">
+<li>文章摘要：摘要内容后添 <code>&lt;!-- more --&gt;</code></li>
+</ol>
 <p><code>&lt;!-- more --&gt;</code> 之前、文档配置参数之后内容会渲染为站点中的文章摘要，将是正文中最前面的内容。</p>
-</li>
-</ul>
 </blockquote>
-<figure class="highlight subunit"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: Aria2</span><br><span class="line">date: 2021<span class="string">-07</span><span class="string">-31</span> 17:09:26</span><br><span class="line"><span class="keyword">tags:</span> </span><br><span class="line">- Aria2</span><br><span class="line">- Settings</span><br><span class="line">categories: tools</span><br></pre></td></tr></table></div></figure>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/show.png" style="zoom: 80%;" />
 
+<hr>
 <hr>
 
         <h2 id="Github-repo"   >
@@ -96,7 +119,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <li><p>创建 <code>username.github.io仓库</code></p>
 </li>
 <li><p>配置本地Git配置</p>
-<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  <span class="string">&quot;&lt;Github UseName&gt;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&lt;GitHub Email&gt;&quot;</span></span><br><span class="line"><span class="comment">#生成吗密钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;&lt;GitHub Email&gt;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></div></figure></li>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name  <span class="string">&quot;&lt;Github UseName&gt;&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;&lt;GitHub Email&gt;&quot;</span></span><br><span class="line"><span class="comment">#生成吗密钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;&lt;GitHub Email&gt;&quot;</span></span><br></pre></td></tr></table></div></figure></li>
 </ol>
 <hr>
 <ol>
@@ -105,12 +128,10 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <li><p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/settings/keys" >SSH and GPG keys</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>: Add SSH Key</p>
 </li>
 <li><p>配置<code>_config.yml</code>，关联Hexo与GitHub</p>
-</li>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Hexo/show2.png" style="zoom: 80%;" /></li>
 <li><p>配置是否成功</p>
 <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></div></figure></li>
 </ol>
-<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:ZeroStione/ZeroStione.github.io.git</span><br><span class="line">  branch: master  </span><br></pre></td></tr></table></div></figure>
-
 <hr>
 
         <h2 id="Hexo-Tree"   >
