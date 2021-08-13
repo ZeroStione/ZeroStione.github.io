@@ -6,7 +6,7 @@
 <meta property="og:description" content="Aria2是一款开源下载工具，可简化不同设备和服务器之间的下载过程，支持磁力链接、BT种子、http等类型的文件下载，具有优秀性能及较低的资源占用，架构轻巧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-31T09:09:26.000Z">
-<meta property="article:modified_time" content="2021-08-13T14:28:37.736Z">
+<meta property="article:modified_time" content="2021-08-13T14:34:13.904Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Aria2">
 <meta property="article:tag" content="Settings">
@@ -49,6 +49,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 </li>
 </ul>
 <hr>
+<hr>
 
         <h2 id="启动设置"   >
           <a href="#启动设置" class="heading-link"><i class="fas fa-link"></i></a><a href="#启动设置" class="headerlink" title="启动设置"></a>启动设置</h2>
@@ -86,6 +87,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
       <figure class="highlight taggerscript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@echo off &amp; title Aria2 开机启动</span><br><span class="line">echo 1.将 Aria2 设为开机启动</span><br><span class="line">echo 2.取消 Aria2 开机启动</span><br><span class="line">set /p aria2= 请输入对应的序号：</span><br><span class="line">IF <span class="variable">%aria2%</span> EQU 1 (REG ADD HKCU<span class="symbol">\S</span>OFTWARE<span class="symbol">\M</span>icrosoft<span class="symbol">\W</span>indows<span class="symbol">\C</span>urrentVersion<span class="symbol">\R</span>un<span class="symbol">\ </span>/v Aria2  /t REG_SZ /d <span class="variable">%cd%</span><span class="symbol">\S</span>tart.vbs /f)</span><br><span class="line">IF <span class="variable">%aria2%</span> EQU 2 (REG DELETE HKCU<span class="symbol">\S</span>OFTWARE<span class="symbol">\M</span>icrosoft<span class="symbol">\W</span>indows<span class="symbol">\C</span>urrentVersion<span class="symbol">\R</span>un<span class="symbol">\ </span>/v Aria2 /f)</span><br><span class="line">pause &gt; nul</span><br></pre></td></tr></table></div></figure>
 
 <hr>
+<hr>
 
         <h2 id="新建文件"   >
           <a href="#新建文件" class="heading-link"><i class="fas fa-link"></i></a><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h2>
@@ -98,6 +100,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 </li>
 </ol>
 <hr>
+<hr>
 
         <h2 id="UI"   >
           <a href="#UI" class="heading-link"><i class="fas fa-link"></i></a><a href="#UI" class="headerlink" title="UI"></a>UI</h2>
@@ -107,6 +110,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/ziahamza/webui-aria2" >webui-aria2</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
 <li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/binux/yaaw" >yaaw</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
 </ol>
+<hr>
 <hr>
 
         <h2 id="aria2-conf"   >
@@ -130,12 +134,14 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <figure class="highlight maxima"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">## 全局设置 ## ============================================================# 日志#<span class="built_in">log</span>-level=warn#<span class="built_in">log</span>=/PATH/.aria2/aria2.<span class="built_in">log</span># 后台运行daemon=<span class="literal">true</span># 下载位置, 默认: 当前启动位置dir=/PATH/Downloads# 从会话文件中读取下载任务input-file=/PATH/.aria2/aria2.session# 在Aria2退出时保存`错误/未完成`的下载任务到会话文件<span class="built_in">save</span>-session=/PATH/.aria2/aria2.session# 定时保存会话, <span class="number">0</span>为退出时才保存, 需<span class="number">1.16</span><span class="number">.1</span>以上版本, 默认:<span class="number">0save</span>-session-interval=<span class="number">30</span># 断点续传continue=<span class="literal">true</span># 启用磁盘缓存, <span class="number">0</span>为禁用缓存, 需<span class="number">1.16</span>以上版本, 默认:16M#disk-cache=32M# 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc# 预分配所需时间: none &lt; falloc ? <span class="built_in">trunc</span> &lt; prealloc# falloc和<span class="built_in">trunc</span>则需要文件系统和内核支持# NTFS建议使用falloc, EXT3/<span class="number">4</span>建议<span class="built_in">trunc</span>, MAC 下需要注释此项file-<span class="built_in">allocation</span>=none# 客户端伪装user-agent=netdisk;<span class="number">5.2</span><span class="number">.6</span>;PC;PC-Windows;<span class="number">6.2</span><span class="number">.9200</span>;WindowsBaiduYunGuanJiareferer=http://pan.baidu.com/disk/home# 禁用IPv6, 默认:falsedisable-ipv6=<span class="literal">true</span># 其他always-resume=truecheck-integrity=<span class="literal">true</span>## 下载位置 ## ============================================================# 最大同时下载任务数, 运行时可修改, 默认:5<span class="built_in">max</span>-concurrent-downloads=<span class="number">5</span># 同一服务器连接数, 添加时可指定, 默认:1<span class="built_in">max</span>-connection-per-server=<span class="number">5</span># 最小文件分片大小, 添加时可指定, 取值范围1M -1024M, 默认:20M# 假定size=10M, 文件为20MiB 则使用两个来源下载; 文件为15MiB 则使用一个来源下载<span class="built_in">min</span>-<span class="built_in">split</span>-size=10M# 单个任务最大线程数, 添加时可指定, 默认:5<span class="built_in">split</span>=<span class="number">5</span># 整体下载速度限制, 运行时可修改, 默认:<span class="number">0</span>#<span class="built_in">max</span>-overall-download-<span class="built_in">limit</span>=<span class="number">0</span># 单个任务下载速度限制, 默认:<span class="number">0</span>#<span class="built_in">max</span>-download-<span class="built_in">limit</span>=<span class="number">0</span># 整体上传速度限制, 运行时可修改, 默认:<span class="number">0</span>#<span class="built_in">max</span>-overall-upload-<span class="built_in">limit</span>=<span class="number">0</span># 单个任务上传速度限制, 默认:<span class="number">0</span>#<span class="built_in">max</span>-upload-<span class="built_in">limit</span>=<span class="number">0</span>## RPC设置 ## ============================================================# 启用RPC, 默认:falseenable-rpc=<span class="literal">true</span># 允许所有来源, 默认:falserpc-allow-<span class="built_in">origin</span>-all=<span class="literal">true</span># 允许非外部访问, 默认:falserpc-listen-all=<span class="literal">true</span># 事件轮询方式, 取值:[epoll, kqueue, port, poll, select], 不同系统默认值不同#event-poll=select# RPC监听端口, 端口被占用时可以修改, 默认:6800rpc-listen-port=<span class="number">6800</span># 设置的RPC授权令牌, v1<span class="number">.18</span><span class="number">.4</span>新增功能, 取代 --rpc-user 和 --rpc-passwd 选项#rpc-secret=&lt;TOKEN&gt;# 是否启用 RPC 服务的 SSL/TLS 加密,# 启用加密后 RPC 服务需要使用 https 或者 wss 协议连接#rpc-secure=<span class="literal">true</span># 在 RPC 服务中启用 SSL/TLS 加密时的证书文件,# 使用 PEM 格式时，您必须通过 --rpc-private-<span class="built_in">key</span> 指定私钥#rpc-certificate=/path/to/certificate.pem# 在 RPC 服务中启用 SSL/TLS 加密时的私钥文件#rpc-private-<span class="built_in">key</span>=/path/to/certificate.<span class="built_in">key</span>## BT/PT下载相关 ## ============================================================# 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:<span class="literal">true</span>#follow-torrent=<span class="literal">true</span># BT监听端口, 当端口被屏蔽时使用, 默认:<span class="number">6881</span>-6999listen-port=<span class="number">51413</span># 单个种子最大连接数, 默认:<span class="number">55</span>#bt-<span class="built_in">max</span>-peers=<span class="number">55</span># 打开DHT功能, PT需要禁用, 默认:trueenable-dht=<span class="literal">false</span># 打开IPv6 DHT功能, PT需要禁用#enable-dht6=<span class="literal">false</span># DHT网络监听端口, 默认:<span class="number">6881</span>-<span class="number">6999</span>#dht-listen-port=<span class="number">6881</span>-6999dht-file-path=/opt/<span class="built_in">var</span>/aria2/dht.datdht-file-path6=/opt/<span class="built_in">var</span>/aria2/dht6.dat# 本地节点查找, PT需要禁用, 默认:<span class="literal">false</span>#bt-enable-lpd=<span class="literal">false</span># 种子交换, PT需要禁用, 默认:trueenable-peer-exchange=<span class="literal">false</span># 每个种子限速, 对少种的PT很有用, 默认:50K#bt-request-peer-speed-<span class="built_in">limit</span>=50K# 设置 peer id 前缀peer-id-<span class="built_in">prefix</span>=-TR2770-# 当种子的分享率达到这个数时, 自动停止做种, <span class="number">0</span>为一直做种, 默认:<span class="number">1.</span><span class="number">0seed</span>-ratio=<span class="number">0</span># 强制保存会话, 即使任务已经完成, 默认:<span class="literal">false</span># 较新的版本开启后会在任务完成后依然保留.aria2文件#force-<span class="built_in">save</span>=<span class="literal">false</span># BT校验相关, 默认:<span class="literal">true</span>#bt-hash-check-seed=<span class="literal">true</span># 继续之前的BT任务时, 无需再次校验, 默认:falsebt-seed-unverified=<span class="literal">true</span># 保存磁力链接元数据为种子文件(.torrent文件), 默认:falsebt-<span class="built_in">save</span>-metadata=truebt-<span class="built_in">max</span>-open-files=<span class="number">16</span></span><br></pre></td></tr></table></div></figure>
 
 <hr>
+<hr>
 
         <h2 id="命令行"   >
           <a href="#命令行" class="heading-link"><i class="fas fa-link"></i></a><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2>
       <p><strong><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://aria2.github.io/manual/en/html/index.html" >Aria2 Documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong></p>
 <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#aria2c [&lt;OPTIONS&gt;] [&lt;URI&gt;|&lt;MAGNET&gt;|&lt;TORRENT_FILE&gt;|&lt;METALINK_FILE&gt;] ...</span></span><br><span class="line">aria2c https://dl101.zlibcdn.com/dtoken/c8bc6a947d196ee591a12c763f135b9faria2c https://w.wallhaven.cc/full/3z/wallhaven-3z32j3.jpg</span><br></pre></td></tr></table></div></figure>
 
+<hr>
 
         <h3 id="Example"   >
           <a href="#Example" class="heading-link"><i class="fas fa-link"></i></a><a href="#Example" class="headerlink" title="Example"></a>Example</h3>
@@ -166,8 +172,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 </ol>
 <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ aria2c -x2 -k1M <span class="string">&quot;http://host/file.zip&quot;</span></span><br></pre></td></tr></table></div></figure>
 
-
-
+<hr>
 
         <h3 id="Basic-Options"   >
           <a href="#Basic-Options" class="heading-link"><i class="fas fa-link"></i></a><a href="#Basic-Options" class="headerlink" title="Basic Options"></a>Basic Options</h3>
@@ -188,7 +193,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <figure class="highlight awk"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls.txt</span></span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span><span class="number">8</span>o/wallhaven-<span class="number">8</span>ok7vk.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/g</span>7/wallhaven-g75r7d.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span><span class="number">8</span>o/wallhaven-<span class="number">8</span>oev1j.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>j3/wallhaven-j3wqwm.jpg</span><br></pre></td></tr></table></div></figure>
 
 <blockquote>
-<p><code>You can specify multiple sources for a single entity by putting multiple URIs on a single line separated by the TAB character. Additionally, options can be specified after each URI line.</code> <code>Option lines must start with one or more white space characters (SPACE or TAB) and must only contain one option per line. Input files can use gzip compression. </code></p>
+<p><code>You can specify multiple sources for a single entity by putting multiple URIs on a single line separated by the TAB character. Additionally, options can be specified after each URI line.</code> <strong><code>Option lines must start with one or more white space characters (SPACE or TAB) and must only contain one option per line. Input files can use gzip compression. </code></strong></p>
 </blockquote>
 <ol start="3">
 <li><strong>The file name of the log file.</strong></li>
@@ -196,7 +201,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <figure class="highlight 1c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-l, --<span class="built_in">log</span>=&lt;<span class="built_in">LOG</span>&gt;</span><br></pre></td></tr></table></div></figure>
 
 <blockquote>
-<p><code>If - is specified, log is written to stdout</code>. <code>If empty string(&quot; &quot;) is specified, or this option is omitted, no log is written to disk at all.</code></p>
+<p><strong><code>If - is specified, log is written to stdout</code>.</strong> <code>If empty string(&quot; &quot;) is specified, or this option is omitted, no log is written to disk at all.</code></p>
 </blockquote>
 <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -l aria2.log https://w.wallhaven.cc/full/rd/wallhaven-rdqxmm.jpg</span><br></pre></td></tr></table></div></figure>
 
@@ -207,24 +212,21 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 
 <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aria2c -i urls.txt -j1</span><br><span class="line">aria2c -i urls.txt -j5</span><br></pre></td></tr></table></div></figure>
 
-<ul>
-<li>urls.txt</li>
-</ul>
-<figure class="highlight awk"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>p8/wallhaven-p86z2j.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>v9/wallhaven-v9py65.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>vg/wallhaven-vgyozm.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>j5/wallhaven-j55e7y.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span><span class="number">83</span>/wallhaven-<span class="number">83</span>xjgo.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/g</span>8/wallhaven-g8yx37.jpg</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight awk"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls.txt</span></span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>p8/wallhaven-p86z2j.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>v9/wallhaven-v9py65.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>vg/wallhaven-vgyozm.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span>j5/wallhaven-j55e7y.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/</span><span class="number">83</span>/wallhaven-<span class="number">83</span>xjgo.jpg</span><br><span class="line">https:<span class="regexp">//</span>w.wallhaven.cc<span class="regexp">/full/g</span>8/wallhaven-g8yx37.jpg</span><br></pre></td></tr></table></div></figure>
 
 <ol start="5">
 <li><strong>-V, –check-integrity [true|false]</strong></li>
 </ol>
 <blockquote>
-<p>Default: <code>false</code></p>
-<p><code>Check file integrity by validating piece hashes or a hash of entire file.</code>  <code>If piece hashes are provided, this option can detect damaged portions of a file and re-download them. If a hash of entire file is provided, hash check is only done when file has been already download.</code></p>
+<p><code>Default: false</code></p>
+<p><code>Check file integrity by validating piece hashes or a hash of entire file.</code>  <strong><code>If piece hashes are provided, this option can detect damaged portions of a file and re-download them. If a hash of entire file is provided, hash check is only done when file has been already download.</code></strong></p>
 </blockquote>
 <ol start="6">
 <li><strong>-c, –continue [true|false]</strong></li>
 </ol>
 <blockquote>
-<p>default :<code>true</code></p>
-<p><code>Continue downloading a partially downloaded file.</code> <code>Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads</code></p>
+<p><code>Default: true</code></p>
+<p><code>Continue downloading a partially downloaded file.</code> <strong><code>Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads</code></strong></p>
 </blockquote>
 <figure class="highlight awk"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aria2c -cfalse https:<span class="regexp">//</span>dldir1.qq.com<span class="regexp">/music/</span>clntupate/QQMusicSetup.exe</span><br></pre></td></tr></table></div></figure>
 
