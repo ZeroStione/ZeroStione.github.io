@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Lisp/p2.png">
 <meta property="article:published_time" content="2021-09-19T06:04:20.000Z">
-<meta property="article:modified_time" content="2021-09-19T12:01:47.343Z">
+<meta property="article:modified_time" content="2021-09-19T12:07:05.414Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Lisp">
 <meta property="article:tag" content="SICP">
@@ -215,7 +215,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-09-19 14:04:20 / 修改时间：20:01:47" itemprop="dateCreated datePublished" datetime="2021-09-19T14:04:20+08:00">2021-09-19</time>
+      <time title="创建时间：2021-09-19 14:04:20 / 修改时间：20:07:05" itemprop="dateCreated datePublished" datetime="2021-09-19T14:04:20+08:00">2021-09-19</time>
     </span>
 
   
@@ -239,12 +239,12 @@
 </li>
 <li><p>计算机科学在构建系统时计划与实现之后的差距较其他如物理系统(噪音、公差等)小的多，因为组成部分都是抽线单元(Abstract entities)</p>
 <ul>
-<li><p>black-box abstraction</p>
+<li><p><strong>black-box abstraction</strong></p>
 </li>
-<li><p>Conventional Interfaces</p>
+<li><p><strong>Conventional Interfaces</strong></p>
 </li>
-<li><p>Metalinguistic Abstraction</p>
-<p>Lisp：</p>
+<li><p><strong>Metalinguistic Abstraction</strong></p>
+<p><strong>Lisp:</strong></p>
 <ul>
 <li>apply and eval(apply-eval loop)</li>
 <li>Y operator</li>
@@ -270,7 +270,7 @@
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">scoop </span><span class="keyword">install </span>emacs</span><br></pre></td></tr></table></figure></li>
 <li><p><a target="_blank" rel="noopener" href="https://www.quicklisp.org/beta/">Quicklisp</a>:library manager for Common Lisp.</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#对应工具</span><br><span class="line"><span class="selector-tag">scoop</span> <span class="selector-tag">install</span> <span class="selector-tag">gpg</span></span><br><span class="line"><span class="selector-tag">scoop</span> <span class="selector-tag">install</span> <span class="selector-tag">curl</span></span><br><span class="line"><span class="selector-tag">scoop</span> <span class="selector-tag">install</span> <span class="selector-tag">g</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">curl</span> <span class="selector-tag">-O</span> <span class="selector-tag">https</span>:<span class="comment">//beta.quicklisp.org/quicklisp.lisp</span></span><br><span class="line"><span class="selector-tag">curl</span> <span class="selector-tag">-O</span> <span class="selector-tag">https</span>:<span class="comment">//beta.quicklisp.org/quicklisp.lisp.asc</span></span><br><span class="line"><span class="selector-tag">gpg</span> <span class="selector-tag">--verify</span> <span class="selector-tag">quicklisp</span><span class="selector-class">.lisp</span><span class="selector-class">.asc</span> <span class="selector-tag">quicklisp</span><span class="selector-class">.lisp</span></span><br><span class="line"><span class="selector-tag">sbcl</span> <span class="selector-tag">--load</span> <span class="selector-tag">quicklisp</span><span class="selector-class">.lisp</span></span><br><span class="line"></span><br><span class="line">* (<span class="attribute">quicklisp-quickstart</span>:install)</span><br><span class="line">* (<span class="attribute">ql</span>:system-apropos <span class="string">&quot;vecto&quot;</span>)</span><br><span class="line">* (<span class="attribute">ql</span>:quickload <span class="string">&quot;vecto&quot;</span>)</span><br><span class="line">* (<span class="attribute">ql</span>:add-to-init-file)</span><br><span class="line">* (quit)</span><br></pre></td></tr></table></figure></li>
-<li><p><a target="_blank" rel="noopener" href="https://common-lisp.net/project/slime/">SLIME</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://common-lisp.net/project/slime/">SLIME</a>:Superior Lisp Interaction Mode for Emacs.</p>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://melpa.org/#/getting-started">Getting Started - MELPA</a></p>
 <p>Enable installation of packages from MELPA by adding an entry to package-archives after (require ‘package) and before the call to <code>package-initialize</code> in your <code>init.el </code>or <code>.emacs</code> file:</p>
