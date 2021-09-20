@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Lisp/p2.png">
 <meta property="article:published_time" content="2021-09-19T06:04:20.000Z">
-<meta property="article:modified_time" content="2021-09-19T15:29:13.308Z">
+<meta property="article:modified_time" content="2021-09-20T03:42:31.777Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Lisp">
 <meta property="article:tag" content="SICP">
@@ -213,10 +213,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-09-19 14:04:20 / 修改时间：23:29:13" itemprop="dateCreated datePublished" datetime="2021-09-19T14:04:20+08:00">2021-09-19</time>
+      <time title="创建时间：2021-09-19 14:04:20" itemprop="dateCreated datePublished" datetime="2021-09-19T14:04:20+08:00">2021-09-19</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-20 11:42:31" itemprop="dateModified" datetime="2021-09-20T11:42:31+08:00">2021-09-20</time>
+      </span>
 
   
 </div>
@@ -278,14 +284,19 @@
 <li><p>define</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">DEFINE</span> A (<span class="name">*</span> <span class="number">5</span> <span class="number">5</span> ) )</span><br><span class="line">( <span class="name">*</span> A A )</span><br><span class="line">(<span class="name">DEFVAR</span> B ( <span class="name">+</span> A ( <span class="name">*</span> <span class="number">5</span> A )))</span><br><span class="line">(<span class="name">+</span> A ( <span class="name">/</span> B <span class="number">5</span>))	 </span><br></pre></td></tr></table></figure>
 
+<p>common Lisp:</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (<span class="name">DEFVAR</span> A (<span class="name">*</span> <span class="number">5</span> <span class="number">5</span>) )</span><br><span class="line">A</span><br><span class="line">CL-USER&gt; ( <span class="name">*</span> A A )</span><br><span class="line"><span class="number">625</span></span><br><span class="line">CL-USER&gt; (<span class="name">DEFVAR</span> B ( <span class="name">+</span> A ( <span class="name">*</span> <span class="number">5</span> A )))</span><br><span class="line">B</span><br><span class="line">CL-USER&gt; B</span><br><span class="line"><span class="number">150</span></span><br><span class="line">CL-USER&gt; (<span class="name">+</span> A ( <span class="name">/</span> B <span class="number">5</span>))	  </span><br><span class="line"><span class="number">55</span></span><br></pre></td></tr></table></figure>
 
 <hr>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">( <span class="name">define</span> (<span class="name">square</span> X) ( <span class="name">*</span> x x ) )</span><br><span class="line">( <span class="name">square</span> <span class="number">10</span> )</span><br><span class="line">( <span class="name">square</span> ( <span class="name">+</span> <span class="number">5</span> <span class="number">7</span>) )</span><br><span class="line">( <span class="name">+</span> ( <span class="name">square</span> <span class="number">3</span> ) (<span class="name">square</span> <span class="number">4</span>) )</span><br><span class="line">( <span class="name">square</span> (<span class="name">square</span> (<span class="name">square</span> <span class="number">1001</span> ) ) )</span><br><span class="line">square</span><br><span class="line"><span class="comment">;the value of square is this procedure</span></span><br></pre></td></tr></table></figure>
 
+<p>common lisp:</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; ( <span class="name">defun</span> square(<span class="name">X</span>) ( <span class="name">*</span> x x))</span><br><span class="line">SQUARE</span><br><span class="line">CL-USER&gt; ( <span class="name">square</span> <span class="number">10</span> )</span><br><span class="line"><span class="number">100</span></span><br></pre></td></tr></table></figure></li>
 <li><p>lambda:make a procedure(syntacic suger)</p>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">( <span class="name">define</span> square (<span class="name">lambda</span> (<span class="name">x</span>) (<span class="name">*</span> x x)))</span><br></pre></td></tr></table></figure>
+
+<p>common lisp:</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CL-USER&gt; (<span class="name">funcall</span> #&#x27;(lambda (x y) (+ x y)) <span class="number">2</span> <span class="number">3</span>)</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
 
 
 
