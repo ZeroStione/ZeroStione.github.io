@@ -194,7 +194,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Monda, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Mono, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1190,7 +1190,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Monda, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Mono, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
@@ -1864,7 +1864,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Monda, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Mono, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2051,7 +2051,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Monda, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: PT Mono, Source Sans Pro, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
