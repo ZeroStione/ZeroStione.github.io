@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Java/p1.png">
 <meta property="article:published_time" content="2021-09-20T12:06:04.000Z">
-<meta property="article:modified_time" content="2021-09-22T16:13:37.676Z">
+<meta property="article:modified_time" content="2021-09-23T00:57:19.976Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -220,7 +220,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-23 00:13:37" itemprop="dateModified" datetime="2021-09-23T00:13:37+08:00">2021-09-23</time>
+        <time title="修改时间：2021-09-23 08:57:19" itemprop="dateModified" datetime="2021-09-23T08:57:19+08:00">2021-09-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -339,11 +339,9 @@
 <h3 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Java编译器</span></span><br><span class="line">javac Hello.java</span><br><span class="line"><span class="comment">#Java程序启动Java虚拟机，虚拟机执行编译器编译到类文件的字节码</span></span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<ol>
-<li>注意Java源文件的大小写，类名为Welcome，源文件为Welcome.java。（源文件的文件名必须与公共类的名字相同，并用.java作为扩展名）</li>
-<li>执行程序只需要指定类名，不要带扩展名(*.class)。</li>
-<li>Java区分大小写。</li>
-</ol>
+<p>1.注意Java源文件的大小写，类名为Welcome，源文件为Welcome.java。（源文件的文件名必须与公共类的名字相同，并用.java作为扩展名）</p>
+<p>2.执行程序只需要指定类名，不要带扩展名(*.class)。</p>
+<p>3.Java区分大小写。</p>
 </blockquote>
 <hr>
 <h3 id="基本程序设计结构"><a href="#基本程序设计结构" class="headerlink" title="基本程序设计结构"></a>基本程序设计结构</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Hello Java&quot;</span>); <span class="comment">//使用System.out对象并调用了它的println方法</span></span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -358,13 +356,11 @@
 </blockquote>
 <hr>
 <blockquote>
-<ol>
-<li>每个Java应用程序都必须有一个main方法。</li>
-<li>Java中的方法可以没有参数，也可以有一个或多个参数。即使一个方法没有参数，也需要使用空括号。</li>
-<li>Java中<strong>所有函数都是某个类的方法</strong>，因此Java中的main方法必须有一个外壳(shell)类。</li>
-<li>Java中的<strong>main方法必须是静态的</strong>。</li>
-<li>关键词<code>void</code>表示这个方法没有返回值，main方法没有为操作系统返回”退出码“，如果main方法正常退出，那么Java应用程序的退出码为0，表示成功运行了程序。使用<code>System.exit</code>方法可以在终止程序时返回其他的退出码。</li>
-</ol>
+<p>1.每个Java应用程序都必须有一个main方法。</p>
+<p>2.Java中的方法可以没有参数，也可以有一个或多个参数。即使一个方法没有参数，也需要使用空括号。</p>
+<p>3.Java中<strong>所有函数都是某个类的方法</strong>，因此Java中的main方法必须有一个外壳(shell)类。</p>
+<p>4.Java中的<strong>main方法必须是静态的</strong>。</p>
+<p>5.关键词<code>void</code>表示这个方法没有返回值，main方法没有为操作系统返回”退出码“，如果main方法正常退出，那么Java应用程序的退出码为0，表示成功运行了程序。使用<code>System.exit</code>方法可以在终止程序时返回其他的退出码。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassName</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//programm statements</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -393,10 +389,8 @@
 
 <hr>
 <h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><blockquote>
-<ol>
-<li><p>Java是一种<strong>强类型</strong>语言（必须为每一个变量声明一种类型）。</p>
-</li>
-<li><p>Java没有任何无符号(unsigned)形式的int、long、short或byte类型。</p>
+<p>1.Java是一种<strong>强类型</strong>语言（必须为每一个变量声明一种类型）。</p>
+<p>2.Java没有任何无符号(unsigned)形式的int、long、short或byte类型。</p>
 <blockquote>
 <ul>
 <li><p>如果要使用不可能为负的整数值而且确实需要额外的一位（bit），也可以把有符号整数值解释为无符号数。一个byte值b可以不表示范围-128到127，如果想表示0到255的范围，也可以存储在一个byte中。基于二进制算术运算的性质，只要不溢出，加法、减法和乘法都能正常运算。但对于其他运算，需要调用Byte.toUnsignedInt(b)来得到一个0到255的int值，然后处理这个整数值，再把它转换回byte。</p>
@@ -404,9 +398,9 @@
 <li><p>Integer和long类都提供了处理无符号除法和求余数的方法。</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> b;</span><br><span class="line"><span class="keyword">int</span> uByte;</span><br><span class="line">b = -<span class="number">1</span>;</span><br><span class="line">uByte = Byte.toUnsignedInt(b);</span><br><span class="line">System.out.println(uByte);       <span class="comment">//255</span></span><br><span class="line">System.out.println((<span class="keyword">byte</span>)uByte);  <span class="comment">//-1</span></span><br></pre></td></tr></table></figure></blockquote>
-</li>
-<li><p>8种基本类型(<strong>primitive type</strong>)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> b;</span><br><span class="line"><span class="keyword">int</span> uByte;</span><br><span class="line">b = -<span class="number">1</span>;</span><br><span class="line">uByte = Byte.toUnsignedInt(b);</span><br><span class="line">System.out.println(uByte);       <span class="comment">//255</span></span><br><span class="line">System.out.println((<span class="keyword">byte</span>)uByte);  <span class="comment">//-1</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>3.8种基本类型(<strong>primitive type</strong>)：</p>
 <ul>
 <li>4种整型<ul>
 <li>int</li>
@@ -429,8 +423,6 @@
 </ul>
 </li>
 </ul>
-</li>
-</ol>
 </blockquote>
 <ul>
 <li><strong>整型</strong>：没有小数部分的数值，允许是负数。</li>
@@ -465,15 +457,13 @@
 </tr>
 </tbody></table>
 <blockquote>
-<ol>
-<li>1 Byte = 8 bit 2^7 = 128 最高位表示正负，正数该位为0，负数该位为1。</li>
-<li>整数的范围与运行Java代码的机器无关。</li>
-<li>长整型long数值后有一个后缀L或l。</li>
-<li>十六进制数值有一个前缀0x或0X。</li>
-<li>八进制数值有一个前缀0。</li>
-<li>二进制数值有一个前缀0b或0B。</li>
-<li>可以在数字字面量加下划线，让人更易读，Java编译器会去除这些下划线。（Java7）</li>
-</ol>
+<p>1.1 Byte = 8 bit 2^7 = 128 最高位表示正负，正数该位为0，负数该位为1。</p>
+<p>2.整数的范围与运行Java代码的机器无关。</p>
+<p>3.长整型long数值后有一个后缀L或l。</p>
+<p>4.十六进制数值有一个前缀0x或0X。</p>
+<p>5.八进制数值有一个前缀0。</p>
+<p>6.二进制数值有一个前缀0b或0B。</p>
+<p>7.可以在数字字面量加下划线，让人更易读，Java编译器会去除这些下划线。（Java7）</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestType</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> num1 = <span class="number">100</span>;</span><br><span class="line">		<span class="keyword">short</span> num2 = <span class="number">121</span>;</span><br><span class="line">		<span class="keyword">long</span> num3 = <span class="number">1000000000l</span>;</span><br><span class="line">		<span class="keyword">long</span> num4 = <span class="number">10000000000L</span>;</span><br><span class="line">		<span class="keyword">byte</span> num5 = <span class="number">122</span>;</span><br><span class="line">		<span class="keyword">int</span> num6 = <span class="number">010</span>;</span><br><span class="line">		<span class="keyword">int</span> num7 = <span class="number">0xCAFE</span>;</span><br><span class="line">		<span class="keyword">byte</span> num8 = <span class="number">0b1001</span>;</span><br><span class="line">		<span class="keyword">long</span> num9 =<span class="number">120_0000_0000l</span>;</span><br><span class="line">		<span class="comment">//System.out.println(num1);</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">100</span></span><br><span class="line"><span class="comment">121</span></span><br><span class="line"><span class="comment">1000000000</span></span><br><span class="line"><span class="comment">10000000000</span></span><br><span class="line"><span class="comment">122</span></span><br><span class="line"><span class="comment">8</span></span><br><span class="line"><span class="comment">51966</span></span><br><span class="line"><span class="comment">9</span></span><br><span class="line"><span class="comment">12000000000</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
@@ -501,14 +491,9 @@
 </tr>
 </tbody></table>
 <blockquote>
-<ol>
-<li><p>大部分情况使用double类型(双精度数值)。</p>
-</li>
-<li><p>float类型的数值有一个后缀F或f。没有后缀F的浮点数默认为double类型。</p>
-</li>
-<li><p>double类型的数值也可以添加后缀D或d。</p>
-</li>
-</ol>
+<p>1.大部分情况使用double类型(双精度数值)。</p>
+<p>2.float类型的数值有一个后缀F或f。没有后缀F的浮点数默认为double类型。</p>
+<p>3.double类型的数值也可以添加后缀D或d。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> num1 = <span class="number">3.1415f</span>;</span><br><span class="line"><span class="keyword">double</span> num2 = <span class="number">3.1415</span>;</span><br><span class="line"><span class="keyword">double</span> num3 = <span class="number">3.1415D</span>;</span><br></pre></td></tr></table></figure>
 
@@ -597,22 +582,18 @@
 </tr>
 </tbody></table>
 <blockquote>
-<ol>
-<li>Unicode转义序列会在解析代码之前得到处理。</li>
-<li><strong>一定要当心注释中的\u。</strong>（// look inside c:\users 会产生一个语法错误，因为\u后面并没有跟着4个十六进制数）</li>
-<li>在Java中，char类型描述了UTF-16编码中的一个代码单元。</li>
-<li>建议<strong>不要在程序中使用char类型</strong>，除非确实需要处理UTF-16代码单元。<strong>最好将字符串作为抽象数据类型处理。</strong></li>
-</ol>
+<p>1.Unicode转义序列会在解析代码之前得到处理。</p>
+<p>2.<strong>一定要当心注释中的\u。</strong>（<code>// look inside c:\users</code>会产生一个语法错误，因为<code>\u</code>后面并没有跟着4个十六进制数）</p>
+<p>3.在Java中，char类型描述了UTF-16编码中的一个代码单元。</p>
+<p>4.建议<strong>不要在程序中使用char类型</strong>，除非确实需要处理UTF-16代码单元。<strong>最好将字符串作为抽象数据类型处理。</strong></p>
 </blockquote>
 <hr>
 <ul>
-<li>boolean类型</li>
+<li><strong>boolean类型</strong></li>
 </ul>
 <blockquote>
-<ol>
-<li>boolean（布尔）类型有两个值：false和true，用来判定逻辑条件。</li>
-<li><strong>整型值和布尔值之间不能进行相互转换</strong>，避免了诸如<code>if(x=0)</code>的麻烦出现。（<em>在C++中可以编译运行，其结果总是false。而在Java中不能通过编译，因为整数表达式x=0不能转换为布尔值。</em>）</li>
-</ol>
+<p>1.boolean（布尔）类型有两个值：false和true，用来判定逻辑条件。</p>
+<p>2.<strong>整型值和布尔值之间不能进行相互转换</strong>，避免了诸如<code>if(x=0)</code>的麻烦出现。（<em>在C++中可以编译运行，其结果总是false。而在Java中不能通过编译，因为整数表达式x=0不能转换为布尔值。</em>）</p>
 </blockquote>
 <hr>
 <h4 id="变量与常量"><a href="#变量与常量" class="headerlink" title="变量与常量"></a>变量与常量</h4><h5 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h5><blockquote>
@@ -621,28 +602,22 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* type variablename; */</span></span><br><span class="line"><span class="keyword">double</span> salary;</span><br><span class="line"><span class="keyword">int</span> vacationDays;</span><br><span class="line"><span class="keyword">int</span> i, j;</span><br><span class="line">Box box;</span><br><span class="line">Box abox;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<ol>
-<li>变量名必须是一个<strong>以字母开头并由字母或数字构成</strong>的序列。</li>
-<li>字母包括’A’~‘Z’、’a’~’z’、’_’、’$’（只用在Java编译器或其他工具生成的名字）或在某种语言中表示字母的任何Unicode字符（使用Character类的<code>isJavaIdentifierStart</code>和<code>isJavaIdentifierPart</code>方法查看）。数字亦然，但’+’这样的符号不能出现在变量名中，空格也不行。</li>
-<li>变量名<strong>大小写敏感0</strong>（当名字选择困难时，也可以将变量名命名为类型名(前提是不冲突)或者变量名前再加上前缀“a”）。</li>
-<li>变量名的长度基本没有限制。</li>
-<li>不能使用Java保留字作为变量名。</li>
-<li>可以在一行中声明多个变量（不提倡），逐一声明每一个变量可以提高程序的可读性。</li>
-</ol>
+<p>1.变量名必须是一个<strong>以字母开头并由字母或数字构成</strong>的序列。</p>
+<p>2.字母包括’A’~‘Z’、’a’~’z’、’_’、’$’（只用在Java编译器或其他工具生成的名字）或在某种语言中表示字母的任何Unicode字符（使用Character类的<code>isJavaIdentifierStart</code>和<code>isJavaIdentifierPart</code>方法查看）。数字亦然，但’+’这样的符号不能出现在变量名中，空格也不行。</p>
+<p>3.变量名<strong>大小写敏感0</strong>（当名字选择困难时，也可以将变量名命名为类型名(前提是不冲突)或者变量名前再加上前缀“a”）。</p>
+<p>4.变量名的长度基本没有限制。</p>
+<p>5.不能使用Java保留字作为变量名。</p>
+<p>6.可以在一行中声明多个变量（不提倡），逐一声明每一个变量可以提高程序的可读性。</p>
 </blockquote>
 <hr>
 <blockquote>
-<ol>
-<li>声明一个变量之后，必须<strong>用赋值语句对变量进行显式初始化</strong>，<strong>不要使用未初始化的变量</strong>。</li>
-<li>初始化<ol>
-<li>将变量名放在等号（=）左侧，相应Java表达式放在等号的右侧。</li>
-<li>将变量的声明和初始化放在同一行中。</li>
-</ol>
-</li>
-<li>在Java中可以将声明放在代码中的任何地方。</li>
-<li>在Java中，变量的声明尽可能地靠近变量第一次使用的地方。</li>
-<li>在Java中,不区分变量的声明和定义。</li>
-</ol>
+<p>1.声明一个变量之后，必须<strong>用赋值语句对变量进行显式初始化</strong>，<strong>不要使用未初始化的变量</strong>。</p>
+<p>2.初始化</p>
+<p>3.将变量名放在等号（=）左侧，相应Java表达式放在等号的右侧。</p>
+<p>4.将变量的声明和初始化放在同一行中。</p>
+<p>5.在Java中可以将声明放在代码中的任何地方。</p>
+<p>6.在Java中，变量的声明尽可能地靠近变量第一次使用的地方。</p>
+<p>7.在Java中,不区分变量的声明和定义。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> VacationDays;</span><br><span class="line">vacationDays = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> salary = <span class="number">65000.0</span>;</span><br></pre></td></tr></table></figure>
 
@@ -653,12 +628,10 @@
 
 <hr>
 <h5 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h5><blockquote>
-<ol>
-<li>在Java中，利用关键字<strong>final</strong>指示常量，即这个变量只能被赋值一次。一旦被赋值之后，就不能够再更改了。</li>
-<li>习惯上，<strong>常量名使用全大写</strong>。</li>
-<li>在Java中，如果希望<strong>某个常量可以在一个类中的多个方法中使用</strong>，通常将这些常量称为<strong>类常量（定义位于main方法的外部）</strong>，可以使用关键字<code>static final</code>设置一个类常量。</li>
-<li>在同一个类的其他方法中也可以使用类常量，而且如果一个常量被声明为<code>public</code>，那么<strong>其他类的方法也可以使用这个常量</strong>。</li>
-</ol>
+<p>1.在Java中，利用关键字<strong>final</strong>指示常量，即这个变量只能被赋值一次。一旦被赋值之后，就不能够再更改了。</p>
+<p>2.习惯上，<strong>常量名使用全大写</strong>。</p>
+<p>3.在Java中，如果希望<strong>某个常量可以在一个类中的多个方法中使用</strong>，通常将这些常量称为<strong>类常量（定义位于main方法的外部）</strong>，可以使用关键字<code>static final</code>设置一个类常量。</p>
+<p>4.在同一个类的其他方法中也可以使用类常量，而且如果一个常量被声明为<code>public</code>，那么<strong>其他类的方法也可以使用这个常量</strong>。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.noobs.base;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Constans</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">final</span> <span class="keyword">double</span> CM_PER_INCH = <span class="number">2.54</span>;</span><br><span class="line">		<span class="keyword">double</span> paperWidth = <span class="number">8.5</span>;</span><br><span class="line">		<span class="keyword">double</span> paperHight = <span class="number">11</span>;</span><br><span class="line">		System.out.println(<span class="string">&quot;Paper size in centimeters:&quot;</span>+paperWidth*CM_PER_INCH+<span class="string">&quot; by &quot;</span>+paperHight*CM_PER_INCH);</span><br><span class="line">		System.out.print(ConstantTest.PI_NUM);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
