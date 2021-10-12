@@ -14,7 +14,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7CRoboto+Slab:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic%7CCascadia+Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7CRoboto+Slab:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Java/p4.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Java/p6.png">
 <meta property="article:published_time" content="2021-09-20T12:06:04.000Z">
-<meta property="article:modified_time" content="2021-10-12T13:29:26.149Z">
+<meta property="article:modified_time" content="2021-10-12T14:05:13.451Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-12 21:29:26" itemprop="dateModified" datetime="2021-10-12T21:29:26+08:00">2021-10-12</time>
+        <time title="修改时间：2021-10-12 22:05:13" itemprop="dateModified" datetime="2021-10-12T22:05:13+08:00">2021-10-12</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -536,7 +536,7 @@
 <p>4.所有转义序列都可以出现在<strong>加引号的字符字面量或字符串中</strong>。转义序列\u还可以出现在加引号的字符常量或字符串之外。</p>
 <p>5.码点(code point)是指与一个编码表中的某个字符对应的代码值。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestType</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String\u005B\u005D args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&#x27;\u2122&#x27;</span>); <span class="comment">//™</span></span><br><span class="line">		System.out.println(<span class="string">&#x27;\u03c0&#x27;</span>); <span class="comment">//π</span></span><br><span class="line">        </span><br><span class="line">        System.out.print(<span class="string">&quot;\u0022+\u0022&quot;</span>); <span class="comment">//无输出&quot;&quot;+&quot;&quot; 空串</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestType</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String\u005B\u005D args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&#x27;\u2122&#x27;</span>); <span class="comment">//™</span></span><br><span class="line">		System.out.println(<span class="string">&#x27;\u03c0&#x27;</span>); <span class="comment">//π</span></span><br><span class="line">        System.out.print(<span class="string">&quot;\u0022+\u0022&quot;</span>); <span class="comment">//无输出&quot;&quot;+&quot;&quot; 空串</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -567,12 +567,12 @@
 <td align="center">\u000d</td>
 </tr>
 <tr>
-<td align="center"><code>\\&quot;</code></td>
+<td align="center">\\“</td>
 <td align="center">Double quote</td>
 <td align="center">\u0022</td>
 </tr>
 <tr>
-<td align="center"><code>\&#39;</code></td>
+<td align="center">\‘</td>
 <td align="center">Single quote</td>
 <td align="center">\u0027</td>
 </tr>
@@ -1334,7 +1334,30 @@
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/Java/p6.png" style="zoom: 80%;" />
 
 <hr>
-<h5 id="文件输入与输出"><a href="#文件输入与输出" class="headerlink" title="文件输入与输出"></a>文件输入与输出</h5>
+<h5 id="文件输入与输出"><a href="#文件输入与输出" class="headerlink" title="文件输入与输出"></a>文件输入与输出</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileOperation</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		Scanner in =<span class="keyword">new</span> Scanner(Path.of(<span class="string">&quot;c:\\myfile.txt&quot;</span>),StandardCharsets.UTF_8);</span><br><span class="line">		<span class="keyword">while</span>(in.hasNext()) &#123;</span><br><span class="line">			String name = in.next();</span><br><span class="line">			<span class="keyword">int</span> score = in.nextInt();</span><br><span class="line">			System.out.println(name+<span class="string">&quot;:&quot;</span>+score);</span><br><span class="line">		&#125;</span><br><span class="line">		in.close();</span><br><span class="line">		</span><br><span class="line">		PrintWriter out = <span class="keyword">new</span> PrintWriter(<span class="string">&quot;D:\\filetest.txt&quot;</span>,StandardCharsets.UTF_8);</span><br><span class="line">		out.print(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">		out.println(<span class="string">&quot; Java World&quot;</span>);</span><br><span class="line">		out.println(<span class="string">&quot;Java Core&quot;</span>);</span><br><span class="line">		out.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.对文件进行读取，需要构造一个Scanner对象。</p>
+<p>2.如果文件名中包含反斜杠符号，在每个反斜杠之前再加一个额外的反斜杠转义。</p>
+<p>3.写入文件需要构造一个PrintWriter对象，在构造器中，需要提供文件名和字符编码。</p>
+<p>4.当构造带有字符串参数的Scanner时，会将字符串解释为数据，而不是文件名。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>当指定一个相对文件名时，例如，<code>&quot;myfile.txt&quot;</code>，<code>&quot;mydirectory/myfile.txt&quot;</code>或<code>&quot;../myfile.txt&quot;</code>，文件位于<strong>相对于Java虚拟机启动目录的位置</strong>。</p>
+<p>1.命令行方式下用下列命令启动程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java MyProg</span><br></pre></td></tr></table></figure>
+
+<p>启动路径就是命令解释器的当前路径。</p>
+<p>2.使用集成开发环境，启动路径由IDE控制,使用如下调用找到该目录位置:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String dir = System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>3.可以使用绝对路径，如<code>&quot;c:\\mydirectory\\myfile.txt&quot;</code>或者<code>&quot;/home/me/mydirectory/myfile.txt&quot;</code>。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.StandardCharsets;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileOperation</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    如果用一个不存在的文件构造一个Scanner，或者用一个不能被创建的文件名构造一个PrintWriter,会发生异常,需要在main方法中用throws子句标记</span></span><br><span class="line"><span class="comment">    当采用命令行方式启动一个程序时，可以利用Shell的重定向语法将任意文件关联到System.in和System.out</span></span><br><span class="line"><span class="comment">    java MyProg &lt;myfile.txt&gt; output.txt </span></span><br><span class="line"><span class="comment">    即无需处理IOException异常</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		String dir = System.getProperty(<span class="string">&quot;user.dir&quot;</span>);</span><br><span class="line">		System.out.println(dir);      <span class="comment">/*dir/myfile.txt*/</span></span><br><span class="line">		Scanner in =<span class="keyword">new</span> Scanner(Path.of(<span class="string">&quot;myfile.txt&quot;</span>),StandardCharsets.UTF_8);</span><br><span class="line">		<span class="keyword">while</span>(in.hasNext()) &#123;</span><br><span class="line">			String name = in.next();</span><br><span class="line">			<span class="keyword">int</span> score = in.nextInt();</span><br><span class="line">			System.out.println(name+<span class="string">&quot;:&quot;</span>+score);</span><br><span class="line">		&#125;</span><br><span class="line">		in.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+
     </div>
 
     
