@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7CRoboto+Slab:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerostione.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="层叠样式表（Cascading Style Sheets，CSS,串样式列表、级联样式表、串接样式表、阶层式样式表）是一种用来为结构化文档（如HTML文档或XML应用）添加样式（字体、间距和颜色等）的计算机语言，由W3C定义和维护。CSS 被分为不同等级：CSS1现已废弃，CSS2.1是推荐标准， CSS3分成多个小模块且正在标准化中。CSS3现在已被大部分现代浏览器支持，而下一版的CSS4仍在开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS入门学习">
+<meta property="og:url" content="https://zerostione.github.io/2021/10/13/CSS%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Zero">
+<meta property="og:description" content="层叠样式表（Cascading Style Sheets，CSS,串样式列表、级联样式表、串接样式表、阶层式样式表）是一种用来为结构化文档（如HTML文档或XML应用）添加样式（字体、间距和颜色等）的计算机语言，由W3C定义和维护。CSS 被分为不同等级：CSS1现已废弃，CSS2.1是推荐标准， CSS3分成多个小模块且正在标准化中。CSS3现在已被大部分现代浏览器支持，而下一版的CSS4仍在开">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/CSS/p3.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/CSS/p2.png">
+<meta property="og:image" content="http://mrzero0.gitee.io/pic-repo/Pic/Note/Web/CSS/note3.png">
+<meta property="og:image" content="http://mrzero0.gitee.io/pic-repo/Pic/Note/Web/CSS/note4.png">
+<meta property="og:image" content="http://mrzero0.gitee.io/pic-repo/Pic/Note/Web/CSS/note6.png">
+<meta property="article:published_time" content="2021-10-13T15:07:25.000Z">
+<meta property="article:modified_time" content="2021-10-13T15:11:18.708Z">
+<meta property="article:author" content="Zero">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zerostione.github.io/ImageUp//Image/Blog/CSS/p3.png">
+
+
+<link rel="canonical" href="https://zerostione.github.io/2021/10/13/CSS%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zerostione.github.io/2021/10/13/CSS%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/","path":"2021/10/13/CSS入门学习/","title":"CSS入门学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CSS入门学习 | Zero</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zero</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">发现未知，探索未知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%AF%86CSS"><span class="nav-number">1.</span> <span class="nav-text">初识CSS</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zero"
+      src="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
+  <p class="site-author-name" itemprop="name">Zero</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zerostione.github.io/2021/10/13/CSS%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS入门学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-13 23:07:25 / 修改时间：23:11:18" itemprop="dateCreated datePublished" datetime="2021-10-13T23:07:25+08:00">2021-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web-Dev/" itemprop="url" rel="index"><span itemprop="name">Web Dev</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>层叠样式表（Cascading Style Sheets，CSS,串样式列表、级联样式表、串接样式表、阶层式样式表）是一种用来为结构化文档（如HTML文档或XML应用）添加样式（字体、间距和颜色等）的计算机语言，由<strong>W3C</strong>定义和维护。CSS 被分为不同等级：CSS1现已废弃，CSS2.1是推荐标准， CSS3分成多个小模块且正在标准化中。CSS3现在已被大部分现代浏览器支持，而下一版的CSS4仍在开发中。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/CSS/p3.png"  />
+
+<span id="more"></span>                                                                                                            
+
+<h2 id="初识CSS"><a href="#初识CSS" class="headerlink" title="初识CSS"></a>初识CSS</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/">CSS</a></p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/CSS/p2.png" style="zoom: 50%;" />
+
+<p>1.<em><strong>外部样式表</strong></em> </p>
+<blockquote>
+<p>CSS保存在.css文件中，在HTML里使用&lt;link&gt;引用 。</p>
+</blockquote>
+<p>2.<em><strong>内部样式表</strong></em></p>
+<blockquote>
+<p>不使用外部CSS文件，将CSS放在HTML&lt;style&gt;里(放在&lt;head&gt;&lt;/head&gt;里)。</p>
+</blockquote>
+<p>3.<em><strong>内联样式</strong></em>(不推荐使用)</p>
+<blockquote>
+<p>仅影响一个元素，在HTML元素的style属性中添加。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  <span class="attr">content</span>=<span class="string">&quot;width=device-widtth,initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">h1</span>&#123;</span></span><br><span class="line"><span class="css">           <span class="attribute">color</span>:royalblue;  </span></span><br><span class="line"><span class="css">		&#125;</span></span><br><span class="line"><span class="css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>CSS Crash Course<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;color:red&quot;</span>&gt;</span>Love is more than a word，it says so much.When I see these four letters,I almost feel your touch.This is only happened since，I fell in love with you.Why this word does this,I haven&#x27;t got a clue.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Early in the day it was whispered that we should sail in a boat, only thou and I, and never a soul in the world would know of this our pilgrimage to nocountry and to no end.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>              </span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;paragraph&quot;</span> <span class="attr">id</span>=<span class="string">&quot;para1&quot;</span>&gt;</span></span><br><span class="line">    Lorem</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.paragraph</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#para1</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">&#125;                                                                                                                                                                                               </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.确保<strong>id</strong>在html唯一                                                                                   2.vscode快捷输入<code>.class</code> <code>#id</code>                                                                                              </p>
+</blockquote>
+<hr>
+<p>4.<strong>颜色</strong>        </p>
+<img src="http://mrzero0.gitee.io/pic-repo/Pic/Note/Web/CSS/note3.png" style="zoom:80%;" />
+
+<img src="http://mrzero0.gitee.io/pic-repo/Pic/Note/Web/CSS/note4.png" style="zoom:80%;" />
+
+<p>5.<a target="_blank" rel="noopener" href="https://www.cssfontstack.com/">字体</a></p>
+<blockquote>
+<p>1.sans-serif/serif:有/无衬线</p>
+<p>2.monospace:等宽字体</p>
+<p>3.Arial,Helvetica:若无Arial则使用Helvetica字体</p>
+<p>4.&#39;Gill Sans&#39;:多词组合使用&#39; &#39;</p>
+</blockquote>
+<hr>
+<p>6.<strong>盒子模型</strong>:package:</p>
+<img src="http://mrzero0.gitee.io/pic-repo/Pic/Note/Web/CSS/note6.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>margin:外边距</p>
+<p>border:边框</p>
+<p>padding:内边距</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">margin-top</span>:<span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>:<span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">margin-right</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:<span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">5px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">5px</span> <span class="number">10px</span> <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Position in CSS</p>
+<ul>
+<li>static:静态定位</li>
+<li>relative:相对定位</li>
+<li>absolute:绝对定位</li>
+<li>fixed:固定定位</li>
+<li>sticky</li>
+</ul>
+</blockquote>
+<hr>
+<p>​                                                                                            7.<strong>Code</strong></p>
+<p>index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span>  <span class="attr">content</span>=<span class="string">&quot;width=device-widtth,initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./css/style.css&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>CSS Crash Course<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Love is more than a word，it says so much.When I see these four letters,I almost feel your touch.This is only happened since，I fell in love with you.Why this word does this,I haven&#x27;t got a clue.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Early in the day it was whispered that we should sail in a boat, only thou and I, and never a soul in the world would know of this our pilgrimage to nocountry and to no end.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Love is more than a word，it says so much.When I see these four letters,I almost feel your touch.This is only happened since，I fell in love with you.Why this word does this,I haven&#x27;t got a clue.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Early in the day it was whispered that we should sail in a boat, only thou and I, and never a soul in the world would know of this our pilgrimage to nocountry and to no end.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">Button</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">	   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>list 1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;b.com&quot;</span>&gt;</span>list 2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>list 3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>list 4<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>list 5<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;block&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores minus accusantium magni, nesciunt tempore quasi. Voluptatem esse dolorum rerum, quas odit facilis accusantium error facere, minus optio excepturi architecto.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;block&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores minus accusantium magni, nesciunt tempore quasi. Voluptatem esse dolorum rerum, quas odit facilis accusantium error facere, minus optio excepturi architecto.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;block&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit maiores minus accusantium magni, nesciunt tempore quasi. Voluptatem esse dolorum rerum, quas odit facilis accusantium error facere, minus optio excepturi architecto.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main-block&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates necessitatibus optio odio iure natus! Doloremque quia quis repellendus deleniti odit laboriosam rerum incidunt asperiores cumque itaque, dolor, corrupti accusamus iure.<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;side-block&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus magnam nesciunt accusantium, saepe itaque enim odit ex repellat! Sunt est esse, nam labore laboriosam ratione harum eum molestias velit neque.<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;clearfix&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;margin-top: 100px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;list2&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>list1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>list2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>list3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>list4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>list5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;position-box&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Heading<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Heading<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">Button</span> <span class="attr">id</span>=<span class="string">&quot;fixed&quot;</span>&gt;</span>Button<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>style.css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">   <span class="attribute">background-color</span>: <span class="number">#f4f4f4</span>;</span><br><span class="line">   <span class="attribute">color</span>: <span class="number">#555555</span>;</span><br><span class="line"></span><br><span class="line">   <span class="attribute">font-family</span>: Arial, Helvetica, sans-serif; <span class="comment">/*字体设置*/</span></span><br><span class="line">   <span class="attribute">font-size</span>: <span class="number">20px</span>;    <span class="comment">/*字体大小*/</span></span><br><span class="line">   <span class="attribute">font-weight</span>: bold;  <span class="comment">/*字体粗细*/</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">/*font: normal 10px Arial,Helvetica, sans-serif; 可覆盖上面的设置*/</span></span><br><span class="line">   <span class="attribute">line-height</span>: <span class="number">1.5em</span>;   <span class="comment">/*行高*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none; <span class="comment">/*去掉下划线*/</span></span><br><span class="line">	<span class="attribute">color</span>:<span class="number">#555555</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>: azure;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*a:visited&#123;</span></span><br><span class="line"><span class="comment">	color: red;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">button</span>&#123;</span><br><span class="line">	<span class="attribute">background-color</span>: black;</span><br><span class="line">	<span class="attribute">color</span>: aqua;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: bisque;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:active</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: coral;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">	<span class="attribute">background-color</span>: antiquewhite;</span><br><span class="line">	<span class="attribute">color</span>: royalblue;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">border</span>: <span class="number">5px</span> blue solid;  <span class="comment">/*边框*/</span></span><br><span class="line">	<span class="attribute">border-right</span>:<span class="number">5px</span> red solid ;</span><br><span class="line">	<span class="attribute">border-left</span>: <span class="number">8px</span> blue soild;</span><br><span class="line">	<span class="attribute">border-top</span>: <span class="number">10px</span> green dotted ;</span><br><span class="line">	<span class="attribute">border-bottom</span>: <span class="number">1px</span> firebrick double;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">border-bottom-width</span>: <span class="number">8px</span> ;</span><br><span class="line">	<span class="attribute">border-top-width</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">border-bottom-style</span>: dashed ;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">padding-left</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">padding-right</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">padding-top</span>: <span class="number">10px</span>;</span><br><span class="line">	<span class="attribute">padding-bottom</span>: <span class="number">10px</span>;</span><br><span class="line"></span><br><span class="line">	<span class="attribute">margin-top</span>: <span class="number">100px</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span> <span class="selector-tag">h1</span>&#123;</span><br><span class="line">	<span class="attribute">font-family</span>:<span class="string">&#x27;Times New Roman&#x27;</span>, Times, serif;</span><br><span class="line">	<span class="attribute">font-weight</span>: <span class="number">800</span>;</span><br><span class="line">	<span class="attribute">font-style</span>: italic; </span><br><span class="line">	<span class="attribute">text-decoration</span>: underline; <span class="comment">/*下划线*/</span></span><br><span class="line">	<span class="attribute">text-transform</span>: uppercase;  <span class="comment">/*设置大小写*/</span></span><br><span class="line">	<span class="attribute">letter-spacing</span>: <span class="number">1em</span>;        <span class="comment">/*字间距*/</span></span><br><span class="line">	<span class="attribute">word-spacing</span>: <span class="number">2em</span>;          <span class="comment">/*词间距*/</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box2</span> <span class="selector-tag">h1</span>&#123;</span><br><span class="line">     <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">25px</span> dotted <span class="number">#cccccc</span>;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">200px</span> <span class="number">0px</span>;</span><br><span class="line">	<span class="comment">/*position:absolute;</span></span><br><span class="line"><span class="comment">	top: 20px;</span></span><br><span class="line"><span class="comment">	left:20px;*/</span></span><br><span class="line">	*<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">20px</span>;</span><br><span class="line">	<span class="attribute">left</span>:<span class="number">30px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">	<span class="attribute">margin</span>: auto;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.list</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">	<span class="attribute">list-style</span>: square;</span><br><span class="line">    <span class="attribute">list-style-image</span>:<span class="built_in">url</span>(<span class="string">&#x27;../img/li.png&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span>&#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">33.3%</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid seagreen;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#main-block</span> &#123;</span><br><span class="line">   <span class="attribute">float</span>: left;</span><br><span class="line">   <span class="attribute">width</span>: <span class="number">70%</span>;</span><br><span class="line">   <span class="attribute">border</span>: <span class="number">1px</span> solid crimson;</span><br><span class="line">   <span class="attribute">box-sizing</span>: border-box ;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#side-block</span> &#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">1px</span> solid crimson;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box ;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">	 <span class="attribute">clear</span>: both;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.list2</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(even)&#123; <span class="comment">/*偶数列表条纹展示*/</span></span><br><span class="line">      <span class="attribute">background-color</span>:salmon;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="selector-class">.list2</span> <span class="selector-tag">li</span><span class="selector-pseudo">:first</span>-child&#123;</span><br><span class="line">	 <span class="attribute">background-color</span>: aqua;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="selector-class">.list2</span> <span class="selector-tag">li</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>)&#123; <span class="comment">/*偶数列表条纹展示*/</span></span><br><span class="line">	<span class="attribute">background-color</span>:seagreen;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.position-box</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">	<span class="attribute">height</span>:<span class="number">500px</span>;</span><br><span class="line">	<span class="attribute">border</span>:<span class="number">1px</span> blue solid;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.position-box</span> <span class="selector-tag">h1</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.position-box</span> <span class="selector-tag">h2</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>:absolute;</span><br><span class="line">	<span class="attribute">right</span>:<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#fixed</span> &#123;</span><br><span class="line">	<span class="attribute">position</span>: fixed;</span><br><span class="line">	<span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/13/JavaScript%E5%85%A5%E9%97%A8/" rel="prev" title="JavaScript入门">
+                  <i class="fa fa-chevron-left"></i> JavaScript入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
