@@ -28,8 +28,13 @@
 <meta property="og:description" content="Internet上供外界访问的Web资源分为：静态web资源(如html页面)和动态web资源。静态web资源开发技术：HTML、CSS。动态web资源开发技术：JavaScript、JSP&#x2F;Servlet、ASP、PHP等。在Java中，动态web资源开发技术统称为Java Web。基本框架包括使用Servlet或者Filter拦截请求，使用MVC的思想设计架构，使用约定，XML或 Annota">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/n1.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p3.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p4.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p5.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p6.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p7.png">
 <meta property="article:published_time" content="2021-10-12T16:39:58.000Z">
-<meta property="article:modified_time" content="2021-10-13T15:57:21.267Z">
+<meta property="article:modified_time" content="2021-10-14T09:25:50.087Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -111,7 +116,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -124,6 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">Web服务器</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -211,10 +217,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-10-13 00:39:58 / 修改时间：23:57:21" itemprop="dateCreated datePublished" datetime="2021-10-13T00:39:58+08:00">2021-10-13</time>
+      <time title="创建时间：2021-10-13 00:39:58" itemprop="dateCreated datePublished" datetime="2021-10-13T00:39:58+08:00">2021-10-13</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-14 17:25:50" itemprop="dateModified" datetime="2021-10-14T17:25:50+08:00">2021-10-14</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -235,11 +247,61 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Internet上供外界访问的Web资源分为：静态web资源(如html页面)和动态web资源。静态web资源开发技术：HTML、CSS。动态web资源开发技术：JavaScript、JSP/Servlet、ASP、PHP等。在Java中，动态web资源开发技术统称为Java Web。基本框架包括使用<strong>Servlet</strong>或者<strong>Filter</strong>拦截请求，使用<strong>MVC</strong>的思想设计架构，使用约定，<strong>XML</strong>或 <strong>Annotation</strong>实现配置，运用Java面向对象的特点，面向对象实现请求和响应的流程，支持<strong>Jsp</strong>，<strong>Freemarker</strong>，<strong>Velocity</strong>等视图。</p>
-<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/n1.jpg" style="zoom: 40%;" />
+        <p>Internet上供外界访问的Web资源分为：静态web资源(如html页面)和动态web资源。静态web资源开发技术：<strong>HTML、CSS</strong>。动态web资源开发技术：<strong>JavaScript、JSP/Servlet、ASP、PHP</strong>等。在Java中，动态web资源开发技术统称为Java Web。基本框架包括使用<strong>Servlet</strong>或者<strong>Filter</strong>拦截请求，使用<strong>MVC</strong>的思想设计架构，使用约定，<strong>XML</strong>或 <strong>Annotation</strong>实现配置，运用Java面向对象的特点，面向对象实现请求和响应的流程，支持<strong>Jsp</strong>，<strong>Freemarker</strong>，<strong>Velocity</strong>等视图。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/n1.jpg" style="zoom: 30%;" />
 
 <span id="more"></span>
 
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>1.静态Web</p>
+<blockquote>
+<p>缺点:</p>
+<ul>
+<li>Web页面无法动态更新<ul>
+<li>伪动态</li>
+<li>JavaScript</li>
+<li>VBScript</li>
+</ul>
+</li>
+<li>无法与数据库交互</li>
+</ul>
+</blockquote>
+<p>2.动态Web</p>
+<hr>
+<h1 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h1><p>1.<strong>ASP</strong></p>
+<p>ASP(Active Server Pages)，Microsoft公司开发的服务器端脚本环境，可用来创建动态交互式网页并建立强大的web应用程序。除服务器端脚本代码外，ASP文件也可以包含文本、HTML和<strong>com</strong>组件调用。通过ASP，可以结合HTML网页、ASP指令和ActiveX组件创建动态、交互且高效的WEB服务器应用程序。同时，ASP也支持<strong>VBScript</strong>和<strong>JScript</strong>等脚本语言，默认为VBScript，而其中JScript是微软公司的ECMAScript标准的实现，并且有自己的扩展。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p3.png" style="zoom: 50%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">response.write(&quot;My first ASP script!&quot;)</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>2.PHP</p>
+<p>PHP（Hypertext Preprocessor）是一种开源的通用计算机脚本语言，尤其适用于网络开发并可嵌入HTML中使用。PHP的语法借鉴吸收C语言、Java和Perl等流行计算机语言的特点，易于一般程序员学习。PHP的主要目标是允许网络开发人员快速编写动态页面，但PHP也被用于其他很多领域。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p4.png" style="zoom: 33%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;Hello World!&quot;;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>3.JSP/Servlet</p>
+<blockquote>
+<p>B/S: browser server</p>
+<p>C/S: client server</p>
+</blockquote>
+<p>JSP（Jakarta Server Pages）是由Sun公司主导创建的一种动态网页技术标准。JSP部署于网络服务器上，可以响应客户端发送的请求，并根据请求内容动态地生成HTML、XML或其他格式文档的Web网页，然后返回给请求者。JSP技术以Java语言作为脚本语言，为用户的HTTP请求提供服务，并能与服务器上的其它Java程序共同处理复杂的业务需求。JSP文件在运行时会被其编译器转换成更原始的Servlet代码。JSP编译器可以把JSP文件编译成用Java代码写的Servlet，然后再由Java编译器来编译成能快速执行的二进制机器码，也可以直接编译成二进制码。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p5.png" style="zoom: 50%;" />
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">           &lt;title&gt;第一个 JSP 程序&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">           &lt;%</span><br><span class="line">                  out.println(<span class="string">&quot;Hello World！&quot;</span>);</span><br><span class="line">           %&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>1.IIS</p>
+<p>互联网信息服务（Internet Information Services），是由微软公司提供的基于运行Microsoft Windows的互联网基本服务。IIS包括FTP/FTPS、NNTP、和HTTP/HTTPS、SMTP等服务。IIS可设置的内容包括：虚拟目录及访问权限、默认文件名称、以及是否允许浏览目录。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p6.png" style="zoom: 80%;" />
+
+<hr>
+<p>2.Tomcat</p>
+<p>Tomcat是由Apache软件基金会属下Jakarta项目开发的Servlet容器，按照Sun Microsystems提供的技术规范，实现了对<strong>Servlet和JavaServer Page（JSP）的支持</strong>，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台和Tomcat阀等。由于Tomcat本身也内含了HTTP服务器，因此也可以视作单独的Web服务器。Apache Tomcat包含了配置管理工具，也可以通过编辑XML格式的配置文件来进行配置。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p7.png" style="zoom: 33%;" />
+
+<hr>
 
     </div>
 
