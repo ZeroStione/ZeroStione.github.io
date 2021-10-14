@@ -31,10 +31,11 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p3.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p4.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p5.png">
-<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p6.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p7.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p6.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p8.png">
 <meta property="article:published_time" content="2021-10-12T16:39:58.000Z">
-<meta property="article:modified_time" content="2021-10-14T09:37:20.875Z">
+<meta property="article:modified_time" content="2021-10-14T15:42:41.951Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -129,7 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">Web服务器</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tomcat"><span class="nav-number">3.</span> <span class="nav-text">Tomcat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP"><span class="nav-number">4.</span> <span class="nav-text">HTTP</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -225,7 +226,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-14 17:37:20" itemprop="dateModified" datetime="2021-10-14T17:37:20+08:00">2021-10-14</time>
+        <time title="修改时间：2021-10-14 23:42:41" itemprop="dateModified" datetime="2021-10-14T23:42:41+08:00">2021-10-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,14 +272,14 @@
 <p>ASP(Active Server Pages)，Microsoft公司开发的服务器端脚本环境，可用来创建动态交互式网页并建立强大的web应用程序。除服务器端脚本代码外，ASP文件也可以包含文本、HTML和<strong>com</strong>组件调用。通过ASP，可以结合HTML网页、ASP指令和ActiveX组件创建动态、交互且高效的WEB服务器应用程序。同时，ASP也支持<strong>VBScript</strong>和<strong>JScript</strong>等脚本语言，默认为VBScript，而其中JScript是微软公司的ECMAScript标准的实现，并且有自己的扩展。</p>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p3.png" style="zoom: 50%;" />
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">response.write(&quot;My first ASP script!&quot;)</span><br><span class="line">%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;%</span><br><span class="line">        response.write(&quot;My first ASP script!&quot;)</span><br><span class="line">            %&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <p>2.PHP</p>
 <p>PHP（Hypertext Preprocessor）是一种开源的通用计算机脚本语言，尤其适用于网络开发并可嵌入HTML中使用。PHP的语法借鉴吸收C语言、Java和Perl等流行计算机语言的特点，易于一般程序员学习。PHP的主要目标是允许网络开发人员快速编写动态页面，但PHP也被用于其他很多领域。</p>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p4.png" style="zoom: 33%;" />
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">echo &quot;Hello World!&quot;;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;?php</span><br><span class="line">        echo &quot;Hello World!&quot;;</span><br><span class="line">        ?&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <p>3.JSP/Servlet</p>
@@ -289,18 +290,68 @@
 <p>JSP（Jakarta Server Pages）是由Sun公司主导创建的一种动态网页技术标准。JSP部署于网络服务器上，可以响应客户端发送的请求，并根据请求内容动态地生成HTML、XML或其他格式文档的Web网页，然后返回给请求者。JSP技术以Java语言作为脚本语言，为用户的HTTP请求提供服务，并能与服务器上的其它Java程序共同处理复杂的业务需求。JSP文件在运行时会被其编译器转换成更原始的Servlet代码。JSP编译器可以把JSP文件编译成用Java代码写的Servlet，然后再由Java编译器来编译成能快速执行的二进制机器码，也可以直接编译成二进制码。</p>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p5.png" style="zoom: 30%;" />
 
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">           &lt;title&gt;第一个 JSP 程序&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">           &lt;%</span><br><span class="line">                  out.println(<span class="string">&quot;Hello World！&quot;</span>);</span><br><span class="line">           %&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;第一个 JSP 程序&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;%</span><br><span class="line">        out.println(<span class="string">&quot;Hello World！&quot;</span>);</span><br><span class="line">        %&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>1.IIS</p>
+<p>1.Tomcat</p>
+<p>Tomcat是由Apache软件基金会属下Jakarta项目开发的Servlet容器，按照Sun Microsystems提供的技术规范，实现了对<strong>Servlet和JavaServer Page（JSP）的支持</strong>，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台和Tomcat阀等。由于Tomcat本身也内含了HTTP服务器，因此也可以视作单独的Web服务器。Apache Tomcat包含了配置管理工具，也可以通过编辑XML格式的配置文件来进行配置。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p7.png" style="zoom: 33%;" />
+
+<p>2.IIS</p>
 <p>互联网信息服务（Internet Information Services），是由微软公司提供的基于运行Microsoft Windows的互联网基本服务。IIS包括FTP/FTPS、NNTP、和HTTP/HTTPS、SMTP等服务。IIS可设置的内容包括：虚拟目录及访问权限、默认文件名称、以及是否允许浏览目录。</p>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p6.png" style="zoom: 80%;" />
 
 <hr>
-<p>2.Tomcat</p>
-<p>Tomcat是由Apache软件基金会属下Jakarta项目开发的Servlet容器，按照Sun Microsystems提供的技术规范，实现了对<strong>Servlet和JavaServer Page（JSP）的支持</strong>，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台和Tomcat阀等。由于Tomcat本身也内含了HTTP服务器，因此也可以视作单独的Web服务器。Apache Tomcat包含了配置管理工具，也可以通过编辑XML格式的配置文件来进行配置。</p>
-<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p7.png" style="zoom: 33%;" />
+<h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/p8.png" style="zoom: 33%;" />
 
+<p><a target="_blank" rel="noopener" href="https://tomcat.apache.org/">Apache Tomcat</a></p>
+<p>1.启动与关闭</p>
+<blockquote>
+<p>bin/startup.bat</p>
+<p>bin/shutdown.bat</p>
+</blockquote>
+<p>2.测试启动</p>
+<p><a target="_blank" rel="noopener" href="http://127.0.0.1:8080/">Apache Tomcat/10.0.12</a></p>
+<p>3.Tomcat配置 conf</p>
+<p>默认端口</p>
+<ul>
+<li>tomcat:8080</li>
+<li>mysql:3306</li>
+<li>http:80</li>
+<li>https:443</li>
+</ul>
+<hr>
+<h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>1.协议版本</p>
+<ul>
+<li>HTTP/0.9</li>
+</ul>
+<blockquote>
+<p>HTTP/0.9只支持GET方法，不支持多媒体内容的MIME类型、各种 HTTP首部，或者版本号</p>
+</blockquote>
+<ul>
+<li>HTTP/1.0</li>
+</ul>
+<blockquote>
+<p>1.0是第一个得到广泛使用的HTTP版本。HTTP/1.0添加了版本号、各种 HTTP首部、一些额外的方法，以及对多媒体对象的处理。HTTP/1.0使得包含生动图片的Web页面和交互式表格成为可能。</p>
+</blockquote>
+<ul>
+<li>HTTP/1.0+</li>
+</ul>
+<blockquote>
+<p>HTTP中添加各种新特性，包括持久的keep-alive 连接、虚拟主机支持，以及代理连接支持都被加入到HTTP之中，并成为非官方的事实标准。</p>
+</blockquote>
+<ul>
+<li>HTTP/1.1</li>
+</ul>
+<blockquote>
+<p>HTTP/1.1重点是校正HTTP设计中的结构性缺陷，明确语义，引入重要的性能优化措施，并删除一些不好的特性,包含了对20世纪 90年代末正在发展中的更复杂的Web应用程序和部署方式的支持。</p>
+</blockquote>
+<ul>
+<li>HTTP/2.0(HTTP-NG)</li>
+</ul>
+<blockquote>
+<p>HTTP/2支持请求与响应的多路复用减少延迟，压缩HTTP首部字段降低协议开销，增加对请求优先级和服务器端推送的支持。</p>
+</blockquote>
 <hr>
 
     </div>
