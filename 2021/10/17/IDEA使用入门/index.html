@@ -20,16 +20,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zerostione.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="IntelliJ IDEA是Java集成开发环境（Integrated Development Environment，IDE）工具软件，由JetBrains软件公司（前称为IntelliJ）开发，提供Apache 2.0开放式授权的社区版本以及专有软件的商业版本，开发者可选择其所需来下载使用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDEA使用入门">
 <meta property="og:url" content="https://zerostione.github.io/2021/10/17/IDEA%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Zero">
+<meta property="og:description" content="IntelliJ IDEA是Java集成开发环境（Integrated Development Environment，IDE）工具软件，由JetBrains软件公司（前称为IntelliJ）开发，提供Apache 2.0开放式授权的社区版本以及专有软件的商业版本，开发者可选择其所需来下载使用。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Tools/intellij/n1.jpg">
 <meta property="article:published_time" content="2021-10-16T16:23:34.000Z">
-<meta property="article:modified_time" content="2021-10-16T16:23:35.000Z">
+<meta property="article:modified_time" content="2021-10-17T05:35:31.103Z">
 <meta property="article:author" content="Zero">
-<meta property="article:tag" content="编程,技术">
+<meta property="article:tag" content="IDEA">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Tools/intellij/n1.jpg">
 
 
 <link rel="canonical" href="https://zerostione.github.io/2021/10/17/IDEA%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">
@@ -107,7 +111,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -120,6 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E8%BE%93%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">快捷输入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">3.</span> <span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tips"><span class="nav-number">4.</span> <span class="nav-text">Tips</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -145,7 +150,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -209,7 +214,16 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-17 00:23:34 / 修改时间：00:23:35" itemprop="dateCreated datePublished" datetime="2021-10-17T00:23:34+08:00">2021-10-17</time>
+      <time title="创建时间：2021-10-17 00:23:34 / 修改时间：13:35:31" itemprop="dateCreated datePublished" datetime="2021-10-17T00:23:34+08:00">2021-10-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
     </span>
 
   
@@ -222,7 +236,111 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <p>IntelliJ IDEA是Java集成开发环境（Integrated Development Environment，IDE）工具软件，由JetBrains软件公司（前称为IntelliJ）开发，提供Apache 2.0开放式授权的社区版本以及专有软件的商业版本，开发者可选择其所需来下载使用。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Tools/intellij/n1.jpg" style="zoom: 67%;" />
+
+<span id="more"></span>
+
+<hr>
+<h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p><a target="_blank" rel="noopener" href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a></p>
+<p>1.版本</p>
+<ul>
+<li>Ultimate:For web and enterprise development.(推荐)</li>
+<li>Community:For JVM and Android development.</li>
+</ul>
+<h1 id="快捷输入"><a href="#快捷输入" class="headerlink" title="快捷输入"></a>快捷输入</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*psvm*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;      </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*sout*/</span></span><br><span class="line">System.out.println();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li><strong>设置工具条</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View-&gt;Appearance-&gt;Tool Bar/Tool Window Bar</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>设置鼠标悬浮提示</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Settings-&gt;Editor-&gt;General-&gt;Code Completion-&gt;Show theDocumentation popup in 1000 ms</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>设置效果分隔符</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Settings-&gt;Editor-&gt;General-&gt;Appearance-&gt;Show method separators</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>多行Tabs</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Settings-&gt;Editor-&gt;General-&gt;Editor Tabs-&gt;Multiple rows / show pined tabs in a separatw row</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>修改注释颜色</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Settings-&gt;Editor-&gt;Color Scheme -&gt;Java-&gt;Line comment(单行注释)/Block comment多行注释(取消勾选Interit values from:)-&gt;Bold(粗体)/Italic(斜体)/Foreground-&gt;Apply</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>IDEA不识别Java文件(类文件橙色)</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File-&gt;Project Structure-&gt;Modules-&gt;Content Root(删除全部再添加)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>在文件夹中打开</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">右击该文件-&gt;Open In-&gt;Exloper</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**src(源代码)无法新建Java文件(未变蓝)**​​</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">右击src-&gt;Mark Directory as -&gt; Source Root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>编译生成class文件到out目录</strong>​</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Project Structure -&gt;更改Project compiler output下的out目录</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>再次运行程序</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">快捷键:Ctrl+Alt+F10</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>代码分屏</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">右击该文件</span><br><span class="line">选择Split Right/Split Down</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成代码快捷键</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择代码-&gt;Ctrl+Alt+T</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>搜索并查看源码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">连按两次Shift</span><br></pre></td></tr></table></figure>
+
+<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><table>
+<thead>
+<tr>
+<th align="center">快捷键组合</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Ctrl+左击</td>
+<td align="center">查看源代码</td>
+</tr>
+<tr>
+<td align="center">Alt+Insert</td>
+<td align="center">Constructor/gettter/setter/override</td>
+</tr>
+<tr>
+<td align="center">Ctrl+H</td>
+<td align="center">调出决策树</td>
+</tr>
+</tbody></table>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><p>1.刷新项目/清除项目缓存</p>
+<blockquote>
+<p>File -&gt; Invalidate Caches/Restart</p>
+</blockquote>
+
     </div>
 
     
@@ -230,6 +348,9 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/IDEA/" rel="tag"># IDEA</a>
+          </div>
 
         
 
