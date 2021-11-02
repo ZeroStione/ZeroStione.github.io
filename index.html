@@ -132,7 +132,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -143,7 +143,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -172,6 +172,93 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zerostione.github.io/2021/11/02/%E5%88%9D%E8%AF%86SSM%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/02/%E5%88%9D%E8%AF%86SSM%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">初识SSM框架</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-11-02 13:17:10 / 修改时间：13:35:53" itemprop="dateCreated datePublished" datetime="2021-11-02T13:17:10+08:00">2021-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Framework/" itemprop="url" rel="index"><span itemprop="name">Framework</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>SSM（Spring+SpringMVC+MyBatis）框架集由Spring、MyBatis两个开源框架整合而成（SpringMVC是Spring中的部分内容）。常作为数据源较简单的web项目的框架。</p>
+<p>1.Spring:Spring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地<code>new</code>一个对象，而是让Spring框架帮你来完成这一切。<br>2.SpringMVC:SpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServlet承担中介或是前台这样的职责，将用户请求通过HandlerMapping去匹配Controller，Controller就是具体对应请求所执行的操作。SpringMVC相当于SSH框架中struts。<br>3.mybatis:mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。</p>
+<p>页面发送请求给控制器，控制器调用业务层处理逻辑，逻辑层向持久层发送请求，持久层与数据库交互，后将结果返回给业务层，业务层将处理逻辑发送给控制器，控制器再调用视图展现数据。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/SSM/p1.png" style="zoom: 80%;" />
+
+<h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><blockquote>
+<p>1.MyBatis是一个Java持久化框架，它通过XML描述符或注解把对象与存储过程或SQL语句关联起来，映射成数据库内对应的纪录。MyBatis是在Apache许可证 2.0下分发的自由软件，是iBATIS 3.0的分支版本，其维护团队也包含iBATIS的初创成员。</p>
+<p>2.与其他对象关系映射框架不同，MyBatis没有将Java对象与数据库表关联起来，而是将Java方法与SQL语句关联。MyBatis允许用户充分利用数据库的各种功能，例如存储过程、视图、各种复杂的查询以及某数据库的专有特性。</p>
+<p>3.与JDBC相比，MyBatis简化了相关代码：SQL语句在一行代码中就能执行。MyBatis提供了一个映射引擎，声明式的把SQL语句执行结果与对象树映射起来。通过使用一种内建的类XML表达式语言，或者使用Apache Velocity集成的插件，SQL语句可以被动态的生成。</p>
+<p>4.MyBatis与Spring Framework和Google Guice集成，这使开发者免于依赖性问题。</p>
+<p>5.MyBatis支持声明式数据缓存（declarative data caching）。当一条SQL语句被标记为”可缓存”后，首次执行它时从数据库获取的所有数据会被存储在一段高速缓存中，今后执行这条语句时就会从高速缓存中读取结果，而不是再次命中数据库。MyBatis提供了基于 Java HashMap 的默认缓存实现，以及用于与OSCache、Ehcache、Hazelcast和Memcached连接的默认连接器。MyBatis还提供API供其他缓存实现使用。</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/SSM/n1.jpg" style="zoom: 80%;" />
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -485,94 +572,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/10/13/JavaScript%E5%85%A5%E9%97%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zerostione.github.io/2021/10/13/JavaWeb%E6%A6%82%E8%A7%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
-      <meta itemprop="name" content="Zero">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zero">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/13/JavaWeb%E6%A6%82%E8%A7%88/" class="post-title-link" itemprop="url">JavaWeb概览</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-10-13 00:39:58" itemprop="dateCreated datePublished" datetime="2021-10-13T00:39:58+08:00">2021-10-13</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-01 23:48:56" itemprop="dateModified" datetime="2021-11-01T23:48:56+08:00">2021-11-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Programming-Language/" itemprop="url" rel="index"><span itemprop="name">Programming Language</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Internet上供外界访问的Web资源分为：静态web资源(如html页面)和动态web资源。静态web资源开发技术：<strong>HTML、CSS</strong>。动态web资源开发技术：<strong>JavaScript、JSP/Servlet、ASP、PHP</strong>等。在Java中，动态web资源开发技术统称为Java Web。基本框架包括使用<strong>Servlet</strong>或者<strong>Filter</strong>拦截请求，使用<strong>MVC</strong>的思想设计架构，使用约定，<strong>XML</strong>或 <strong>Annotation</strong>实现配置，运用Java面向对象的特点，面向对象实现请求和响应的流程，支持<strong>Jsp</strong>，<strong>Freemarker</strong>，<strong>Velocity</strong>等视图。</p>
-<img src="https://zerostione.github.io/ImageUp//Image/Blog/JavaWeb/n1.jpg" style="zoom: 30%;" />
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/10/13/JavaWeb%E6%A6%82%E8%A7%88/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
