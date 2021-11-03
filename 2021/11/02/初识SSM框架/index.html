@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SSM/p1.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SSM/n1.jpg">
 <meta property="article:published_time" content="2021-11-02T05:17:10.000Z">
-<meta property="article:modified_time" content="2021-11-02T05:41:14.637Z">
+<meta property="article:modified_time" content="2021-11-03T05:43:52.816Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SSM">
@@ -126,7 +126,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MyBatis"><span class="nav-number">1.</span> <span class="nav-text">MyBatis</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MyBatis"><span class="nav-number">1.</span> <span class="nav-text">MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%B1%82"><span class="nav-number">1.2.</span> <span class="nav-text">持久层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%AF%86Mybatis"><span class="nav-number">1.3.</span> <span class="nav-text">初识Mybatis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BASqlSessionFactory"><span class="nav-number">1.4.</span> <span class="nav-text">构建SqlSessionFactory</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -141,18 +141,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -214,10 +214,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-11-02 13:17:10 / 修改时间：13:41:14" itemprop="dateCreated datePublished" datetime="2021-11-02T13:17:10+08:00">2021-11-02</time>
+      <time title="创建时间：2021-11-02 13:17:10" itemprop="dateCreated datePublished" datetime="2021-11-02T13:17:10+08:00">2021-11-02</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-03 13:43:52" itemprop="dateModified" datetime="2021-11-03T13:43:52+08:00">2021-11-03</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -246,7 +252,7 @@
 <span id="more"></span>
 
 <h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><blockquote>
-<p>1.MyBatis是一个Java持久化框架，它通过XML描述符或注解把对象与存储过程或SQL语句关联起来，映射成数据库内对应的纪录。MyBatis是在Apache许可证 2.0下分发的自由软件，是iBATIS 3.0的分支版本，其维护团队也包含iBATIS的初创成员。</p>
+<p>1.MyBatis是一个Java持久层框架，它通过XML描述符或注解把对象与存储过程或SQL语句关联起来，映射成数据库内对应的纪录。MyBatis是在Apache许可证 2.0下分发的自由软件，是<strong>iBATIS</strong> 3.0的分支版本，其维护团队也包含iBATIS的初创成员。(2013年迁移至<strong>Github</strong>)</p>
 <p>2.与其他对象关系映射框架不同，MyBatis没有将Java对象与数据库表关联起来，而是将Java方法与SQL语句关联。MyBatis允许用户充分利用数据库的各种功能，例如存储过程、视图、各种复杂的查询以及某数据库的专有特性。</p>
 <p>3.与JDBC相比，MyBatis简化了相关代码：SQL语句在一行代码中就能执行。MyBatis提供了一个映射引擎，声明式的把SQL语句执行结果与对象树映射起来。通过使用一种内建的类XML表达式语言，或者使用Apache Velocity集成的插件，SQL语句可以被动态的生成。</p>
 <p>4.MyBatis与Spring Framework和Google Guice集成，这使开发者免于依赖性问题。</p>
@@ -254,6 +260,84 @@
 </blockquote>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/SSM/n1.jpg" style="zoom: 80%;" />
 
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/index.html">MyBatis</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/mybatis/mybatis-3">mybatis/mybatis-3</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://mvnrepository.com/artifact/org.mybatis/mybatis">Maven-mybatis</a></p>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>MyBatis是一款优秀的持久层框架。</li>
+<li>支持自定义 SQL、存储过程以及高级映射。</li>
+<li>MyBatis免除了几乎所有的JDBC 代码以及设置参数和获取结果集的工作。</li>
+<li>MyBatis可以通过简单的XML或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式Java对象）为数据库中的记录。</li>
+<li>优点<ul>
+<li>简单易学</li>
+<li>灵活：sql写在xml里，便于统一管理和优化</li>
+<li>解除sql与程序代码的耦合：通过提供DAO层，将业务逻辑和数据访问逻辑分离</li>
+<li>提供映射标签，支持对象与数据库的orm字段关系映射</li>
+<li>提供对象关系映射标签，支持对象关系组建维护</li>
+<li>提供xml标签，支持编写动态sql。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="持久层"><a href="#持久层" class="headerlink" title="持久层"></a>持久层</h2><blockquote>
+<ul>
+<li><p>J2EE的三层结构是指表示层（Presentation），业务逻辑层（Business Logic）以及基础架构层（Infrastructure）。</p>
+</li>
+<li><p>实际的项目通常对三层结构进行扩展来满足项目的具体要求，最常用是将三层体系扩展为五层体系，即表示层(Presentation)、控制/中介层(Controller/Mediator)、领域层(Domain)、数据持久层(Data Persistence)和数据源层(Data Source)。它其实是在三层架构中增加了两个中间层。控制/中介层位于表示层和领域层之间。</p>
+</li>
+<li><p>方案</p>
+<ul>
+<li>JDBC</li>
+<li>EJB</li>
+<li>JDO</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>持久化:将程序数据在持久状态和瞬时状态间转换的机制。即瞬时数据（如内存中的数据，不能永久保存）持久化为持久数据（如持久化至数据库中，能长久保存）。</p>
+</blockquote>
+<blockquote>
+<p>1.持久层（Data Access Layer 数据访问层 Dao层）:建立实体类和数据库表映射（ORM映射），完成对象数据和关系数据的转换。</p>
+<p>2.业务层（Business Logic Layer 逻辑层 service层）:将业务中操作封装成方法，同时保证方法中所有的数据库更新操作，即保证同时成功或同时失败。</p>
+<p>3.表现层（UI层 视图层 界面层 Controller层）：MVC（Model-View-Controler）模式 负责请求转发，接受页面过来的参数，传给Service处理，接受返回值传给页面。</p>
+</blockquote>
+<hr>
+<h2 id="初识Mybatis"><a href="#初识Mybatis" class="headerlink" title="初识Mybatis"></a>初识Mybatis</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE `mybatis`;</span><br><span class="line"></span><br><span class="line">USE `mybatis`;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` (</span><br><span class="line">  `id` <span class="type">INT</span> (<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">  `name` <span class="type">VARCHAR</span> (<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `pwd` <span class="type">VARCHAR</span> (<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> </span><br><span class="line">  )ENGINE<span class="operator">=</span>INNODB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">INSERT</span> <span class="keyword">INTO</span> `<span class="keyword">user</span>`(`id`,`name`,`pwd`) <span class="keyword">VALUES</span></span><br><span class="line">  (<span class="number">1</span>,<span class="string">&#x27;Tim&#x27;</span>,<span class="string">&#x27;12121&#x27;</span>),</span><br><span class="line">  (<span class="number">2</span>,<span class="string">&#x27;Tom&#x27;</span>,<span class="string">&#x27;1Yud345&#x27;</span>), </span><br><span class="line">  (<span class="number">3</span>,<span class="string">&#x27;Kate&#x27;</span>,<span class="string">&#x27;true456&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--导入依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--MySQL驱动--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.26<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">     <span class="comment">&lt;!--Mybatis--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.mybatis/mybatis --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--junit--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- https://mvnrepository.com/artifact/junit/junit --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.13.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="构建SqlSessionFactory"><a href="#构建SqlSessionFactory" class="headerlink" title="构建SqlSessionFactory"></a>构建SqlSessionFactory</h2><blockquote>
+<p>1.每个基于MyBatis的应用都是以一个SqlSessionFactory的实例为核心的。SqlSessionFactory 的实例可以通过SqlSessionFactoryBuilder获得。而 SqlSessionFactoryBuilder 则可以从XML配置文件或一个预先配置的Configuration实例来构建出SqlSessionFactory实例。</p>
+<p>2.从XML文件中构建 SqlSessionFactory的实例非常简单，建议使用类路径下的资源文件进行配置。但也可以使用任意的输入流（InputStream）实例，比如用文件路径字符串或 file://URL构造的输入流。MyBatis包含一个名叫Resources的工具类，它包含一些实用方法，使得从类路径或其它位置加载资源文件更加容易。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String resource = <span class="string">&quot;org/mybatis/example/mybatis-config.xml&quot;</span>;</span><br><span class="line">InputStream inputStream = Resources.getResourceAsStream(resource);</span><br><span class="line">SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>XML配置文件中包含了对 MyBatis 系统的核心设置，包括获取数据库连接实例的数据源（DataSource）以及决定事务作用域和控制方式的事务管理器（TransactionManager）。</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">configuration</span></span></span><br><span class="line"><span class="meta">  <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">  <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">&quot;development&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;JDBC&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;POOLED&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;driver&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;url&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;username&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;password&#125;&quot;</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;org/mybatis/example/BlogMapper.xml&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>XML头部的声明用来验证XML文档的正确性。environment 元素体中包含了事务管理和连接池的配置。mappers 元素则包含了一组映射器（mapper），这些映射器的XML映射文件包含了SQL代码和映射定义信息。</p>
+</blockquote>
+<p>SqlSessionFactory 中获取 SqlSession</p>
+<p>既然有了 SqlSessionFactory，顾名思义，我们可以从中获得 SqlSession 的实例。SqlSession 提供了在数据库执行 SQL 命令所需的所有方法。你可以通过 SqlSession 实例来直接执行已映射的 SQL 语句。例如：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (SqlSession session = sqlSessionFactory.<span class="keyword">open</span><span class="constructor">Session()</span>) &#123;</span><br><span class="line">  Blog blog = (Blog) session.select<span class="constructor">One(<span class="string">&quot;org.mybatis.example.BlogMapper.selectBlog&quot;</span>, 101)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>诚然，这种方式能够正常工作，对使用旧版本 MyBatis 的用户来说也比较熟悉。但现在有了一种更简洁的方式——使用和指定语句的参数和返回值相匹配的接口（比如 BlogMapper.class），现在你的代码不仅更清晰，更加类型安全，还不用担心可能出错的字符串字面值以及强制类型转换。</p>
+<p>例如：</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (SqlSession session = sqlSessionFactory.<span class="keyword">open</span><span class="constructor">Session()</span>) &#123;</span><br><span class="line">  BlogMapper mapper = session.get<span class="constructor">Mapper(BlogMapper.<span class="params">class</span>)</span>;</span><br><span class="line">  Blog blog = mapper.select<span class="constructor">Blog(101)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -276,6 +360,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/11/03/SQL%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" rel="next" title="SQL入门学习">
+                  SQL入门学习 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
