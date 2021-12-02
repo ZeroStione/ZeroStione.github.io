@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SSM/Spring/p12.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SSM/Spring/p14.png">
 <meta property="article:published_time" content="2021-11-02T05:17:10.000Z">
-<meta property="article:modified_time" content="2021-12-02T11:01:17.349Z">
+<meta property="article:modified_time" content="2021-12-02T11:32:00.043Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SSM">
@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -167,7 +167,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -237,7 +237,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-02 19:01:17" itemprop="dateModified" datetime="2021-12-02T19:01:17+08:00">2021-12-02</time>
+        <time title="修改时间：2021-12-02 19:32:00" itemprop="dateModified" datetime="2021-12-02T19:32:00+08:00">2021-12-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1777,6 +1777,7 @@
 <p>1.<strong>@Autowired</strong>可以在<strong>实例字段(无需编写对应set方法)<strong>以及</strong>setter</strong> <strong>构造函数</strong>上使用。@Autowired注解默认按照<strong>byType</strong>,如果有多个class类型相同的bean，则通过byName(修改bean的id并不会影响自动装配，但修改class便会报错)装配依赖对象（确保自动装配的属性在IOC(Spring)容器中存在）。</p>
 <p>2.@Autowired(required=false) 即该对象可为null，否则不允许为空。</p>
 <p>3.@Qualifier(value =&quot;&quot;)配合@Autowired的使用可指定一个唯一的bean对象注入。</p>
+<p>4.@Resource 和 @Autowired，两者的区别，@Resource 是  javax.annotation.Resource包下，是JavaEE支持的；@Autowiredorg.springframework.beans.factory.annotation.Autowired包下，是spring提供的，这会导致@Resource的可扩展性优于 @Autowired，因为在导出一个项目时，使用 @Resource注解，可以通过Java环境提供，而使用@Autowired注解需要额外引入spring包。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* @Nullable说明该字段可为null*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">People</span><span class="params">(<span class="meta">@Nullable</span> String name)</span> </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1790,7 +1791,29 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;cat&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.ling.pojo.Cat&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;cat1&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.ling.pojo.Cat&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dog&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.ling.pojo.Dog&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="注解开发-1"><a href="#注解开发-1" class="headerlink" title="注解开发"></a>注解开发</h3>
+<h3 id="注解开发-1"><a href="#注解开发-1" class="headerlink" title="注解开发"></a>注解开发</h3><blockquote>
+<p><strong>@Component</strong>: 标注普通的 Spring Bean 类(将 pojo 类实例化到 spring 容器中，相当于配置文件中的&lt;bean id=&quot;&quot; class=&quot;&quot;/&gt; )</p>
+</blockquote>
+<p>1.属性注入</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Component:组件 相当于 &lt;bean id=&quot;user&quot; class=&quot;com.ling.pojo.User&quot;/&gt;*/</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*相当于&lt;property name=&quot;&quot; value=&quot;&quot;/&gt;*/</span></span><br><span class="line">    <span class="meta">@Value(&quot;SpringStudy&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;12&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.衍生注解(按MVC三层框架分层)：</p>
+<ul>
+<li><p>dao层: <code>@Repository</code>（标注DAO组件类）</p>
+</li>
+<li><p>service层：<code>@Service</code>（标注业务逻辑组件类）</p>
+</li>
+<li><p>controller层：<code>@Controller</code>（标注控制器组件类）</p>
+</li>
+</ul>
+<blockquote>
+<p>这四个注解功能都是一样的，都是将对应类注册到Spring容器中，装配Bean</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.ling&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
     </div>
 
     
