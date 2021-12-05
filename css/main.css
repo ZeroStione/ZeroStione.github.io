@@ -17,10 +17,10 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #fbf1c7;
-  --highlight-foreground: #3c3836;
-  --highlight-gutter-background: #e7deb8;
-  --highlight-gutter-foreground: #4f4a44;
+  --highlight-background: #eaeef3;
+  --highlight-foreground: #00193a;
+  --highlight-gutter-background: #d2d8e0;
+  --highlight-gutter-foreground: #172e4c;
 }
 html {
   line-height: 1.15; /* 1 */
@@ -360,112 +360,60 @@ td {
   transform: rotate(-45deg);
 }
 /*
-
-Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/morhetz/gruvbox)
-
+  Five-color theme from a single blue hue.
 */
-
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #fbf1c7;
+  background: #eaeef3;
+  color: #00193a;
 }
 
-.hljs,
-.hljs-subst {
-  color: #3c3836;
-}
-
-/* Gruvbox Red */
-.hljs-deletion,
-.hljs-formula,
 .hljs-keyword,
-.hljs-link,
-.hljs-selector-tag {
-  color: #9d0006;
-}
-
-/* Gruvbox Blue */
-.hljs-built_in,
-.hljs-emphasis,
-.hljs-name,
-.hljs-quote,
-.hljs-strong,
+.hljs-selector-tag,
 .hljs-title,
-.hljs-variable {
-  color: #076678;
-}
-
-/* Gruvbox Yellow */
-.hljs-attr,
-.hljs-params,
-.hljs-template-tag,
-.hljs-type {
-  color: #b57614;
-}
-
-/* Gruvbox Purple */
-.hljs-builtin-name,
-.hljs-doctag,
-.hljs-literal,
-.hljs-number {
-  color: #8f3f71;
-}
-
-/* Gruvbox Orange */
-.hljs-code,
-.hljs-meta,
-.hljs-regexp,
-.hljs-selector-id,
-.hljs-template-variable {
-  color: #af3a03;
-}
-
-/* Gruvbox Green */
-.hljs-addition,
-.hljs-meta-string,
 .hljs-section,
-.hljs-selector-attr,
-.hljs-selector-class,
-.hljs-string,
-.hljs-symbol {
-  color: #79740e;
+.hljs-doctag,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
 }
 
-/* Gruvbox Aqua */
-.hljs-attribute,
-.hljs-bullet,
-.hljs-class,
-.hljs-function,
-.hljs-function .hljs-keyword,
-.hljs-meta-keyword,
-.hljs-selector-pseudo,
-.hljs-tag {
-  color: #427b58;
-}
-
-/* Gruvbox Gray */
 .hljs-comment {
-  color: #928374;
+  color: #738191;
 }
 
-/* Gruvbox Purple */
-.hljs-link_label,
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
 .hljs-literal,
-.hljs-number {
-  color: #8f3f71;
+.hljs-type,
+.hljs-addition,
+.hljs-tag,
+.hljs-quote,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #0048ab;
 }
 
-.hljs-comment,
+.hljs-meta,
+.hljs-subst,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-attribute,
+.hljs-deletion,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-bullet {
+  color: #4c81c9;
+}
+
 .hljs-emphasis {
   font-style: italic;
-}
-
-.hljs-section,
-.hljs-strong,
-.hljs-tag {
-  font-weight: bold;
 }
 
 .highlight:hover .copy-btn,
