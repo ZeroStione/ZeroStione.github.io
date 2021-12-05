@@ -17,10 +17,10 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #ebf8ff;
-  --highlight-foreground: #516d7b;
-  --highlight-gutter-background: #dbeaf1;
-  --highlight-gutter-foreground: #607a88;
+  --highlight-background: #fefefe;
+  --highlight-foreground: #545454;
+  --highlight-gutter-background: #ededed;
+  --highlight-gutter-foreground: #656565;
 }
 html {
   line-height: 1.15; /* 1 */
@@ -359,65 +359,70 @@ td {
   top: -5px;
   transform: rotate(-45deg);
 }
-/* Base16 Atelier Lakeside Light - Theme */
-/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/lakeside) */
-/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+/* a11y-light theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
 
-/* Atelier-Lakeside Comment */
+/* Comment */
 .hljs-comment,
 .hljs-quote {
-  color: #5a7b8c;
+  color: #696969;
 }
 
-/* Atelier-Lakeside Red */
+/* Red */
 .hljs-variable,
 .hljs-template-variable,
-.hljs-attribute,
 .hljs-tag,
 .hljs-name,
-.hljs-regexp,
-.hljs-link,
-.hljs-name,
 .hljs-selector-id,
-.hljs-selector-class {
-  color: #d22d72;
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #d91e18;
 }
 
-/* Atelier-Lakeside Orange */
+/* Orange */
 .hljs-number,
-.hljs-meta,
 .hljs-built_in,
 .hljs-builtin-name,
 .hljs-literal,
 .hljs-type,
-.hljs-params {
-  color: #935c25;
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #aa5d00;
 }
 
-/* Atelier-Lakeside Green */
+/* Yellow */
+.hljs-attribute {
+  color: #aa5d00;
+}
+
+/* Green */
 .hljs-string,
 .hljs-symbol,
-.hljs-bullet {
-  color: #568c3b;
+.hljs-bullet,
+.hljs-addition {
+  color: #008000;
 }
 
-/* Atelier-Lakeside Blue */
+/* Blue */
 .hljs-title,
 .hljs-section {
-  color: #257fad;
+  color: #007faa;
 }
 
-/* Atelier-Lakeside Purple */
+/* Purple */
 .hljs-keyword,
 .hljs-selector-tag {
-  color: #6b6bb8;
+  color: #7928a1;
 }
 
 .hljs {
   display: block;
   overflow-x: auto;
-  background: #ebf8ff;
-  color: #516d7b;
+  background: #fefefe;
+  color: #545454;
   padding: 0.5em;
 }
 
@@ -427,6 +432,31 @@ td {
 
 .hljs-strong {
   font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
 }
 
 .highlight:hover .copy-btn,
