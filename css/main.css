@@ -17,10 +17,10 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #fefefe;
-  --highlight-foreground: #545454;
-  --highlight-gutter-background: #ededed;
-  --highlight-gutter-foreground: #656565;
+  --highlight-background: #fbf1c7;
+  --highlight-foreground: #3c3836;
+  --highlight-gutter-background: #e7deb8;
+  --highlight-gutter-foreground: #4f4a44;
 }
 html {
   line-height: 1.15; /* 1 */
@@ -359,104 +359,113 @@ td {
   top: -5px;
   transform: rotate(-45deg);
 }
-/* a11y-light theme */
-/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
-/* @author: ericwbailey */
+/*
 
-/* Comment */
-.hljs-comment,
-.hljs-quote {
-  color: #696969;
-}
+Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/morhetz/gruvbox)
 
-/* Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-  color: #d91e18;
-}
-
-/* Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-  color: #aa5d00;
-}
-
-/* Yellow */
-.hljs-attribute {
-  color: #aa5d00;
-}
-
-/* Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-  color: #008000;
-}
-
-/* Blue */
-.hljs-title,
-.hljs-section {
-  color: #007faa;
-}
-
-/* Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-  color: #7928a1;
-}
+*/
 
 .hljs {
   display: block;
   overflow-x: auto;
-  background: #fefefe;
-  color: #545454;
   padding: 0.5em;
+  background: #fbf1c7;
 }
 
+.hljs,
+.hljs-subst {
+  color: #3c3836;
+}
+
+/* Gruvbox Red */
+.hljs-deletion,
+.hljs-formula,
+.hljs-keyword,
+.hljs-link,
+.hljs-selector-tag {
+  color: #9d0006;
+}
+
+/* Gruvbox Blue */
+.hljs-built_in,
+.hljs-emphasis,
+.hljs-name,
+.hljs-quote,
+.hljs-strong,
+.hljs-title,
+.hljs-variable {
+  color: #076678;
+}
+
+/* Gruvbox Yellow */
+.hljs-attr,
+.hljs-params,
+.hljs-template-tag,
+.hljs-type {
+  color: #b57614;
+}
+
+/* Gruvbox Purple */
+.hljs-builtin-name,
+.hljs-doctag,
+.hljs-literal,
+.hljs-number {
+  color: #8f3f71;
+}
+
+/* Gruvbox Orange */
+.hljs-code,
+.hljs-meta,
+.hljs-regexp,
+.hljs-selector-id,
+.hljs-template-variable {
+  color: #af3a03;
+}
+
+/* Gruvbox Green */
+.hljs-addition,
+.hljs-meta-string,
+.hljs-section,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-string,
+.hljs-symbol {
+  color: #79740e;
+}
+
+/* Gruvbox Aqua */
+.hljs-attribute,
+.hljs-bullet,
+.hljs-class,
+.hljs-function,
+.hljs-function .hljs-keyword,
+.hljs-meta-keyword,
+.hljs-selector-pseudo,
+.hljs-tag {
+  color: #427b58;
+}
+
+/* Gruvbox Gray */
+.hljs-comment {
+  color: #928374;
+}
+
+/* Gruvbox Purple */
+.hljs-link_label,
+.hljs-literal,
+.hljs-number {
+  color: #8f3f71;
+}
+
+.hljs-comment,
 .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.hljs-section,
+.hljs-strong,
+.hljs-tag {
   font-weight: bold;
-}
-
-@media screen and (-ms-high-contrast: active) {
-  .hljs-addition,
-  .hljs-attribute,
-  .hljs-built_in,
-  .hljs-builtin-name,
-  .hljs-bullet,
-  .hljs-comment,
-  .hljs-link,
-  .hljs-literal,
-  .hljs-meta,
-  .hljs-number,
-  .hljs-params,
-  .hljs-string,
-  .hljs-symbol,
-  .hljs-type,
-  .hljs-quote {
-        color: highlight;
-    }
-
-    .hljs-keyword,
-    .hljs-selector-tag {
-        font-weight: bold;
-    }
 }
 
 .highlight:hover .copy-btn,
