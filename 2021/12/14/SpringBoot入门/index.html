@@ -29,8 +29,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p1.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p2.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p1.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p3.png">
 <meta property="article:published_time" content="2021-12-14T08:07:18.000Z">
-<meta property="article:modified_time" content="2021-12-14T08:18:55.834Z">
+<meta property="article:modified_time" content="2021-12-15T08:54:03.202Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringBoot">
@@ -126,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">微服务</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -214,10 +216,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-12-14 16:07:18 / 修改时间：16:18:55" itemprop="dateCreated datePublished" datetime="2021-12-14T16:07:18+08:00">2021-12-14</time>
+      <time title="创建时间：2021-12-14 16:07:18" itemprop="dateCreated datePublished" datetime="2021-12-14T16:07:18+08:00">2021-12-14</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-15 16:54:03" itemprop="dateModified" datetime="2021-12-15T16:54:03+08:00">2021-12-15</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -243,7 +251,7 @@
 
 <span id="more"></span>
 
-<h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p2.png" style="zoom: 50%;" />
+<h1 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h1><img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p2.png" style="zoom: 67%;" />
 
 <blockquote>
 <p>SpringBoot所具备的特征有：</p>
@@ -256,6 +264,38 @@
 <li>没有代码生成，不需要XML配置</li>
 </ol>
 </blockquote>
+<hr>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><blockquote>
+<p>1.微服务（Microservices）是一种软件架构风格，它是以专注于单一责任与功能的小型功能区块 (Small Building Blocks) 为基础，利用模块化的方式组合出复杂的大型应用程序，各功能区块使用与语言无关 (Language-Independent/Language agnostic）的API集相互通信。</p>
+<p>2014年，Martin Fowler 与 James Lewis 共同提出了微服务的概念，定义了微服务是由以单一应用程序构成的小服务，自己拥有自己的进程与轻量化处理，服务依业务功能设计，以全自动的方式部署，与其他服务使用HTTP API通信。同时服务会使用最小的规模的集中管理 (例如 Docker) 能力，服务可以用不同的编程语言与数据库等组件实现。</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p1.jpg" style="zoom: 33%;" />
+
+<blockquote>
+<p>1.微服务是一种开发软件的架构和组织方法，其中软件由通过明确定义的 API 进行通信的小型独立服务组成。这些服务由各个小型独立团队负责。</p>
+<p>2.整体式架构与微服务架构</p>
+<p>通过整体式架构，所有进程紧密耦合，并可作为单项服务运行。这意味着，如果应用程序的一个进程遇到需求峰值，则必须扩展整个架构。随着代码库的增长，添加或改进整体式应用程序的功能变得更加复杂。这种复杂性限制了试验的可行性，并使实施新概念变得困难。整体式架构增加了应用程序可用性的风险，因为许多依赖且紧密耦合的进程会扩大单个进程故障的影响。</p>
+<p>使用微服务架构，将应用程序构建为独立的组件，并将每个应用程序进程作为一项服务运行。这些服务使用轻量级 API 通过明确定义的接口进行通信。这些服务是围绕业务功能构建的，每项服务执行一项功能。由于它们是独立运行的，因此可以针对各项服务进行更新、部署和扩展，以满足对应用程序特定功能的需求。</p>
+<p>3.微服务的优势</p>
+<ul>
+<li><p>敏捷性</p>
+</li>
+<li><p>灵活扩展</p>
+</li>
+<li><p>轻松部署</p>
+</li>
+<li><p>技术自由</p>
+</li>
+<li><p>可重复使用的代码</p>
+</li>
+<li><p>弹性</p>
+</li>
+</ul>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p3.png" style="zoom: 80%;" />
+
+<hr>
+<p>\</p>
 
     </div>
 
