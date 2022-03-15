@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p3.jpg">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p10.png">
 <meta property="article:published_time" content="2021-12-14T08:07:18.000Z">
-<meta property="article:modified_time" content="2022-03-15T02:58:36.634Z">
+<meta property="article:modified_time" content="2022-03-15T03:16:28.064Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="SpringBoot">
@@ -232,7 +232,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-15 10:58:36" itemprop="dateModified" datetime="2022-03-15T10:58:36+08:00">2022-03-15</time>
+        <time title="修改时间：2022-03-15 11:16:28" itemprop="dateModified" datetime="2022-03-15T11:16:28+08:00">2022-03-15</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -272,6 +272,7 @@
 </ul>
 </blockquote>
 <hr>
+<hr>
 <h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p1.jpg" style="zoom: 33%;" />
 
 <blockquote>
@@ -303,6 +304,7 @@
 </blockquote>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p3.png" style="zoom: 80%;" />
 
+<hr>
 <hr>
 <h2 id="初识SpringBoot"><a href="#初识SpringBoot" class="headerlink" title="初识SpringBoot"></a>初识SpringBoot</h2><p><a target="_blank" rel="noopener" href="https://start.spring.io/">Spring initializr</a></p>
 <ul>
@@ -376,6 +378,7 @@
 <blockquote>
 <p>Run/Debug Configurations-&gt;Spring Boot-&gt;Hide Banner</p>
 </blockquote>
+<hr>
 <hr>
 <h2 id="SpringBoot自动装配原理"><a href="#SpringBoot自动装配原理" class="headerlink" title="SpringBoot自动装配原理"></a>SpringBoot自动装配原理</h2><img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p11.png" style="zoom: 80%;" />
 
@@ -451,18 +454,18 @@
 <hr>
 <h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="SpringBootApplication"></a>SpringBootApplication</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
+<hr>
+<hr>
 <h2 id="yaml"><a href="#yaml" class="headerlink" title="yaml"></a>yaml</h2><img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p3.jpg" style="zoom: 80%;" />
 
 <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
-<p>YAML是一个可读性高，用来表达资料序列化的格式。YAML参考了其他多种语言，包括：C语言、Python、Perl，并从XML、电子邮件的数据格式（RFC 2822）中获得灵感。Clark Evans在2001年首次发表了这种语言。</p>
-<p>YAML是<code>YAML Ain&#39;t a Markup Language</code>（YAML不是一种标记语言）的递归缩写。开发该语言时YAML其实是<code>Yet Another Markup Language</code>（仍是一种标记语言），但为了强调这种语言以数据为中心，而不是以标记语言为重点，而用反向缩略语重命名。</p>
-<p>YAML的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等资料形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。尽管它比较适合用来表达层次结构式（hierarchical model）的数据结构，不过也有精致的语法可以表示关系性（relational model）的资料。巧妙避开各种封闭符号使得yaml易于上手，如：引号、各种括号等，这些符号在嵌套结构时会变得复杂而难以辨认。</p>
+<p>1.YAML是一个可读性高，用来表达资料序列化的格式。YAML参考了其他多种语言，包括：C语言、Python、Perl，并从XML、电子邮件的数据格式（RFC 2822）中获得灵感。Clark Evans在2001年首次发表了这种语言。</p>
+<p>2.YAML是<code>YAML Ain&#39;t a Markup Language</code>（YAML不是一种标记语言）的递归缩写。开发该语言时YAML其实是<code>Yet Another Markup Language</code>（仍是一种标记语言），但为了强调这种语言以数据为中心，而不是以标记语言为重点，而用反向缩略语重命名。</p>
+<p>3.YAML的语法和其他高级语言类似，并且可以简单表达清单、散列表，标量等资料形态。它使用空白符号缩进和大量依赖外观的特色，特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和YAML非常接近）。尽管它比较适合用来表达层次结构式（hierarchical model）的数据结构，不过也有精致的语法可以表示关系性（relational model）的资料。巧妙避开各种封闭符号使得yaml易于上手，如：引号、各种括号等，这些符号在嵌套结构时会变得复杂而难以辨认。</p>
+<p>4.YAML 的配置文件后缀为 <strong>.yml</strong>。</p>
 </blockquote>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/SpringBoot/p10.png" style="zoom: 80%;" />
 
-<p>YAML 的配置文件后缀为 <strong>.yml</strong>，如：<strong>runoob.yml</strong> 。</p>
 <h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
 <li>大小写敏感</li>
 <li>使用缩进表示层级关系</li>
@@ -471,8 +474,7 @@
 <li>‘#’表示注释</li>
 </ul>
 <hr>
-<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>YAML 支持以下几种数据类型：</p>
-<ul>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
 <li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
 <li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
 <li>纯量（scalars）：单个的、不可再分的值</li>
@@ -483,56 +485,56 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> </span><br><span class="line">    <span class="attr">child-key:</span> <span class="string">value</span></span><br><span class="line">    <span class="attr">child-key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
 
 <p>较为复杂的对象格式，可以使用问号加一个空格代表一个复杂的 key，配合一个冒号加一个空格代表一个 value：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">?  </span><br><span class="line"><span class="bullet">    -</span> complexkey1</span><br><span class="line"><span class="bullet">    -</span> complexkey2</span><br><span class="line">:</span><br><span class="line"><span class="bullet">    -</span> complexvalue1</span><br><span class="line"><span class="bullet">    -</span> complexvalue2</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对象的属性是一个数组 [complexkey1,complexkey2]，对应的值也是一个数组 [complexvalue1,complexvalue2]</span></span><br><span class="line"><span class="string">?</span>  </span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey2</span></span><br><span class="line"><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue2</span></span><br></pre></td></tr></table></figure>
 
-<p>意思即对象的属性是一个数组 [complexkey1,complexkey2]，对应的值也是一个数组 [complexvalue1,complexvalue2]</p>
 <h3 id="YAML-数组"><a href="#YAML-数组" class="headerlink" title="YAML 数组"></a>YAML 数组</h3><p>以 <strong>-</strong> 开头的行表示构成一个数组：</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>A</span><br><span class="line"><span class="bullet">- </span>B</span><br><span class="line"><span class="bullet">- </span>C</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
 
 <p>YAML 支持多维数组，可以使用行内表示：</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">key</span>:<span class="meta"> [value1, value2, ...]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> [<span class="string">value1</span>, <span class="string">value2</span>, <span class="string">...</span>]</span><br></pre></td></tr></table></figure>
 
 <p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"></span></span><br><span class="line"><span class="ruby"></span> -<span class="ruby"> A</span></span><br><span class="line"><span class="ruby"></span> -<span class="ruby"> B</span></span><br><span class="line"><span class="ruby"></span> -<span class="ruby"> C</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
 
-<p>一个相对复杂的例子：</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">companies:</span></span><br><span class="line">    -</span><br><span class="line"><span class="symbol">        id:</span> <span class="number">1</span></span><br><span class="line"><span class="symbol">        name:</span> company1</span><br><span class="line"><span class="symbol">        price:</span> <span class="number">200</span>W</span><br><span class="line">    -</span><br><span class="line"><span class="symbol">        id:</span> <span class="number">2</span></span><br><span class="line"><span class="symbol">        name:</span> company2</span><br><span class="line"><span class="symbol">        price:</span> <span class="number">500</span>W</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># companies 属性是一个数组，每一个数组元素又是由 id、name、price 三个属性构成。</span></span><br><span class="line"><span class="attr">companies:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company1</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">200W</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company2</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">500W</span></span><br></pre></td></tr></table></figure>
 
-<p>意思是 companies 属性是一个数组，每一个数组元素又是由 id、name、price 三个属性构成。</p>
-<p>数组也可以使用流式(flow)的方式表示：</p>
+<p>数组可使用流式(flow)的方式表示：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">companies:</span> [&#123;<span class="attr">id:</span> <span class="number">1</span>,<span class="attr">name:</span> <span class="string">company1</span>,<span class="attr">price:</span> <span class="string">200W</span>&#125;,&#123;<span class="attr">id:</span> <span class="number">2</span>,<span class="attr">name:</span> <span class="string">company2</span>,<span class="attr">price:</span> <span class="string">500W</span>&#125;]</span><br></pre></td></tr></table></figure>
 
 <h3 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h3><p>数组和对象可以构成复合结构，例：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">language</span><span class="variable">s:</span></span><br><span class="line">  - Ruby</span><br><span class="line">  - Perl</span><br><span class="line">  - Python </span><br><span class="line">website<span class="variable">s:</span></span><br><span class="line">  YAML: yaml.org </span><br><span class="line">  Ruby: <span class="keyword">ruby</span>-lang.org </span><br><span class="line">  Python: <span class="keyword">python</span>.org </span><br><span class="line">  Per<span class="variable">l:</span> use.<span class="keyword">perl</span>.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ruby</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Perl</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span> </span><br><span class="line"><span class="attr">websites:</span></span><br><span class="line">  <span class="attr">YAML:</span> <span class="string">yaml.org</span> </span><br><span class="line">  <span class="attr">Ruby:</span> <span class="string">ruby-lang.org</span> </span><br><span class="line">  <span class="attr">Python:</span> <span class="string">python.org</span> </span><br><span class="line">  <span class="attr">Perl:</span> <span class="string">use.perl.org</span></span><br></pre></td></tr></table></figure>
 
 <p>转换为 json 为：</p>
-<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  languages: [ <span class="symbol">&#x27;Ruby&#x27;</span>, <span class="symbol">&#x27;Perl&#x27;</span>, <span class="symbol">&#x27;Python&#x27;</span>],</span><br><span class="line">  websites: &#123;</span><br><span class="line">    <span class="type">YAML</span>: <span class="symbol">&#x27;yaml</span>.org&#x27;,</span><br><span class="line">    <span class="type">Ruby</span>: <span class="symbol">&#x27;ruby</span>-lang.org&#x27;,</span><br><span class="line">    <span class="type">Python</span>: <span class="symbol">&#x27;python</span>.org&#x27;,</span><br><span class="line">    <span class="type">Perl</span>: <span class="symbol">&#x27;use</span>.perl.org&#x27; </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  languages: [ &#x27;Ruby&#x27;, &#x27;Perl&#x27;, &#x27;Python&#x27;],</span><br><span class="line">  websites: &#123;</span><br><span class="line">    YAML: &#x27;yaml.org&#x27;,</span><br><span class="line">    Ruby: &#x27;ruby-lang.org&#x27;,</span><br><span class="line">    Python: &#x27;python.org&#x27;,</span><br><span class="line">    Perl: &#x27;use.perl.org&#x27; </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="纯量"><a href="#纯量" class="headerlink" title="纯量"></a>纯量</h3><p>纯量是最基本的，不可再分的值，包括：</p>
 <ul>
-<li>字符串</li>
-<li>布尔值</li>
-<li>整数</li>
-<li>浮点数</li>
-<li>Null</li>
-<li>时间</li>
-<li>日期</li>
+<li><strong>字符串</strong></li>
+<li><strong>布尔值</strong></li>
+<li><strong>整数</strong></li>
+<li><strong>浮点数</strong></li>
+<li><strong>Null</strong></li>
+<li><strong>时间</strong></li>
+<li><strong>日期</strong></li>
 </ul>
-<p>使用一个例子来快速了解纯量的基本使用：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">boolean:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="literal">TRUE</span>  <span class="comment">#true,True都可以</span></span><br><span class="line">    <span class="bullet">-</span> <span class="literal">FALSE</span>  <span class="comment">#false，False都可以</span></span><br><span class="line"><span class="attr">float:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.14</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">6.8523015e+5</span>  <span class="comment">#可以使用科学计数法</span></span><br><span class="line"><span class="attr">int:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">123</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">0b1010_0111_0100_1010_1110</span>    <span class="comment">#二进制表示</span></span><br><span class="line"><span class="attr">null:</span></span><br><span class="line">    <span class="attr">nodeName:</span> <span class="string">&#x27;node&#x27;</span></span><br><span class="line">    <span class="attr">parent:</span> <span class="string">~</span>  <span class="comment">#使用~表示null</span></span><br><span class="line"><span class="attr">string:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">哈哈</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;Hello world&#x27;</span>  <span class="comment">#可以使用双引号或者单引号包裹特殊字符</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">newline</span></span><br><span class="line">      <span class="string">newline2</span>    <span class="comment">#字符串可以拆成多行，每一行会被转化成一个空格</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">2018-02-17</span>    <span class="comment">#日期必须使用ISO 8601格式，即yyyy-MM-dd</span></span><br><span class="line"><span class="attr">datetime:</span> </span><br><span class="line">    <span class="bullet">-</span>  <span class="number">2018-02-17T15:02:31+08:00</span>    <span class="comment">#时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><strong>&amp;</strong> 锚点和 ***** 别名，可以用来引用:</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">defaults: &amp;defaults</span><br><span class="line">  adapter:  postgres</span><br><span class="line">  host:     localhost</span><br><span class="line"></span><br><span class="line">development:</span><br><span class="line">  database: myapp_development</span><br><span class="line">  &lt;&lt;: *defaults</span><br><span class="line"></span><br><span class="line"><span class="keyword">test:</span></span><br><span class="line"><span class="keyword">  </span>database: myapp_test</span><br><span class="line">  &lt;&lt;: *defaults</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
 
-<p>相当于:</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">defaults:</span></span><br><span class="line"><span class="symbol">  adapter:</span>  postgres</span><br><span class="line"><span class="symbol">  host:</span>     localhost</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">development:</span></span><br><span class="line"><span class="symbol">  database:</span> myapp_development</span><br><span class="line"><span class="symbol">  adapter:</span>  postgres</span><br><span class="line"><span class="symbol">  host:</span>     localhost</span><br><span class="line"><span class="symbol"></span></span><br><span class="line"><span class="symbol">test:</span></span><br><span class="line"><span class="symbol">  database:</span> myapp_test</span><br><span class="line"><span class="symbol">  adapter:</span>  postgres</span><br><span class="line"><span class="symbol">  host:</span>     localhost</span><br></pre></td></tr></table></figure>
+<p>相当于</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br></pre></td></tr></table></figure>
 
+<blockquote>
 <p><strong>&amp;</strong> 用来建立锚点（defaults），**&lt;&lt;** 表示合并到当前数据，***** 用来引用锚点。</p>
-<p>下面是另一个例子:</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>&amp;showell Steve </span><br><span class="line"><span class="bullet">- </span>Clark </span><br><span class="line"><span class="bullet">- </span>Brian </span><br><span class="line"><span class="bullet">- </span>Oren </span><br><span class="line"><span class="bullet">- </span>*showell </span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&amp;showell</span> <span class="string">Steve</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Clark</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Brian</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">Oren</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">*showell</span> </span><br></pre></td></tr></table></figure>
 
-<p>转为 JavaScript 代码如下:</p>
-<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="symbol">&#x27;Steve</span>&#x27;, <span class="symbol">&#x27;Clark</span>&#x27;, <span class="symbol">&#x27;Brian</span>&#x27;, <span class="symbol">&#x27;Oren</span>&#x27;, <span class="symbol">&#x27;Steve</span>&#x27; ]</span><br></pre></td></tr></table></figure>
+<p>转为 JavaScript 代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ <span class="string">&#x27;Steve&#x27;</span>, <span class="string">&#x27;Clark&#x27;</span>, <span class="string">&#x27;Brian&#x27;</span>, <span class="string">&#x27;Oren&#x27;</span>, <span class="string">&#x27;Steve&#x27;</span> ]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
 
     </div>
 
