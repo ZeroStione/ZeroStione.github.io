@@ -20,17 +20,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zerostione.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="Thymeleaf是一个Java XML&#x2F;XHTML&#x2F;HTML5开源的模板引擎，可以在Web(基于servlet)和非Web环境中工作，适合在基于MVC的Web应用程序的视图层提供XHTML&#x2F;HTML5，也可以在脱机环境中处理任何XML文件，提供完整的Spring Framework(Spring&#x2F;SpringBoot推荐使用thymeleaf)。在Web应用程序中，Thymeleaf旨在成为Ja">
+<meta name="description" content="Thymeleaf是一个Java XML&#x2F;XHTML&#x2F;HTML5开源的模板引擎，可以在Web(基于servlet)和非Web环境中工作，适合在基于MVC的Web应用程序的视图层提供XHTML&#x2F;HTML5，也可以在脱机环境中处理任何XML文件，提供完整的Spring Framework。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Thymeleaf学习">
 <meta property="og:url" content="https://zerostione.github.io/2021/12/08/Thymeleaf%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Zero">
-<meta property="og:description" content="Thymeleaf是一个Java XML&#x2F;XHTML&#x2F;HTML5开源的模板引擎，可以在Web(基于servlet)和非Web环境中工作，适合在基于MVC的Web应用程序的视图层提供XHTML&#x2F;HTML5，也可以在脱机环境中处理任何XML文件，提供完整的Spring Framework(Spring&#x2F;SpringBoot推荐使用thymeleaf)。在Web应用程序中，Thymeleaf旨在成为Ja">
+<meta property="og:description" content="Thymeleaf是一个Java XML&#x2F;XHTML&#x2F;HTML5开源的模板引擎，可以在Web(基于servlet)和非Web环境中工作，适合在基于MVC的Web应用程序的视图层提供XHTML&#x2F;HTML5，也可以在脱机环境中处理任何XML文件，提供完整的Spring Framework。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p1.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p3.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p4.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p2.png">
 <meta property="article:published_time" content="2021-12-07T16:13:10.000Z">
-<meta property="article:modified_time" content="2022-03-17T11:42:17.216Z">
+<meta property="article:modified_time" content="2022-03-18T12:18:36.138Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="编程,技术">
 <meta name="twitter:card" content="summary">
@@ -125,7 +127,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thymeleaf"><span class="nav-number">1.</span> <span class="nav-text">Thymeleaf</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thymeleaf-Spring"><span class="nav-number">2.</span> <span class="nav-text">Thymeleaf+Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringStandard%E6%96%B9%E8%A8%80"><span class="nav-number">2.1.</span> <span class="nav-text">SpringStandard方言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View%E5%92%8CView-Resolvers"><span class="nav-number">2.2.</span> <span class="nav-text">View和View Resolvers</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thymeleaf"><span class="nav-number">1.</span> <span class="nav-text">Thymeleaf</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">1.1.</span> <span class="nav-text">模板引擎</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Thymeleaf-Spring"><span class="nav-number">2.</span> <span class="nav-text">Thymeleaf Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#View"><span class="nav-number">2.1.</span> <span class="nav-text">View</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo"><span class="nav-number">2.2.</span> <span class="nav-text">Demo</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -221,7 +223,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-03-17 19:42:17" itemprop="dateModified" datetime="2022-03-17T19:42:17+08:00">2022-03-17</time>
+        <time title="修改时间：2022-03-18 20:18:36" itemprop="dateModified" datetime="2022-03-18T20:18:36+08:00">2022-03-18</time>
       </span>
 
   
@@ -234,7 +236,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Thymeleaf是一个Java XML/XHTML/HTML5开源的<strong>模板引擎</strong>，可以在Web(基于servlet)和非Web环境中工作，适合在基于MVC的Web应用程序的视图层提供XHTML/HTML5，也可以在脱机环境中处理任何XML文件，提供完整的Spring Framework(Spring/SpringBoot推荐使用thymeleaf)。在Web应用程序中，Thymeleaf旨在成为JavaServer Pages（JSP）的完全替代品，并实现自然模板的概念：模板文件可以直接在浏览器中打开，并且仍然可以正确显示为网页。</p>
+        <p>Thymeleaf是一个Java XML/XHTML/HTML5开源的<strong>模板引擎</strong>，可以在Web(基于servlet)和非Web环境中工作，适合在基于MVC的Web应用程序的视图层提供XHTML/HTML5，也可以在脱机环境中处理任何XML文件，提供完整的Spring Framework。</p>
 <img src="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p1.png"  />
 
 <span id="more"></span>
@@ -242,7 +244,7 @@
 <h1 id="Thymeleaf"><a href="#Thymeleaf" class="headerlink" title="Thymeleaf"></a>Thymeleaf</h1><p><a target="_blank" rel="noopener" href="https://www.thymeleaf.org/">Thymeleaf</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.thymeleaf.org/documentation.html">Docs</a></p>
 <blockquote>
-<p>1.Thymeleaf 是一个模板引擎,可用于生成用户界面或 View 视图层,以 XHTML 或 HTML 形式( Web 框架: <em>Spring MVC</em>、<em>Struts</em>或<em>Apache Wicket</em>，模板引擎:<em>JSP</em>、<em>Velocity</em>或 <em>FreeMarker</em>)</p>
+<p>1.Thymeleaf 是一个模板引擎,可用于生成用户界面或 View 视图层,以 XHTML 或 HTML 形式( Web 框架: <em>Spring MVC</em>、<em>Struts</em>或<em>Apache Wicket</em>，模板引擎:<em>JSP</em>、<em>Velocity</em>或 <em>FreeMarker</em>)。在Web应用程序中，Thymeleaf旨在成为JavaServer Pages（JSP）的完全替代品，并实现自然模板的概念：模板文件可以直接在浏览器中打开，并且仍然可以正确显示为网页，Spring/SpringBoot推荐使用thymeleaf。</p>
 <p>2.Thymeleaf 处理模板类型</p>
 <ul>
 <li>HTML (HTML5, XHTML 1.0/1.1, HTML 4)</li>
@@ -254,7 +256,23 @@
 <p>3.使用Thymeleaf可以完全替代 JSP 和 JSTL。</p>
 </blockquote>
 <hr>
-<h1 id="Thymeleaf-Spring"><a href="#Thymeleaf-Spring" class="headerlink" title="Thymeleaf+Spring"></a>Thymeleaf+Spring</h1><img src="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p2.png"  />
+<h2 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h2><blockquote>
+<p>模板引擎是为了使用户界面与业务数据（内容）分离而产生的，它可以生成特定格式的文档，用于网站的模板引擎就会生成一个标准的HTML文档。</p>
+<ul>
+<li><p>置换型模板引擎(将指定模板内容（字符串）中的特定标记（子字符串）替换,实现简单，但其效率低下，无法满足高负载的应用需求)</p>
+</li>
+<li><p>解释型模板引擎</p>
+</li>
+<li><p>编译型模板引擎</p>
+</li>
+</ul>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p3.png" style="zoom:80%;" />
+
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p4.png" style="zoom:80%;" />
+
+<hr>
+<h1 id="Thymeleaf-Spring"><a href="#Thymeleaf-Spring" class="headerlink" title="Thymeleaf Spring"></a>Thymeleaf Spring</h1><img src="https://zerostione.github.io/ImageUp//Image/Blog/Thymeleaf/p2.png" style="zoom:80%;" />
 
 <blockquote>
 <ul>
@@ -265,26 +283,11 @@
 <li>Resolve your templates using Spring’s own resource resolution mechanisms.</li>
 </ul>
 </blockquote>
-<hr>
-<h2 id="SpringStandard方言"><a href="#SpringStandard方言" class="headerlink" title="SpringStandard方言"></a>SpringStandard方言</h2><blockquote>
-<p>该方言基于Thymeleaf标准方言,<code>org.thymeleaf.spring5.dialect.SpringStandardDialect</code>类继承自 <code>org.thymeleaf.standard.StandardDialect </code>类.</p>
-<p>除了继承标准方言中已经存在的所有特性外，SpringStandard方言还引入了以下特定特性：</p>
-<ul>
-<li><p>使用 Spring Expression Language（Spring EL或SpEL）作为变量表达式语言，而非OGNL。因此，所有<code>$&#123;...&#125;</code>和<code>*&#123;...&#125;</code>表达式将用Spring Expression Language engine处理。</p>
-</li>
-<li><p>使用SpringEL的语法可访问应用context上下文中的bean。 <code>$&#123;@myBean.doSomething()&#125;</code></p>
-</li>
-<li><p>用于表单处理的新属性:<code>th:field</code>、<code>th:errors</code>和<code>th:errorclass</code>。</p>
-</li>
-<li><p>新的表达式对象和方法:<code>#themes.code(...)</code>相当于JSP自定义标记中的<code>spring:theme</code>,<code>#mvc.uri(...)</code>相当于JSP自定义函数的<code>spring:mvcUrl(...)</code>。</p>
-</li>
-</ul>
-</blockquote>
 <p>对应SpringMVC xml配置:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- SpringResourceTemplateResolver automatically integrates with Spring&#x27;s own --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- resource resolution infrastructure, which is highly recommended.          --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--1.模板解析器--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;templateResolver&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;prefix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/templates/&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.html&quot;</span> /&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- HTML is the default value, added here for the sake of clarity.          --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateMode&quot;</span> <span class="attr">value</span>=<span class="string">&quot;HTML&quot;</span> /&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Template cache is true by default. Set to false if you want             --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- templates to be automatically updated when modified.                    --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;cacheable&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">&lt;!-- SpringTemplateEngine automatically applies SpringStandardDialect and      --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- enables Spring&#x27;s own MessageSource message resolution mechanisms.         --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--2.模板引擎--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;templateEngine&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring4.SpringTemplateEngine&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateResolver&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;templateResolver&quot;</span> /&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Enabling the SpringEL compiler with Spring 4.2.4 or newer can speed up  --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- execution in most scenarios, but might be incompatible with specific    --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- cases when expressions in one template are reused across different data --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- types, so this flag is &quot;false&quot; by default for safer backwards            --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- compatibility.                                                          --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;enableSpringELCompiler&quot;</span> <span class="attr">value</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="View和View-Resolvers"><a href="#View和View-Resolvers" class="headerlink" title="View和View Resolvers"></a>View和View Resolvers</h2><blockquote>
-<p>1.SpringMVVC模板系统有两个核心接口：</p>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><blockquote>
+<p>1.SpringMVC模板系统有两个核心接口：</p>
 <ul>
 <li>org.springframework.web.servlet.View</li>
 <li>org.springframework.web.servlet.ViewResolver</li>
@@ -308,11 +311,9 @@
 
 <blockquote>
 <p>1.<code>templateEngine</code>参数就是之前定义的<code>SpringTemplateEngine</code>对象。<code>order</code>和<code>viewNames</code>都是可选的参数，与JSP ViewResolver 中的含义相同。</p>
-<p>2.不需要<code>prefix</code>或者<code>suffix</code>参数，因为已经在模板解析器中(templateResolver)指定，并会传递到模板引擎(templateEngine)中 <code>&lt;property name=&quot;templateResolver&quot; ref=&quot;templateResolver&quot; /&gt;   </code>。</p>
+<p>2.不需要<code>prefix</code>或者<code>suffix</code>参数，因为已经在模板解析器中(templateResolver)指定，并会传递到模板引擎(templateEngine)中 <code>&lt;property name=&quot;templateResolver&quot; ref=&quot;templateResolver&quot; /&gt;   </code>。<strong>Demo</strong></p>
 </blockquote>
-<hr>
-<p><strong>Demo</strong></p>
-<p>1.Maven导入依赖(pom.xml)</p>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>1.Maven导入依赖(pom.xml)</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>Spring-Thymleaf2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.11.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>2.Tomcat配置文件(web.xml)</p>
