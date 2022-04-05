@@ -37,13 +37,14 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p8.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p4.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p2.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/nginx/p5.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p9.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p10.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p11.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p3.jpg">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/ECS/p12.png">
 <meta property="article:published_time" content="2022-03-12T15:20:10.000Z">
-<meta property="article:modified_time" content="2022-04-03T06:57:34.189Z">
+<meta property="article:modified_time" content="2022-04-04T15:40:42.378Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Server">
 <meta name="twitter:card" content="summary">
@@ -234,7 +235,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-04-03 14:57:34" itemprop="dateModified" datetime="2022-04-03T14:57:34+08:00">2022-04-03</time>
+        <time title="修改时间：2022-04-04 23:40:42" itemprop="dateModified" datetime="2022-04-04T23:40:42+08:00">2022-04-04</time>
       </span>
 
   
@@ -358,6 +359,50 @@
 <p>You should add your website content to the directory <code>/var/www/html/</code>.</p>
 <p>To prevent this page from ever being used, follow the instructions in the file <code>/etc/httpd/conf.d/welcome.conf</code>.</p>
 </blockquote>
+<hr>
+<p>2.Nginx</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog2/nginx/p5.png" style="zoom: 80%;" />
+
+<p>1.yum</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载nginx rpm包</span></span><br><span class="line">wget https://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br><span class="line"><span class="comment"># 建立nginx yum仓库</span></span><br><span class="line"> rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm</span><br><span class="line"><span class="comment"># 查看nginx信息</span></span><br><span class="line">yum info nginx</span><br><span class="line"><span class="comment"># 查看yum源仓库中nginx版本</span></span><br><span class="line">yum --showduplicates list nginx | expand</span><br><span class="line"><span class="comment"># 安装nginx</span></span><br><span class="line">yum install nginx</span><br></pre></td></tr></table></figure>
+
+<p>2.源码编译</p>
+<ul>
+<li>下载编译环境</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gcc环境</span></span><br><span class="line">yum -y install gcc gcc-c++ autoconf automake make</span><br><span class="line"><span class="comment"># pcre nginx支持重写功能</span></span><br><span class="line">yum -y install pcre pcre-devel</span><br><span class="line"><span class="comment"># zlib</span></span><br><span class="line">yum -y install zlib zlib-devel make libtool</span><br><span class="line"><span class="comment"># openssl 安全套接字层密码库</span></span><br><span class="line">yum -y install openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建用户和用户组</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">groupadd nginx</span><br><span class="line">useradd nginx -g nginx -s /sbin/nologin -M</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>下载nginx源码</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nginx.org/download/nginx-1.21.6.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解压</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.21.6.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> nginx-1.21.6</span><br><span class="line"><span class="comment"># 检查平台安装环境</span></span><br><span class="line">./configure  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<hr>
 <hr>
 <h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><p>1.<a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/#java8">Java Downloads</a>(<code>x64 Compressed Archive</code>)</p>
 <p>2.创建<code>/usr/java</code>目录，通过XFTP将<code>jdk-8u321-linux-x64.tar.gz</code>移至该目录</p>
