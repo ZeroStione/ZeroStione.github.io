@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7CRoboto+Slab:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerostione.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Docker是一个开放源代码软件，是一个开放平台，用于开发、交付（shipping）、运行应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker入门">
+<meta property="og:url" content="https://zerostione.github.io/2022/04/06/Docker%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Zero">
+<meta property="og:description" content="Docker是一个开放源代码软件，是一个开放平台，用于开发、交付（shipping）、运行应用。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/Docker/p2.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/Docker/p1.jpg">
+<meta property="article:published_time" content="2022-04-06T08:41:14.000Z">
+<meta property="article:modified_time" content="2022-04-06T12:09:29.372Z">
+<meta property="article:author" content="Zero">
+<meta property="article:tag" content="编程,技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/Docker/p2.png">
+
+
+<link rel="canonical" href="https://zerostione.github.io/2022/04/06/Docker%E5%85%A5%E9%97%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zerostione.github.io/2022/04/06/Docker%E5%85%A5%E9%97%A8/","path":"2022/04/06/Docker入门/","title":"Docker入门"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docker入门 | Zero</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zero</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">发现未知，探索未知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">镜像安装</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zero"
+      src="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
+  <p class="site-author-name" itemprop="name">Zero</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zerostione.github.io/2022/04/06/Docker%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-06 16:41:14 / 修改时间：20:09:29" itemprop="dateCreated datePublished" datetime="2022-04-06T16:41:14+08:00">2022-04-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>Docker</strong>是一个开放源代码软件，是一个开放平台，用于开发、交付（shipping）、运行应用。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog2/Docker/p2.png" style="zoom: 33%;" />
+
+<span id="more"></span>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a target="_blank" rel="noopener" href="https://www.docker.com/">Docker</a></p>
+<blockquote>
+<p>Docker允许用户将基础设施（Infrastructure）中的应用单独分割出来，形成更小的颗粒（容器），从而提高交付软件的速度。</p>
+<p>Docker容器与虚拟机类似，但二者在原理上不同。容器是将操作系统层虚拟化，虚拟机则是虚拟化硬件，因此容器更具有便携性、高效地利用服务器。容器更多的用于表示 软件的一个标准化单元。由于容器的标准化，因此它可以无视基础设施（Infrastructure）的差异，部署到任何一个地方。另外，Docker也为容器提供更强的业界的隔离兼容。</p>
+<p>Docker 利用Linux核心中的资源分离机制，例如cgroups，以及Linux核心名字空间（namespaces），来创建独立的容器（containers）。这可以在单一Linux实体下运作，避免启动一个虚拟机造成的额外负担。</p>
+<p>Linux核心对名字空间的支持完全隔离了工作环境中应用程序的视野，包括行程树、网络、用户ID与挂载文件系统，而核心的cgroup提供资源隔离，包括CPU、存储器、block I/O与网络。从0.9版本起，Dockers在使用抽象虚拟是经由libvirt的LXC与systemd - nspawn提供界面的基础上，开始包括libcontainer库做为以自己的方式开始直接使用由Linux核心提供的虚拟化的设施。</p>
+</blockquote>
+<hr>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog2/Docker/p1.jpg" style="zoom: 80%;" />
+
+<blockquote>
+<p>1.Docker：</p>
+<ul>
+<li>Docker项目</li>
+<li>Docker引擎:Docker引擎(Docker Engine)是一个服务端-客户端结构的应用，主要有这些部分：Docker守护进程、Docker Engine API、Docker客户端。<ul>
+<li>Docker守护进程(Docker daemons)，也叫 dockerd ，是一个持久化的进程，用户管理容器。守护进程会监听Docker Engine API 的请求。</li>
+<li>Docker Engine API是用于与Docker守护进程交互用的的API。它是一个RESTful API，因此它不仅可以被Docker客户端调用，也可以被wget 和 curl等命令调用。</li>
+<li>Docker客户端，也叫docker，是大部分用户与Docker交互的主要方式。用户通过客户端将命令发送给守护进程。命令会遵循Docker Engine API。</li>
+</ul>
+</li>
+</ul>
+<p>2.Docker注册中心<br>    Docker注册中心(Docker registry)是用于存储Docker的镜像。Docker Hub 是一个公共的注册中心，任何人都可以使用，默认配置下，Docker将会在这里寻找镜像。另外，用户可以自行构建私有注册中心。Docker Datacenter (DDC)的用户，可以直接使用 Docker Trusted Registry (DTR)。</p>
+<p>3.对象<br>Docker的对象是指Images、Containers、Networks、Volumes、Plugins等等。</p>
+<ul>
+<li><strong>容器（Containers）是镜像的可运行的实例</strong>。容器可通过API或CLI（命令行）进行操控。</li>
+<li><strong>镜像（Images）是一个只读模板，用于指示创建容器。镜像分层(layers)构建的，而定义这些层次的文件叫Dockerfile</strong>。</li>
+<li>服务（Services）允许用户跨越不同的Docker守护进程（Docker daemons）的情况下增加容器，并将这些容器分为管理者（managers）和工作者（workers），让他们为swarm共同工作。</li>
+</ul>
+</blockquote>
+<hr>
+<blockquote>
+<p>Docker是一个应用打包（将应用运行需要的依赖、第三方库、应用打包到一起）、分发（将”安装包（Docker镜像）”上传至镜像仓库便于他人获取和安装）、部署（可以使用命令运行应用，模拟出相同的运行环境）的工具。</p>
+<p>用途:</p>
+<ul>
+<li>应用分发和部署</li>
+<li>快速测试和学习相关技术，无需关注软件的环境搭建</li>
+<li>软件版本共存</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">特性</th>
+<th align="center">虚拟机</th>
+<th align="center">Docker</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">启动</td>
+<td align="center">慢（启动操作系统）</td>
+<td align="center">快(进程)</td>
+</tr>
+<tr>
+<td align="center">性能</td>
+<td align="center">弱于</td>
+<td align="center">接近原生</td>
+</tr>
+<tr>
+<td align="center">自动化</td>
+<td align="center">手动安装</td>
+<td align="center">命令直接部署环境</td>
+</tr>
+<tr>
+<td align="center">系统支持量</td>
+<td align="center">一般是几十个</td>
+<td align="center">单机支持上千个容器</td>
+</tr>
+<tr>
+<td align="center">资源占用</td>
+<td align="center">较高</td>
+<td align="center">很少</td>
+</tr>
+<tr>
+<td align="center">安全性</td>
+<td align="center">较高</td>
+<td align="center">较弱</td>
+</tr>
+</tbody></table>
+<hr>
+<hr>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/windows/install/">Install Docker Desktop on Windows</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package">WSL的手动安装</a></p>
+<p>1.启用适用于Linux的Windows子系统</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows</span><span class="literal">-Subsystem</span><span class="literal">-Linux</span> /all /norestart</span><br></pre></td></tr></table></figure>
+
+<p>2.启用虚拟机功能</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+
+<p>3.下载Linux内核更新包</p>
+<p><a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">wsl</a></p>
+<p>4.将WSL2设置为默认版本</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-set</span><span class="literal">-default</span><span class="literal">-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>5.安装Linux分发</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="center">国内镜像源</th>
+<th align="center">国内镜像源地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Docker 中国官方镜像</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://registry.docker-cn.com/">https://registry.docker-cn.com</a></td>
+</tr>
+<tr>
+<td align="center">DaoCloud 镜像站</td>
+<td align="center"><a target="_blank" rel="noopener" href="http://f1361db2.m.daocloud.io/">http://f1361db2.m.daocloud.io</a></td>
+</tr>
+<tr>
+<td align="center">Azure 中国镜像</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://dockerhub.azk8s.cn/">https://dockerhub.azk8s.cn</a></td>
+</tr>
+<tr>
+<td align="center">中科大镜像站</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://docker.mirrors.ustc.edu.cn/">https://docker.mirrors.ustc.edu.cn</a></td>
+</tr>
+<tr>
+<td align="center">阿里云</td>
+<td align="center">https://<your_code>.mirror.aliyuncs.com</td>
+</tr>
+<tr>
+<td align="center">七牛云</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://reg-mirror.qiniu.com/">https://reg-mirror.qiniu.com</a></td>
+</tr>
+<tr>
+<td align="center">网易云</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://hub-mirror.c.163.com/">https://hub-mirror.c.163.com</a></td>
+</tr>
+<tr>
+<td align="center">腾讯云</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://mirror.ccs.tencentyun.com/">https://mirror.ccs.tencentyun.com</a></td>
+</tr>
+</tbody></table>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;registry-mirrors&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;https://docker.mirrors.ustc.edu.cn&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://registry.docker-cn.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://mirror.ccs.tencentyun.com&quot;</span></span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Settings-&gt;Docker Engine</p>
+</blockquote>
+<hr>
+<h2 id="镜像安装"><a href="#镜像安装" class="headerlink" title="镜像安装"></a>镜像安装</h2><p><a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker Hub Container Image Library</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/docker/">Docker Documentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/">Docker从入门到实践</a></p>
+<p>1.<a href="">Redis</a></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="literal">-d</span> <span class="literal">-p</span> <span class="number">6379</span>:<span class="number">6379</span> -<span class="literal">-name</span> redis redis:latest</span><br></pre></td></tr></table></figure>
+
+<p>2.[WordPress](<a target="_blank" rel="noopener" href="https://registry.hub.docker.com/_/wordpress">Wordpress - Official Image | Docker Hub</a>)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-co</span></span><br><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.1&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">wordpress:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">wordpress</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">8080</span><span class="string">:80</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_HOST:</span> <span class="string">db</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_USER:</span> <span class="string">exampleuser</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_PASSWORD:</span> <span class="string">examplepass</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_NAME:</span> <span class="string">exampledb</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">wordpress:/var/www/html</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:5.7</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">exampledb</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">exampleuser</span></span><br><span class="line">      <span class="attr">MYSQL_PASSWORD:</span> <span class="string">examplepass</span></span><br><span class="line">      <span class="attr">MYSQL_RANDOM_ROOT_PASSWORD:</span> <span class="string">&#x27;1&#x27;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db:/var/lib/mysql</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">wordpress:</span></span><br><span class="line">  <span class="attr">db:</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker<span class="literal">-compose</span> up <span class="literal">-d</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/04/Nginx%E5%AD%A6%E4%B9%A0/" rel="prev" title="Nginx学习">
+                  <i class="fa fa-chevron-left"></i> Nginx学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero</span>
+</div>
+ <!-- <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+  -->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
