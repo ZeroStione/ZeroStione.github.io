@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic%7CRoboto+Slab:300,300italic,400,400italic,700,700italic%7CPT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zerostione.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Redis是一个使用ANSI C编写的开源、支持网络、基于内存、分布式、可选持久性的键值对存储数据库。从2015年6月开始，Redis(Remote Dictionary Server,远程字典服务)的开发由Redis Labs赞助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis入门">
+<meta property="og:url" content="https://zerostione.github.io/2022/03/11/Redis%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Zero">
+<meta property="og:description" content="Redis是一个使用ANSI C编写的开源、支持网络、基于内存、分布式、可选持久性的键值对存储数据库。从2015年6月开始，Redis(Remote Dictionary Server,远程字典服务)的开发由Redis Labs赞助。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p2.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p8.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p6.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p5.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p4.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p9.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p3.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p1.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p11.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p12.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p13.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p14.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p15.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p16.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p17.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p18.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p19.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p20.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p21.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p22.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p23.png">
+<meta property="article:published_time" content="2022-03-11T05:34:40.000Z">
+<meta property="article:modified_time" content="2022-04-16T12:44:04.276Z">
+<meta property="article:author" content="Zero">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p2.png">
+
+
+<link rel="canonical" href="https://zerostione.github.io/2022/03/11/Redis%E5%85%A5%E9%97%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zerostione.github.io/2022/03/11/Redis%E5%85%A5%E9%97%A8/","path":"2022/03/11/Redis入门/","title":"Redis入门"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Redis入门 | Zero</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zero</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">发现未知，探索未知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL"><span class="nav-number">1.</span> <span class="nav-text">NoSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">2.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">2.3.</span> <span class="nav-text">性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-number">2.5.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-number">2.5.2.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-number">2.5.3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-number">2.5.4.</span> <span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Zset"><span class="nav-number">2.5.5.</span> <span class="nav-text">Zset</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.6.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-number">2.6.1.</span> <span class="nav-text">乐观锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jedis"><span class="nav-number">2.7.</span> <span class="nav-text">Jedis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E8%8C%83"><span class="nav-number">2.8.</span> <span class="nav-text">规范</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zero"
+      src="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
+  <p class="site-author-name" itemprop="name">Zero</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zerostione.github.io/2022/03/11/Redis%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zerostione.github.io/ImageUp//Image/Blog/Use/ue.jpg">
+      <meta itemprop="name" content="Zero">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zero">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-11 13:34:40" itemprop="dateCreated datePublished" datetime="2022-03-11T13:34:40+08:00">2022-03-11</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-04-16 20:44:04" itemprop="dateModified" datetime="2022-04-16T20:44:04+08:00">2022-04-16</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><strong>Redis</strong>是一个使用ANSI C编写的开源、支持网络、基于内存、分布式、可选持久性的键值对存储数据库。从2015年6月开始，Redis(Remote Dictionary Server,远程字典服务)的开发由Redis Labs赞助。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p2.png" style="zoom: 80%;" />
+
+<span id="more"></span>
+
+
+
+<h2 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h2><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p8.png" style="zoom:80%;" />
+
+<p>NoSQL（Non-SQL,Not only SQL），是对不同于传统的关系数据库的数据库管理系统的统称。</p>
+<p>允许部分资料使用SQL系统存储，而其他资料允许使用NOSQL系统存储。其数据存储可以不需要固定的表格模式以及元数据（metadata），也经常会避免使用SQL的JOIN操作，一般有水平可扩展性的特征。</p>
+<p>NOSQL一词最早出现于1998年，是Carlo Strozzi开发的一个轻量、开源、不提供SQL功能的关系数据库。</p>
+<p>2009年在亚特兰大举行的<code>no:sql(east)</code>讨论会是一个里程碑，其口号是<code>select fun, profit from real_world where relational=false;</code>。因此对NOSQL普遍解释是<code>非关联型的，强调键-值存储和面向文档数据库的优点，而不是单纯的反对RDBMS</code>。</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p6.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>常见的NoSQL数据库是MongoDB，Apache Cassandra和Redis。</p>
+</blockquote>
+<hr>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p5.png" style="zoom: 67%;" />
+
+<blockquote>
+<p>关系型数据库的典型实现主要被调整用于执行规模小而读写频繁，或者大批量读而极少写访问的事务，而非数据敏感的应用，如为巨量文档创建索引、高流量网站的网页服务，以及发送流式媒体。</p>
+<p>NOSQL的结构通常提供弱一致性的保证，如最终一致性，或交易仅限于单个的数据项。不过，有些系统，提供完整的ACID保证在某些情况下，增加了补充中间件层（如CloudTPS）。有两个成熟的系统有提供快照隔离的列存储：像是Google基于过滤器系统的BigTable，和滑铁卢大学开发的HBase。这些系统，自主开发，使用类似的概念来实现多行（multi-row）分布式ACID交易的快照隔离（snapshot isolation）保证为基础列存储，无需额外的资料管理开销，中间件系统部署或维护，减少了中间件层。</p>
+<p>少数NOSQL系统部署了分布式结构，通常使用分布式散列表（DHT）将数据以冗余方式保存在多台服务器上。依此，扩充系统时候添加服务器更容易，并且扩大了对服务器失效的承受能程度。</p>
+</blockquote>
+<hr>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p4.png" style="zoom: 67%;" />
+
+<ul>
+<li><p>文档存储</p>
+<ul>
+<li>BaseX</li>
+<li>CouchDB</li>
+<li>ElasticSearch</li>
+<li>eXist</li>
+<li>iBoxDB</li>
+<li>Jackrabbit</li>
+<li>Lotus Notes</li>
+<li>MarkLogic Server</li>
+<li>MongoDB</li>
+<li>No2DB</li>
+<li>OrientDB</li>
+<li>RethinkDB</li>
+<li>SimpleDB</li>
+<li>Terrastore</li>
+</ul>
+</li>
+<li><p>图数据库</p>
+<ul>
+<li>AllegroGraph</li>
+<li>Sparksee</li>
+<li>Neo4j</li>
+<li>FlockDB</li>
+<li>JanusGraph</li>
+</ul>
+</li>
+<li><p>键-值（key‐value）储存</p>
+<ul>
+<li><p>最终一致性的键-值储存</p>
+<ul>
+<li>Cassandra</li>
+<li>Dynamo</li>
+<li>Hibari</li>
+<li>Project Voldemort</li>
+<li>Riak</li>
+</ul>
+</li>
+<li><p>架构性键-值储存</p>
+<ul>
+<li>GT.M</li>
+<li>InterSystem Globals</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>主机式服务</p>
+<ul>
+<li>Key/value硬盘存储<ul>
+<li>BigTable</li>
+<li>MemcacheDB</li>
+<li>LevelDB</li>
+<li>Tokyo Cabinet</li>
+<li>Tuple space</li>
+<li>TreapDB</li>
+</ul>
+</li>
+<li>Key/value RAM存储<ul>
+<li>Oracle Coherence</li>
+<li>memcached</li>
+<li>Citrusleaf database</li>
+<li>Velocity (memory cache)</li>
+<li>Redis</li>
+<li>Tuple space</li>
+</ul>
+</li>
+<li>Key-value基于Paxos算法的存储<ul>
+<li>Keyspace (data store)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>多数据库</p>
+<ul>
+<li>OpenQM</li>
+<li>Rocket U2</li>
+<li>Revelation Software’s OpenInsight</li>
+<li>Extensible Storage Engine（ESE/NT）</li>
+</ul>
+</li>
+<li><p>时序型数据库</p>
+<ul>
+<li>Graphite</li>
+<li>InfluxDB</li>
+<li>Informix TimeSeries</li>
+<li>OpenTSDB</li>
+<li>RRDtool</li>
+<li>IoTDB</li>
+</ul>
+</li>
+<li><p>对象数据库</p>
+<ul>
+<li>Versant Object Database</li>
+<li>db4o</li>
+<li>GemStone/S</li>
+<li>InterSystems Caché</li>
+<li>Objectivity/DB</li>
+<li>ZODB</li>
+<li>ObjectStore</li>
+</ul>
+</li>
+<li><p>列存储</p>
+<ul>
+<li>Cassandra</li>
+<li>HBase</li>
+<li>Hypertable</li>
+</ul>
+</li>
+</ul>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p9.png" style="zoom: 80%;" />
+
+<hr>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p3.png" style="zoom: 67%;" />
+
+<p><a target="_blank" rel="noopener" href="http://redis.cn/">Redis</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-tutorial.html">Redis教程</a></p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<ul>
+<li><p>数据模型</p>
+<p>Redis的外围由一个键、值映射的字典构成。与其他非关系型数据库主要不同在于：Redis中值的类型不仅限于字符串，还支持如下抽象数据类型：</p>
+<ul>
+<li>字符串列表</li>
+<li>无序不重复的字符串集合</li>
+<li>有序不重复的字符串集合</li>
+<li>键、值都为字符串的哈希表</li>
+</ul>
+<p> 值的类型决定了值本身支持的操作。Redis支持不同无序、有序的列表，无序、有序的集合间的交集、并集等高级服务器端原子操作。</p>
+</li>
+<li><p>持久化<br>Redis通常将全部的数据存储在内存中。</p>
+<p>目前通过两种方式实现持久化：</p>
+<ul>
+<li>使用快照，一种半持久耐用模式。不时的将数据集以异步方式从内存以RDB格式写入硬盘。</li>
+<li>AOF格式(1.1版本开始,更安全)替代，一种只能追加的日志类型。将数据集修改操作记录起来。Redis能够在后台对只可追加的记录进行修改，从而避免日志的无限增长。</li>
+</ul>
+</li>
+<li><p>同步<br>Redis支持主从同步。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得Redis可执行单层树复制。从盘可以有意无意的对数据进行写操作。由于完全实现了发布/订阅机制，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。同步对读取操作的可扩展性和数据冗余很有帮助。</p>
+</li>
+<li><p>性能<br>当数据依赖不再需要，Redis这种基于内存的性质，与在执行一个事务时将每个变化都写入硬盘的数据库系统相比就显得执行效率非常高。写与读操作速度没有明显差别。</p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p1.png" style="zoom: 67%;" />
+
+<p><strong>Windows</strong></p>
+<p>1.下载</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/dmajkic/redis/releases">redis·GitHub</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis">microsoftarchive/redis</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/tporadowski/redis">Native port of Redis for Windows</a></p>
+<p>2.启动</p>
+<ul>
+<li>点击redis-server.exe</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">启动失败</span></span><br><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>客户端:redis-cli.exe</li>
+</ul>
+<hr>
+<h3 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark [option] [option value]</span><br><span class="line">redis-benchmark -h localhost -p 6379 -c 100 -n 100000 -a password</span><br></pre></td></tr></table></figure>
+
+<p>Redis性能测试工具可选参数</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="center">选项</th>
+<th align="center">描述</th>
+<th align="center">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="center"><strong>-h</strong></td>
+<td align="center">指定服务器主机名</td>
+<td align="center">127.0.0.1</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="center"><strong>-p</strong></td>
+<td align="center">指定服务器端口</td>
+<td align="center">6379</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="center"><strong>-s</strong></td>
+<td align="center">指定服务器 socket</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="center"><strong>-c</strong></td>
+<td align="center">指定并发连接数</td>
+<td align="center">50</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="center"><strong>-n</strong></td>
+<td align="center">指定请求数</td>
+<td align="center">10000</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="center"><strong>-d</strong></td>
+<td align="center">以字节的形式指定 SET/GET 值的数据大小</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="center"><strong>-k</strong></td>
+<td align="center">1=keep alive 0=reconnect</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="center"><strong>-r</strong></td>
+<td align="center">SET/GET/INCR 使用随机 key, SADD 使用随机值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="center"><strong>-P</strong></td>
+<td align="center">通过管道传输 <numreq> 请求</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="center"><strong>-q</strong></td>
+<td align="center">强制退出 redis。仅显示 query/sec 值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="center"><strong>–csv</strong></td>
+<td align="center">以 CSV 格式输出</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="center"><strong>-l</strong></td>
+<td align="center">生成循环，永久执行测试</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="center"><strong>-t</strong></td>
+<td align="center">仅运行以逗号分隔的测试命令列表。</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="center"><strong>-I</strong></td>
+<td align="center">Idle 模式。仅打开 N 个 idle 连接并等待。</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><blockquote>
+<p>1.Redis每个数据库对外都是一个从0开始的递增数字命名，Redis默认支持16个数据库（可以通过配置文件支持更多，无上限），通过配置databases修改。客户端与Redis建立连接后会默认选择0号数据库，可以使用SELECT命令更换数据库。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://redis.io/commands/">command</a></p>
+<p>1.启动Redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>2.连接Redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379 [-a password]</span><br></pre></td></tr></table></figure>
+
+<p>3.关闭Redis</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli [-a password] shutdown</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>1.测试连通性</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+<p>2.选择数据库db_index</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; select <span class="number">3</span></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<p>3.删除当前选定数据库的所有键</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; flushdb</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<p>4.删除所有现有数据库的所有键</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; flushall</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>Redis Key</strong></p>
+<p>1.获取该数据库所有键</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>[<span class="number">1</span>]&gt; keys *</span><br><span class="line"><span class="attribute">1</span>) <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.返回当前数据库中的键总数</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; dbsize</span><br><span class="line">(integer) <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>3.查询键是否存在</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; set name admin</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; exists name</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; exists username</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; exists username name #查询多个返回存在的个数</span><br><span class="line">(integer) <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>4.删除键</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; del name     #删除多个返回删除成功的个数</span><br><span class="line">(integer) <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>5.查询键类型</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[2]</span>&gt; type name</span><br><span class="line">string </span><br></pre></td></tr></table></figure>
+
+<p>6.移动键</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; move name <span class="number">2</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; keys *</span><br><span class="line">(empty array)</span><br><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[1]</span>&gt; select <span class="number">2</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[2]</span>&gt; keys *</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;name&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>7.查询key的生命周期（秒）</p>
+<blockquote>
+<p>秒：ttl key<br>毫秒：pttl key</p>
+<p>-1：键永远不过期</p>
+<p>-2：键不存在</p>
+</blockquote>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span><span class="string">[2]</span>&gt; ttl name</span><br><span class="line">(integer) -<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>8.设置过期时间</p>
+<blockquote>
+<p>秒：expire key seconds<br>毫秒：pexpire key milliseconds</p>
+<p>1:设置成功</p>
+<p>0:当key不存在或者不能为key设置过期时间时</p>
+</blockquote>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; expire name <span class="number">60</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; ttl name</span><br><span class="line">(integer) <span class="number">45</span></span><br></pre></td></tr></table></figure>
+
+<p>9.设置永不过期</p>
+<blockquote>
+<p>persist key</p>
+<p>1:当key设置了过期时间，同时使用persist成功返回1。</p>
+<p>0:key不存在或本身永久有效。</p>
+</blockquote>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; expire name <span class="number">60</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; persist name</span><br><span class="line">(integer) <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>10.更改键名称</p>
+<blockquote>
+<p>rename key newkey</p>
+</blockquote>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; rename name username</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">AUTH password</td>
+<td align="center">验证密码是否正确</td>
+</tr>
+<tr>
+<td align="center">ECHO message</td>
+<td align="center">打印字符串</td>
+</tr>
+<tr>
+<td align="center">PING</td>
+<td align="center">查看服务是否运行</td>
+</tr>
+<tr>
+<td align="center">QUIT</td>
+<td align="center">关闭当前连接</td>
+</tr>
+<tr>
+<td align="center">SELECT index</td>
+<td align="center">切换到指定的数据库</td>
+</tr>
+</tbody></table>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><a target="_blank" rel="noopener" href="https://redis.io/docs/manual/data-types/">Redis data types</a></p>
+<p><a target="_blank" rel="noopener" href="https://redis.com/redis-enterprise/data-structures/">Data Structures</a></p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p11.png" style="zoom: 50%;" />
+
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p12.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。 Redis 内置了 复制（replication），LUA脚本（Lua scripting）， LRU驱动事件（LRU eviction），事务（transactions） 和不同级别的 磁盘持久化（persistence）， 并通过 Redis哨兵（Sentinel）和自动 分区（Cluster）提供高可用性（high availability）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">数据类型</th>
+<th align="center">简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">String(字符串)</td>
+<td align="center">String 是 redis 最基本的类型，string 类型的值最大能存储 512MB，一个 key 对应一个 value。string 类型是二进制安全的，即 redis 的 string 可以包含任何数据，如jpg图片或者序列化的对象。</td>
+</tr>
+<tr>
+<td align="center">Hash(哈希)</td>
+<td align="center">Hash 是一个键值(key=&gt;value)对集合。Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 适合用于存储对象。</td>
+</tr>
+<tr>
+<td align="center">List(列表)</td>
+<td align="center">List 是简单的字符串列表，允许重复的成员，按插入顺序排序。可添加一个元素到列表的头部（左边）或者尾部（右边）。</td>
+</tr>
+<tr>
+<td align="center">Set(集合)</td>
+<td align="center">Set 是 string 类型的无序集合，不允许重复的成员。集合通过哈希表实现，即添加，删除，查找的复杂度均为 O(1)。</td>
+</tr>
+<tr>
+<td align="center">Zset(sorted set：有序集合)</td>
+<td align="center">Zset 是 string 类型元素的集合,不允许重复的成员。每个元素都关联一个double类型分数。redis通过分数为集合中的成员进行从小到大的排序。zset的成员是唯一的,但分数(score)可以重复。</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="String"><a href="#String" class="headerlink" title="String"></a>String</h4><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p13.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>One of the most versatile of Redis’ building blocks, Redis Strings is a binary-safe data structure. It can store any kind of data–a string, integer, floating point value, JPEG image, serialized Ruby object, or anything else you want it to carry. Operate on a whole string or parts, and increment or decrement integers and floats.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">常用命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SET key value</td>
+<td align="center">设置指定 key 的值</td>
+</tr>
+<tr>
+<td align="center">GET key</td>
+<td align="center">获取指定 key 的值</td>
+</tr>
+<tr>
+<td align="center">GETRANGE key start end</td>
+<td align="center">返回 key 中字符串值的子字符</td>
+</tr>
+<tr>
+<td align="center">GETSET key value</td>
+<td align="center">将给定 key 的值设为 value ，并返回 key 的旧值(old value)</td>
+</tr>
+<tr>
+<td align="center">GETBIT key offset</td>
+<td align="center">对 key 所储存的字符串值，获取指定偏移量上的位(bit)</td>
+</tr>
+<tr>
+<td align="center">MGET key1 key2..</td>
+<td align="center">获取所有(一个或多个)给定 key 的值</td>
+</tr>
+<tr>
+<td align="center">SETBIT key offset value</td>
+<td align="center">对 key 所储存的字符串值，设置或清除指定偏移量上的位(bit)。位的设置或清除取决于 value 参数，当 value 是 0 时清除偏移量上的位，当 value 是 1 时设置偏移量上的位。当 key 不存在时，自动生成一个新的字符串值</td>
+</tr>
+<tr>
+<td align="center">SETEX key seconds value</td>
+<td align="center">(set with expire)将键 key 的值设置为 value ， 并将键 key 的生存时间设置为 seconds 秒钟</td>
+</tr>
+<tr>
+<td align="center">SETNX key value</td>
+<td align="center">(set if not exist)只有在 key 不存在时设置 key 的值</td>
+</tr>
+<tr>
+<td align="center">SETRANGE key offset value</td>
+<td align="center">用 value 参数覆写给定 key 所储存的字符串值，从偏移量 offset 开始</td>
+</tr>
+<tr>
+<td align="center">STRLEN key</td>
+<td align="center">返回 key 所储存的字符串值的长度</td>
+</tr>
+<tr>
+<td align="center">MSET key value key value …</td>
+<td align="center">同时设置一个或多个 key-value 对</td>
+</tr>
+<tr>
+<td align="center">MSETNX key value key value …</td>
+<td align="center">同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在</td>
+</tr>
+<tr>
+<td align="center">PSETEX key milliseconds value</td>
+<td align="center">以毫秒为单位设置 key 的生存时间</td>
+</tr>
+<tr>
+<td align="center">INCR key</td>
+<td align="center">将 key 中储存的数字值增一</td>
+</tr>
+<tr>
+<td align="center">INCRBY key increment</td>
+<td align="center">将 key 所储存的值加上给定的增量值（increment）</td>
+</tr>
+<tr>
+<td align="center">INCRBYFLOAT key increment</td>
+<td align="center">将 key 所储存的值加上给定的浮点增量值（increment）</td>
+</tr>
+<tr>
+<td align="center">DECR key</td>
+<td align="center">将 key 中储存的数字值减一</td>
+</tr>
+<tr>
+<td align="center">DECRBY key decrement</td>
+<td align="center">key 所储存的值减去给定的减量值（decrement）</td>
+</tr>
+<tr>
+<td align="center">APPEND key value</td>
+<td align="center">如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾</td>
+</tr>
+</tbody></table>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> keys *</span><br><span class="line">(empty array)</span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> set k1 v1</span><br><span class="line">OK</span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> get k1</span><br><span class="line"><span class="string">&quot;v1&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> set msg HelloRedis</span><br><span class="line">OK</span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> getrange msg <span class="number">4</span> <span class="number">7</span></span><br><span class="line"><span class="string">&quot;oRed&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> setrange msg <span class="number">5</span> Jedis</span><br><span class="line">(integer) <span class="number">10</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> get msg</span><br><span class="line"><span class="string">&quot;HelloJedis&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> getset msg HelloWorld</span><br><span class="line"><span class="string">&quot;HelloJedis&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> getrange msg <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="string">&quot;HelloWorld&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> setbit bit <span class="number">10</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> getbit bit <span class="number">10</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> getbit bit <span class="number">9</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> setbit bit <span class="number">10</span> <span class="number">0</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> getbit bit <span class="number">10</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> mget msg k1</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;HelloWorld&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;v1&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> setex username <span class="number">60</span> Coco</span><br><span class="line">OK</span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ttl username</span><br><span class="line">(integer) <span class="number">53</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> setnx name admin</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> setrange name <span class="number">1</span> john</span><br><span class="line">(integer) <span class="number">5</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> get name</span><br><span class="line"><span class="string">&quot;ajohn</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; strlen name</span></span><br><span class="line"><span class="string">(integer) 5</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; mset key1 value1 key2 value2</span></span><br><span class="line"><span class="string">OK</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; mget key1 key2</span></span><br><span class="line"><span class="string">1) &quot;</span>value1<span class="string">&quot;</span></span><br><span class="line"><span class="string">2) &quot;</span>value2<span class="string">&quot;</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; msetnx team1 Killer team2 player</span></span><br><span class="line"><span class="string">(integer) 1</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; mget team1 team2</span></span><br><span class="line"><span class="string">1) &quot;</span>Killer<span class="string">&quot;</span></span><br><span class="line"><span class="string">2) &quot;</span>player<span class="string">&quot;</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; psetex team3 60000 noob </span></span><br><span class="line"><span class="string">OK</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; pttl team3</span></span><br><span class="line"><span class="string">(integer) 58267</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; set num1 45</span></span><br><span class="line"><span class="string">OK</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; get num1</span></span><br><span class="line"><span class="string">&quot;</span><span class="number">45</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; incr num1</span></span><br><span class="line"><span class="string">(integer) 46</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; incr num1</span></span><br><span class="line"><span class="string">(integer) 47</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; incrby num1 59</span></span><br><span class="line"><span class="string">(integer) 106</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; decr num1</span></span><br><span class="line"><span class="string">(integer) 105</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; decrby num1 65</span></span><br><span class="line"><span class="string">(integer) 40</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; append num1 isnum1</span></span><br><span class="line"><span class="string">(integer) 8</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; get num1</span></span><br><span class="line"><span class="string">&quot;</span>40isnum1<span class="string">&quot;</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; set num2 16.45</span></span><br><span class="line"><span class="string">OK</span></span><br><span class="line"><span class="string">127.0.0.1:6379&gt; incrbyfloat num2 1.97</span></span><br><span class="line"><span class="string">&quot;</span><span class="number">18.42</span><span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p14.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Redis Lists holds collections of string elements sorted according to their order of insertion. Push or pop items from both ends, trim based on offsets, read individual or multiple items, or find or remove items by value and position. You can also make blocking calls for asynchronous message transfers.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">BLPOP key1 [key2] timeout</td>
+<td align="center">移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止</td>
+</tr>
+<tr>
+<td align="center">BRPOP key1 [key2] timeout</td>
+<td align="center">移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止</td>
+</tr>
+<tr>
+<td align="center">BRPOPLPUSH source destination timeout</td>
+<td align="center">从列表中取出最后一个元素，并插入到另外一个列表的头部，如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止</td>
+</tr>
+<tr>
+<td align="center">LINDEX key index</td>
+<td align="center">通过索引获取列表中的元素</td>
+</tr>
+<tr>
+<td align="center">LINSERT key BEFORE|AFTER pivot value</td>
+<td align="center">在列表的元素前或者后插入元素</td>
+</tr>
+<tr>
+<td align="center">LLEN key</td>
+<td align="center">获取列表长度</td>
+</tr>
+<tr>
+<td align="center">LPOP key</td>
+<td align="center">移出并获取列表的第一个元素</td>
+</tr>
+<tr>
+<td align="center">LPUSH key value1 [value2]</td>
+<td align="center">将一个或多个值插入到列表头部</td>
+</tr>
+<tr>
+<td align="center">LPUSHX key value</td>
+<td align="center">将一个值插入到已存在的列表头部</td>
+</tr>
+<tr>
+<td align="center">LRANGE key start stop</td>
+<td align="center">获取列表指定范围内的元素</td>
+</tr>
+<tr>
+<td align="center">LREM key count value</td>
+<td align="center">根据参数 count 的值，移除列表中与参数 value 相等的元素。count &gt; 0:从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count 。count &lt; 0:从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值。count = 0:移除表中所有与 value 相等的值。</td>
+</tr>
+<tr>
+<td align="center">LSET key index value</td>
+<td align="center">将列表 key 下标为 index 的元素的值设置为 value</td>
+</tr>
+<tr>
+<td align="center">LTRIM key start stop</td>
+<td align="center">让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除</td>
+</tr>
+<tr>
+<td align="center">RPOP key</td>
+<td align="center">移除列表的最后一个元素，返回值为移除的元素</td>
+</tr>
+<tr>
+<td align="center">RPOPLPUSH source destination</td>
+<td align="center">将列表 source 中的最后一个元素(尾元素)弹出并返回,将 source 弹出的元素插入到列表 destination ，作为 destination 列表的的头元素</td>
+</tr>
+<tr>
+<td align="center">RPUSH key value1 [value2]</td>
+<td align="center">在列表尾部添加一个或多个值</td>
+</tr>
+<tr>
+<td align="center">RPUSHX key value</td>
+<td align="center">将值 value 插入到列表 key 的表尾，当且仅当 key 存在并且是一个列表</td>
+</tr>
+</tbody></table>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team Mike</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team John</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team Peter</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; llen team</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Peter&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Mike&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Peter&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Mike&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; blpop team <span class="number">60</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;team&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Peter&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; brpop team <span class="number">60</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;team&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Mike&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team tim</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team Deft</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Deft&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;tim&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; brpoplpush team team1 <span class="number">60</span></span><br><span class="line"><span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team1 <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; <span class="keyword">linsert</span> team before tim Alex</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span> </span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Deft&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Alex&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;tim&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpop team</span><br><span class="line"><span class="string">&quot;Deft&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span> </span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Alex&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;tim&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpushx team vk</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span> </span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Alex&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;tim&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span> </span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Alex&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;tim&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lrem team <span class="number">1</span> tim</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Alex&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; <span class="keyword">lset</span> team <span class="number">1</span> Elex</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Elex&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team Joker</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team Hoya</span><br><span class="line">(integer) <span class="number">4</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; lpush team Flu</span><br><span class="line">(integer) <span class="number">5</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Flu&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Hoya&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Joker&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Elex&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; ltrim team <span class="number">1</span> <span class="number">3</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Hoya&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Joker&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; rpoplpush team team1</span><br><span class="line"><span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Hoya&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Joker&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team1 <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;vk&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;John&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; rpush team One Ioer</span><br><span class="line">(integer) <span class="number">4</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Hoya&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Joker&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;One&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Ioer&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; rpushx team Truth</span><br><span class="line">(integer) <span class="number">5</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;  <span class="keyword">lrange</span> team <span class="number">0</span> <span class="number">-1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Hoya&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Joker&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;One&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Ioer&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Truth&quot;</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; rpushx team2 Truth</span><br><span class="line">(integer) <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p15.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Redis Sets data structure stores a unique set of members. With Sets, you can add, fetch, or remove members, check membership, or retrieve a random member. You can also perform set operations such as intersection, union, and set difference and compute set cardinality.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SADD key member1 [member2]</td>
+<td align="center">向集合添加一个或多个成员</td>
+</tr>
+<tr>
+<td align="center">SCARD key</td>
+<td align="center">获取集合的成员数</td>
+</tr>
+<tr>
+<td align="center">SDIFF key1 [key2]</td>
+<td align="center">返回第一个集合与其他集合之间的差异。</td>
+</tr>
+<tr>
+<td align="center">SDIFFSTORE destination key1 [key2]</td>
+<td align="center">返回给定所有集合的差集并存储在 destination 中</td>
+</tr>
+<tr>
+<td align="center">SINTER key1 [key2]</td>
+<td align="center">返回给定所有集合的交集</td>
+</tr>
+<tr>
+<td align="center">SINTERSTORE destination key1 [key2]</td>
+<td align="center">返回给定所有集合的交集并存储在 destination 中</td>
+</tr>
+<tr>
+<td align="center">SISMEMBER key member</td>
+<td align="center">判断 member 元素是否是集合 key 的成员</td>
+</tr>
+<tr>
+<td align="center">SMEMBERS key</td>
+<td align="center">返回集合中的所有成员</td>
+</tr>
+<tr>
+<td align="center">SMOVE source destination member</td>
+<td align="center">将 member 元素从 source 集合移动到 destination 集合</td>
+</tr>
+<tr>
+<td align="center">SPOP key</td>
+<td align="center">移除并返回集合中的一个随机元素</td>
+</tr>
+<tr>
+<td align="center">SRANDMEMBER key [coun]</td>
+<td align="center">只有key返回集合中的一个随机元素。如果 count 为正数，且小于集合基数，那么命令返回一个包含 count 个元素的数组，数组中的元素各不相同。如果 count 大于等于集合基数，那么返回整个集合。如果 count 为负数，那么命令返回一个数组，数组中的元素可能会重复出现多次，而数组的长度为 count 的绝对值。</td>
+</tr>
+<tr>
+<td align="center">SREM key member1 [member2]</td>
+<td align="center">移除集合中一个或多个成员</td>
+</tr>
+<tr>
+<td align="center">SUNION key1 [key2]</td>
+<td align="center">返回所有给定集合的并集</td>
+</tr>
+<tr>
+<td align="center">SUNIONSTORE destination key1 [key2]</td>
+<td align="center">所有给定集合的并集存储在 destination 集合中</td>
+</tr>
+<tr>
+<td align="center">SSCAN key cursor [MATCH pattern] [COUNT count]</td>
+<td align="center">迭代集合中的元素，cursor:游标，pattern:匹配的模式，count:指定从数据集里返回多少元素，默认值为 10</td>
+</tr>
+</tbody></table>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team Alice</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team Bob</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team Cookie</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; scard team</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team1 Alice</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team1 Bob</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sdiff team team1</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Cookie&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sdiffstore team2 team team1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team2</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Cookie&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sinter team team1</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sinterstore team4 team team1</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team4</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sismember team Alice</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sismember team alice</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team1</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team2</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Cookie&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smove team2 team1 <span class="string">&quot;Cookie&quot;</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team1</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Cookie&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team2</span><br><span class="line">(empty array)</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; spop team</span><br><span class="line"><span class="string">&quot;Cookie&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; spop team</span><br><span class="line"><span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team Xia</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team Zod</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team Nick</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd team Hu</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Xia&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Zod&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Hu&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; srandmember team <span class="number">3</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Xia&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Hu&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; srandmember team <span class="number">3</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Zod&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; srandmember team <span class="number">6</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Xia&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Zod&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Hu&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; srandmember team -<span class="number">4</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Zod&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; srem team Zod Xia</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Hu&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sunion team team1</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Hu&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Cookie&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sunionstore team3 team team1 </span><br><span class="line">(integer) <span class="number">5</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; smembers team3</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Hu&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Nick&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Cookie&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd nums n1</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line">.......</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sadd nums n10</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sscan nums <span class="number">0</span>  match n* count <span class="number">3</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;4&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;n7&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;n8&quot;</span></span><br><span class="line">   <span class="number">3</span>) <span class="string">&quot;n5&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sscan nums <span class="number">4</span>  match n* count <span class="number">3</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;6&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;n3&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;n4&quot;</span></span><br><span class="line">   <span class="number">3</span>) <span class="string">&quot;n9&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sscan nums <span class="number">6</span>  match n* count <span class="number">3</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;5&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;n10&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;n1&quot;</span></span><br><span class="line">   <span class="number">3</span>) <span class="string">&quot;n2&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; sscan nums <span class="number">5</span>  match n* count <span class="number">3</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;n6&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h4><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p16.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Similar to documents in a document store or rows in a relational database, the Redis Hashes structure stores a set of field-value pairs. It provides the ability to add, fetch, or remove individual items and fetch the entire hash, or use one or more fields in the hash as a counter.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">HDEL key field1 [field2]</td>
+<td align="center">删除一个或多个哈希表字段</td>
+</tr>
+<tr>
+<td align="center">HEXISTS key field</td>
+<td align="center">查看哈希表 key 中，指定的字段是否存在</td>
+</tr>
+<tr>
+<td align="center">HGET key field</td>
+<td align="center">获取存储在哈希表中指定字段的值</td>
+</tr>
+<tr>
+<td align="center">HGETALL key</td>
+<td align="center">获取在哈希表中指定 key 的所有字段和值</td>
+</tr>
+<tr>
+<td align="center">HINCRBY key field increment</td>
+<td align="center">为哈希表 key 中的指定字段的整数值加上增量 increment</td>
+</tr>
+<tr>
+<td align="center">HINCRBYFLOAT key field increment</td>
+<td align="center">为哈希表 key 中的指定字段的浮点数值加上增量 increment</td>
+</tr>
+<tr>
+<td align="center">HKEYS key</td>
+<td align="center">获取所有哈希表中的字段</td>
+</tr>
+<tr>
+<td align="center">HLEN key</td>
+<td align="center">获取哈希表中字段的数量</td>
+</tr>
+<tr>
+<td align="center">HMGET key field1 [field2]</td>
+<td align="center">获取所有给定字段的值</td>
+</tr>
+<tr>
+<td align="center">HMSET key field1 value1 [field2 value2 ]</td>
+<td align="center">同时将多个 field-value (域-值)对设置到哈希表 key 中</td>
+</tr>
+<tr>
+<td align="center">HSET key field value</td>
+<td align="center">将哈希表 key 中的字段 field 的值设为 value</td>
+</tr>
+<tr>
+<td align="center">HSETNX key field value</td>
+<td align="center">只有在字段 field 不存在时，设置哈希表字段的值</td>
+</tr>
+<tr>
+<td align="center">HVALS key</td>
+<td align="center">获取哈希表中所有值</td>
+</tr>
+<tr>
+<td align="center">HSCAN key cursor [MATCH pattern] [COUNT count]</td>
+<td align="center">迭代哈希表中的键值对，返回的每个元素都是一个元组，每一个元组元素由一个字段(field) 和值（value）组成</td>
+</tr>
+</tbody></table>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hmset <span class="keyword">user</span> <span class="title">username</span> <span class="string">&quot;Alice&quot;</span> password <span class="string">&quot;12345678&quot;</span> phone <span class="string">&quot;18589702341&quot;</span> age <span class="number">25</span> likes <span class="number">29</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hgetall <span class="keyword">user</span></span><br><span class="line"> <span class="title">1</span>) <span class="string">&quot;username&quot;</span></span><br><span class="line"> <span class="number">2</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"> <span class="number">3</span>) <span class="string">&quot;password&quot;</span></span><br><span class="line"> <span class="number">4</span>) <span class="string">&quot;12345678&quot;</span></span><br><span class="line"> <span class="number">5</span>) <span class="string">&quot;phone&quot;</span></span><br><span class="line"> <span class="number">6</span>) <span class="string">&quot;18589702341&quot;</span></span><br><span class="line"> <span class="number">7</span>) <span class="string">&quot;age&quot;</span></span><br><span class="line"> <span class="number">8</span>) <span class="string">&quot;25&quot;</span></span><br><span class="line"> <span class="number">9</span>) <span class="string">&quot;likes&quot;</span></span><br><span class="line"><span class="number">10</span>) <span class="string">&quot;29&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hkeys <span class="keyword">user</span></span><br><span class="line"><span class="title">1</span>) <span class="string">&quot;username&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;password&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;phone&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;age&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;likes&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hlen <span class="keyword">user</span></span><br><span class="line"><span class="title">(integer</span>) <span class="number">5</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hdel <span class="keyword">user</span> <span class="title">likes</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hkeys <span class="keyword">user</span></span><br><span class="line"><span class="title">1</span>) <span class="string">&quot;username&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;password&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;phone&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;age&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hexists <span class="keyword">user</span> <span class="title">phone</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hexists <span class="keyword">user</span> <span class="title">likes</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hget <span class="keyword">user</span> <span class="title">username</span></span><br><span class="line"><span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hincrby <span class="keyword">user</span> <span class="title">age</span> <span class="number">20</span></span><br><span class="line">(integer) <span class="number">45</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hmset <span class="keyword">user</span> <span class="title">weight</span> <span class="number">50.81</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hkeys <span class="keyword">user</span></span><br><span class="line"><span class="title">1</span>) <span class="string">&quot;username&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;password&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;phone&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;age&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;weight&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hincrbyfloat <span class="keyword">user</span> <span class="title">weight</span> <span class="number">12.23</span></span><br><span class="line"><span class="string">&quot;63.04&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hmget <span class="keyword">user</span> <span class="title">username</span> password</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Alice&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;12345678&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hset <span class="keyword">user</span> <span class="title">username</span> Bob</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hvals <span class="keyword">user</span></span><br><span class="line"><span class="title">1</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;12345678&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;18589702341&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;45&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;63.04&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hsetnx <span class="keyword">user</span> <span class="title">sex</span> man</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hvals <span class="keyword">user</span></span><br><span class="line"><span class="title">1</span>) <span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;12345678&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;18589702341&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;45&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;63.04&quot;</span></span><br><span class="line"><span class="number">6</span>) <span class="string">&quot;man&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; hscan <span class="keyword">user</span> <span class="title">0</span> MATCH <span class="string">&quot;p*&quot;</span> COUNT <span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;password&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;12345678&quot;</span></span><br><span class="line">   <span class="number">3</span>) <span class="string">&quot;phone&quot;</span></span><br><span class="line">   <span class="number">4</span>) <span class="string">&quot;18589702341&quot;</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; object encoding <span class="keyword">user</span></span><br><span class="line"><span class="title">&quot;ziplist</span><span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://redis.io/commands/scan/#the-count-option">COUNT参数</a>失效：</p>
+<p>When iterating Sets encoded as intsets (small sets composed of just integers), or Hashes and Sorted Sets encoded as ziplists (small hashes and sets composed of small individual values), usually all the elements are returned in the first <code>SCAN</code> call regardless of the COUNT value.</p>
+</blockquote>
+<hr>
+<h4 id="Zset"><a href="#Zset" class="headerlink" title="Zset"></a>Zset</h4><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p17.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Redis Sorted Sets contain a unique set of members ordered by floating-point scores. As with Sets, you can add, fetch, or remove individual members and perform set operations such as union, intersection, set difference, and compute cardinality. Furthermore, you can also query the set based on score or member value, aggregate, filter, and order results.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ZADD key score1 member1 [score2 member2]</td>
+<td align="center">向有序集合添加一个或多个成员，或者更新已存在成员的分数</td>
+</tr>
+<tr>
+<td align="center">ZCARD key</td>
+<td align="center">获取有序集合的成员数</td>
+</tr>
+<tr>
+<td align="center">ZCOUNT key min max</td>
+<td align="center">计算在有序集合中指定区间分数的成员数</td>
+</tr>
+<tr>
+<td align="center">ZINCRBY key increment member</td>
+<td align="center">有序集合中对指定成员的分数加上增量 increment</td>
+</tr>
+<tr>
+<td align="center">ZINTERSTORE destination numkeys key [key …]</td>
+<td align="center">计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 destination 中，key 的数量必须以 numkeys 参数指定默认情况下，结果集中某个成员的分数值是所有给定集下该成员分数值之和。</td>
+</tr>
+<tr>
+<td align="center">ZLEXCOUNT key min max</td>
+<td align="center">在有序集合中计算指定字典区间内成员数量，min:有序集合中分数排名较小的成员，max:在有序集合中分数排名较大的成员，成员名称前需要加<code>[</code>符号作为开头, <code>[</code>符号与成员之间不能有空格，可以使用 <code>-</code> 和 <code>+</code> 表示得分最小值和最大值，<code>min</code> 和 <code>max</code> 不能反, <code>max</code> 放前面 <code>min</code>放后面会导致返回结果为0，计算成员之间的成员数量时,参数 <code>min</code> 和 <code>max</code> 的位置也计算在内。</td>
+</tr>
+<tr>
+<td align="center">ZRANGE key start stop [WITHSCORES]</td>
+<td align="center">通过索引区间返回有序集合指定区间内的成员</td>
+</tr>
+<tr>
+<td align="center">ZRANGEBYLEX key min max [LIMIT offset count]</td>
+<td align="center">返回给定的有序集合键 <code>key</code> 中， 值介于 <code>min</code> 和 <code>max</code> 之间的成员。如果有序集合里面的成员带有不同的分值， 那么命令返回的结果是未指定的（unspecified）。<code>LIMIT offset count</code> 参数用于获取指定范围内的匹配元素。offset:返回结果起始位置</td>
+</tr>
+<tr>
+<td align="center">ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT]</td>
+<td align="center">通过分数返回有序集合指定区间内的成员，<code>max</code> 和 <code>min</code>参数前可以加 <code>( </code> 符号作为开头表示小于, <code>(</code> 符号与成员之间不能有空格，可以使用 <code>+inf</code> 和 <code>-inf</code> 表示得分最大值和最小值，<code>max</code> 和 <code>min</code> 不能反, <code>max</code> 放后面 <code>min</code>放前面会导致返回结果为空，计算成员之间的成员数量不加 <code>(</code> 符号时,参数 <code>min</code> 和 <code>max</code> 的位置也计算在内。</td>
+</tr>
+<tr>
+<td align="center">ZRANK key member</td>
+<td align="center">返回有序集合中指定成员的索引</td>
+</tr>
+<tr>
+<td align="center">ZREM key member [member …]</td>
+<td align="center">移除有序集合中的一个或多个成员</td>
+</tr>
+<tr>
+<td align="center">ZREMRANGEBYLEX key min max</td>
+<td align="center">移除有序集合中给定的字典区间的所有成员</td>
+</tr>
+<tr>
+<td align="center">ZREMRANGEBYRANK key start stop</td>
+<td align="center">移除有序集合中给定的排名区间的所有成员</td>
+</tr>
+<tr>
+<td align="center">ZREMRANGEBYSCORE key min max</td>
+<td align="center">移除有序集合中给定的分数区间的所有成员</td>
+</tr>
+<tr>
+<td align="center">ZREVRANGE key start stop [WITHSCORES]</td>
+<td align="center">返回有序集中指定区间内的成员，通过索引，分数从高到低</td>
+</tr>
+<tr>
+<td align="center">ZREVRANGEBYSCORE key max min [WITHSCORES]</td>
+<td align="center">返回有序集中指定分数区间内的成员，分数从高到低排序</td>
+</tr>
+<tr>
+<td align="center">ZREVRANK key member</td>
+<td align="center">返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序</td>
+</tr>
+<tr>
+<td align="center">ZSCORE key member</td>
+<td align="center">返回有序集中，成员的分数值</td>
+</tr>
+<tr>
+<td align="center">ZUNIONSTORE destination numkeys key [key …]</td>
+<td align="center">计算给定的一个或多个有序集的并集，并存储在新的 key 中</td>
+</tr>
+<tr>
+<td align="center">ZSCAN key cursor [MATCH pattern] [COUNT count]</td>
+<td align="center">迭代有序集合中的元素（包括元素成员和元素分值）</td>
+</tr>
+</tbody></table>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd database <span class="number">1</span> Oracle</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd database <span class="number">2</span> MySQL</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd database <span class="number">3</span> MongoDB</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd database <span class="number">3</span> <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd database <span class="number">4</span> MySQL</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zcard database</span><br><span class="line">(integer) <span class="number">4</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zcount database <span class="number">1</span> <span class="number">3</span></span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zincrby database <span class="number">8</span> Oracle</span><br><span class="line"><span class="string">&quot;9&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zcount database <span class="number">1</span> <span class="number">3</span></span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd udb <span class="number">3</span> MongoDB <span class="number">4</span> <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zinterstore db <span class="number">2</span> database udb</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange db <span class="number">0</span> -<span class="number">1</span> WITHSCORES</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;6&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;7&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zlexcount database - +</span><br><span class="line">(integer) <span class="number">4</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zlexcount database [MongoDB [MySQL</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zlexcount database [<span class="string">&quot;MS SQL Server&quot;</span> [MySQL</span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd database  <span class="number">6</span> memcached</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange database <span class="number">0</span> -<span class="number">1</span> WITHSCORES</span><br><span class="line"> <span class="number">1</span>) <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line"> <span class="number">2</span>) <span class="string">&quot;3&quot;</span></span><br><span class="line"> <span class="number">3</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"> <span class="number">4</span>) <span class="string">&quot;3&quot;</span></span><br><span class="line"> <span class="number">5</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"> <span class="number">6</span>) <span class="string">&quot;4&quot;</span></span><br><span class="line"> <span class="number">7</span>) <span class="string">&quot;memcached&quot;</span></span><br><span class="line"> <span class="number">8</span>) <span class="string">&quot;6&quot;</span></span><br><span class="line"> <span class="number">9</span>) <span class="string">&quot;Oracle&quot;</span></span><br><span class="line"><span class="number">10</span>) <span class="string">&quot;9&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange database <span class="number">0</span> <span class="number">2</span> WITHSCORES</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="number">6</span>) <span class="string">&quot;4&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrangebyscore database <span class="number">3</span> <span class="number">4</span>  </span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrangebyscore database <span class="number">3</span> (<span class="number">4</span>  </span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrangebyscore database <span class="number">3</span> <span class="number">4</span> WITHSCORES  </span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="number">6</span>) <span class="string">&quot;4&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrangebyscore database <span class="number">3</span> <span class="number">4</span> LIMIT <span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrank database MySQL</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrem database Oracle</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange database <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MS SQL Server&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;memcached&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zremrangebyscore database <span class="number">3</span> <span class="number">4</span></span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange database <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;memcached&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zadd database <span class="number">1</span> MySQL <span class="number">2</span> Oracle <span class="number">3</span> Redis <span class="number">4</span> MongoDB</span><br><span class="line">(integer) <span class="number">4</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrevrange database <span class="number">0</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;memcached&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Redis&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Oracle&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrevrangebyscore database <span class="number">4</span> <span class="number">1</span> WITHSCORES</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;4&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Redis&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Oracle&quot;</span></span><br><span class="line"><span class="number">6</span>) <span class="string">&quot;2&quot;</span></span><br><span class="line"><span class="number">7</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="number">8</span>) <span class="string">&quot;1&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrevrank database Redis</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zscore database Redis</span><br><span class="line"><span class="string">&quot;3&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zunionstore dbzset <span class="number">2</span> database myzset</span><br><span class="line">(integer) <span class="number">7</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange dbzset <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;g&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;Oracle&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;Redis&quot;</span></span><br><span class="line"><span class="number">6</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line"><span class="number">7</span>) <span class="string">&quot;memcached&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zscan dbzset <span class="number">0</span> MATCH M*</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;MySQL&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;1&quot;</span></span><br><span class="line">   <span class="number">3</span>) <span class="string">&quot;MongoDB&quot;</span></span><br><span class="line">   <span class="number">4</span>) <span class="string">&quot;4&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ZADD myzset <span class="number">0</span> a <span class="number">0</span> b <span class="number">0</span> c <span class="number">0</span> d <span class="number">0</span> e <span class="number">0</span> f <span class="number">0</span> g</span><br><span class="line">(integer) <span class="number">7</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ZRANGEBYLEX myzset - +</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;a&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;b&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;c&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;d&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;e&quot;</span></span><br><span class="line"><span class="number">6</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="number">7</span>) <span class="string">&quot;g&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ZRANGEBYLEX myzset - (g</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;a&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;b&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;c&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;d&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;e&quot;</span></span><br><span class="line"><span class="number">6</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ZRANGEBYLEX myzset [c (g</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;c&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;d&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;e&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ZRANGEBYLEX myzset (c (g</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;d&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;e&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ZRANGEBYLEX myzset - + LIMIT <span class="number">0</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;a&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;b&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;c&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;d&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> ZRANGEBYLEX myzset - + LIMIT <span class="number">2</span> <span class="number">4</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;c&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;d&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;e&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zremrangebylex myset (a (d</span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange myset <span class="number">0</span> -<span class="number">1</span></span><br><span class="line">(empty array)</span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zremrangebylex myzset (a (d</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange myzset <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;a&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;d&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;e&quot;</span></span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="number">5</span>) <span class="string">&quot;g&quot;</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zremrangebyrank myzset <span class="number">0</span> <span class="number">2</span></span><br><span class="line">(integer) <span class="number">3</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> zrange myzset <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;f&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;g&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.有序集合的所有成员都具有相同的分值时， 有序集合的元素会根据成员的字典序（lexicographical ordering）来进行排序。</p>
+<p><code>min</code> 和 <code>max</code> 参数必须包含 <code>(</code> 或者 <code>[</code> ， 其中 <code>(</code> 表示开区间（指定的值不会被包含在范围之内）， 而 <code>[</code> 则表示闭区间（指定的值会被包含在范围之内）。特殊值 <code>+</code> 和 <code>-</code> 在 <code>min</code> 参数以及 <code>max</code> 参数中具有特殊的意义， 其中 <code>+</code> 表示正无限， 而 <code>-</code> 表示负无限。 因此， 向一个所有成员的分值都相同的有序集合发送命令 <code>ZRANGEBYLEX &lt;zset&gt; - +</code> ， 命令将返回有序集合中的所有元素。</p>
+</blockquote>
+<hr>
+<hr>
+<p>BitMap</p>
+<blockquote>
+<p>可以将 Redis 中的 BitMap 想象为以 Bit 为单位的组，数组的每个单位只能存储0和1，数组的下标在BitMaps 中叫做偏移量，这样做的优势是节省大量内存空间，BitMap 底层是基于 Redis 的字符串类型实现的。</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p18.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Redis Bitmaps is a compact data structure to store binary logic and states. It provides commands to fetch and set a bit value at a given position, and perform AND, OR, XOR, and NOT operations between multiple bitmap keys.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SETBIT key offset value</td>
+<td align="center">对 key 字符串设置或清除指定偏移量上的位(bit)。位的设置或清除取决于 value 参数，可以是 0 或1 。当 key 不存在时，自动生成一个新的字符串值。字符串会进行伸展(grown)以确保它可以将 value 保存在指定的偏移量上。当字符串值进行伸展时，空白位置以 0 填充。offset 参数必须大于或等于 0 ，小于 <code>2^32</code>。</td>
+</tr>
+<tr>
+<td align="center">GETBIT key offset</td>
+<td align="center">对 key 字符串获取指定偏移量上的位(bit)。当 offset 比字符串值的长度大，或者 key 不存在时，返回 0 。</td>
+</tr>
+<tr>
+<td align="center">BITCOUNT key [ start] [end]</td>
+<td align="center">key字符串中被设置为 1 的比特位的数量。一般情况下，给定的整个字符串都会被进行计数，通过指定额外的 start 或 end 参数，可以让计数只在指定的字节或者位（默认为位）进行。不存在的 key 被当成是空字符串来处理，即一个不存在的 key 进行 BITCOUNT 结果为 0 。</td>
+</tr>
+<tr>
+<td align="center">BITFIELD key [GET encoding offset] [SET encoding offset value] [INCRBY encoding offset increment] [OVERFLOW WRAP | SAT | FAIL]</td>
+<td align="center"><code>BITFIELD</code>将一个 Redis 字符串视为一个由二进制位组成的数组， 并对这个数组中储存的长度不同的整数进行访问 （被储存的整数无需进行对齐）</td>
+</tr>
+<tr>
+<td align="center">BITOP operation destkey key [key …]</td>
+<td align="center">对一个或多个保存二进制位的字符串 <code>key</code> 进行位元操作，并将结果保存到 <code>destkey</code> 上</td>
+</tr>
+<tr>
+<td align="center">BITPOS key bit [start] [end]</td>
+<td align="center">返回位图中第一个值为 <code>bit</code> 的二进制位的位置start和end参数以Byte为单位。</td>
+</tr>
+<tr>
+<td align="center">BITFIELD_RO key GET encoding offset</td>
+<td align="center">BITFIELD 命令的只读变体。 类似于原始的 BITFIELD，但只接受 GET 子命令，可以安全地用于只读副本。</td>
+</tr>
+</tbody></table>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit bit <span class="number">2</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit bit <span class="number">2</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit bit <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit bit <span class="number">5</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit bit <span class="number">4</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit bit <span class="number">8</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; bitcount bit</span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; bitcount bit <span class="number">0</span> <span class="number">0</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; bitcount bit <span class="number">0</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit mybits <span class="number">9</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; bitpos mybits <span class="number">1</span></span><br><span class="line">(integer) <span class="number">9</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; bitpos mybits <span class="number">0</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; bitpos mybits <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> </span><br><span class="line">(integer) -<span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; bitpos mybits <span class="number">1</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">9</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit bits:<span class="number">1</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit bits:<span class="number">1</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit bits:<span class="number">2</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; setbit bits:<span class="number">2</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line">(integer) <span class="number">0</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt;  bitop OR or-result bits:<span class="number">1</span> bits:<span class="number">2</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit or-result <span class="number">0</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit or-result <span class="number">1</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit or-result <span class="number">2</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit or-result <span class="number">3</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; getbit or-result <span class="number">4</span></span><br><span class="line">(integer) <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.SETBIT操作中使用大的<code>offset</code>，内存分配可能造成 Redis 服务器被阻塞。</p>
+<p>2.Redis7.0.0添加 <code>BYTE|BIT</code> 参数。</p>
+<p>3.<code>operation</code> 可以是 <code>AND</code> 、 <code>OR</code> 、 <code>NOT</code> 、 <code>XOR</code> 这四种操作中的任意一种：</p>
+<ul>
+<li><p><code>BITOP AND destkey key [key ...]</code> ，对一个或多个 <code>key</code> 求逻辑并，并将结果保存到 <code>destkey</code> </p>
+</li>
+<li><p><code>BITOP OR destkey key [key ...]</code> ，对一个或多个 <code>key</code> 求逻辑或，并将结果保存到 <code>destkey</code> </p>
+</li>
+<li><p><code>BITOP XOR destkey key [key ...]</code> ，对一个或多个 <code>key</code> 求逻辑异或，并将结果保存到 <code>destkey</code> </p>
+</li>
+<li><p><code>BITOP NOT destkey key</code> ，对给定 <code>key</code> 求逻辑非，并将结果保存到 <code>destkey</code> </p>
+</li>
+</ul>
+<p>除了 <code>NOT</code> 操作之外，其他操作都可以接受一个或多个 <code>key</code> 作为输入。</p>
+<p>当 BITOP处理不同长度的字符串时，较短的那个字符串所缺少的部分会被看作 <code>0</code> 。</p>
+</blockquote>
+<hr>
+<p>Hyperloglog</p>
+<blockquote>
+<p>1.Redis HyperLogLog 是用来做基数统计的算法。</p>
+<p>2.数据集 {1, 3, 5, 7, 5, 7, 8}， 那么这个数据集的基数集为 {1, 3, 5 ,7, 8}, 基数(不重复元素)为5。 基数估计就是在误差可接受的范围内，快速计算基数。</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p19.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Redis HyperLogLog is a probabilistic data structure used to count unique values (set cardinality) at a constant memory size. You can add and count a large number of unique items with memory efficiency, and merge two or more HyperLogLog data structures into one.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PFADD key element [element …]</td>
+<td align="center">添加指定元素到 HyperLogLog 中</td>
+</tr>
+<tr>
+<td align="center">PFCOUNT key [key …]</td>
+<td align="center">返回给定 HyperLogLog 的基数估算值</td>
+</tr>
+<tr>
+<td align="center">PFMERGE destkey sourcekey [sourcekey …]</td>
+<td align="center">将多个 HyperLogLog 合并为一个 HyperLogLog</td>
+</tr>
+</tbody></table>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd TechStack SpringBoot</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd TechStack SpringMVC</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd TechStack MyBatis</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd TechStack Nginx</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd TechStack Redis</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd TechStack MySQL</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfcount TechStack</span><br><span class="line">(integer) <span class="number">6</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd NewTechStack MongoDB</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfadd NewTechStack Docker</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfmerge tes TechStack NewTechStack</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; pfcount tes</span><br><span class="line">(integer) <span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Geospatial index</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p20.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Geospatial indexes provide an extremely efficient and simple way to manage and use geospatial data in Redis. You can add unique items with latitude and longitude, compute the distance between objects, and find members within a given radius range from a location.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">GEOADD key longitude latitude member [longitude latitude member …]</td>
+<td align="center">将给定的空间元素（纬度、经度、名字）添加到指定的键里面。这些数据会以有序集合的形式被储存在键里面， GEOADD 命令以标准的 x,y 格式接受参数， 即必须先输入经度再输入纬度</td>
+</tr>
+<tr>
+<td align="center">GEOPOS key member [member …]</td>
+<td align="center">从键里面返回所有给定位置元素的位置（经度和纬度）</td>
+</tr>
+<tr>
+<td align="center">GEODIST key member1 member2 [unit]</td>
+<td align="center">返回两个给定位置之间的距离。如果两个位置之间的其中一个不存在，返回空值</td>
+</tr>
+<tr>
+<td align="center">GEORADIUS key longitude latitude radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [ASC|DESC] [COUNT count]</td>
+<td align="center">以给定的经纬度为中心， 返回键包含的位置元素当中， 与中心的距离不超过给定最大距离的所有位置元素</td>
+</tr>
+<tr>
+<td align="center">GEORADIUSBYMEMBER key member radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [ASC|DESC] [COUNT count]</td>
+<td align="center">找出位于指定范围内的元素， 中心点是给定的位置元素</td>
+</tr>
+<tr>
+<td align="center">GEOHASH key member [member …]</td>
+<td align="center">返回一个或多个位置元素的 Geohash 表示。</td>
+</tr>
+</tbody></table>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEOADD Sicily <span class="number">13</span>.<span class="number">361389</span> <span class="number">38</span>.<span class="number">115556</span> <span class="string">&quot;Palermo&quot;</span> <span class="number">15</span>.<span class="number">087269</span> <span class="number">37</span>.<span class="number">502669</span> <span class="string">&quot;Catania&quot;</span></span><br><span class="line">(integer) <span class="number">2</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEODIST Sicily Palermo Catania</span><br><span class="line"><span class="string">&quot;166274.1516&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEOPOS Sicily Palermo</span><br><span class="line"><span class="number">1</span>) <span class="number">1</span>) <span class="string">&quot;13.36138933897018433&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;38.11555639549629859&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEOPOS Sicily Palermo Catania</span><br><span class="line"><span class="number">1</span>) <span class="number">1</span>) <span class="string">&quot;13.36138933897018433&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;38.11555639549629859&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;15.08726745843887329&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;37.50266842333162032&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEODIST Sicily Palermo Catania km</span><br><span class="line"><span class="string">&quot;166.2742&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEORADIUS Sicily <span class="number">15</span> <span class="number">37</span> <span class="number">200</span> km WITHDIST</span><br><span class="line"><span class="number">1</span>) <span class="number">1</span>) <span class="string">&quot;Palermo&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;190.4424&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;Catania&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;56.4413&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEORADIUS Sicily <span class="number">15</span> <span class="number">37</span> <span class="number">200</span> km WITHCOORD</span><br><span class="line"><span class="number">1</span>) <span class="number">1</span>) <span class="string">&quot;Palermo&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;13.36138933897018433&quot;</span></span><br><span class="line">      <span class="number">2</span>) <span class="string">&quot;38.11555639549629859&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;Catania&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;15.08726745843887329&quot;</span></span><br><span class="line">      <span class="number">2</span>) <span class="string">&quot;37.50266842333162032&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEORADIUS Sicily <span class="number">15</span> <span class="number">37</span> <span class="number">200</span> km WITHDIST WITHCOORD</span><br><span class="line"><span class="number">1</span>) <span class="number">1</span>) <span class="string">&quot;Palermo&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;190.4424&quot;</span></span><br><span class="line">   <span class="number">3</span>) <span class="number">1</span>) <span class="string">&quot;13.36138933897018433&quot;</span></span><br><span class="line">      <span class="number">2</span>) <span class="string">&quot;38.11555639549629859&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="number">1</span>) <span class="string">&quot;Catania&quot;</span></span><br><span class="line">   <span class="number">2</span>) <span class="string">&quot;56.4413&quot;</span></span><br><span class="line">   <span class="number">3</span>) <span class="number">1</span>) <span class="string">&quot;15.08726745843887329&quot;</span></span><br><span class="line">      <span class="number">2</span>) <span class="string">&quot;37.50266842333162032&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; GEOADD Sicily <span class="number">13</span>.<span class="number">583333</span> <span class="number">37</span>.<span class="number">316667</span> <span class="string">&quot;Agrigento&quot;</span></span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt;  GEORADIUSBYMEMBER Sicily Agrigento <span class="number">100</span> km</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;Agrigento&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Palermo&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; geohash Sicily Agrigento Palermo</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;sq9sm1716e0&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;sqc8b49rny0&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.<code>GEOADD</code> 能够记录的坐标是有限的： 非常接近两极的区域是无法被索引的。 </p>
+<p>精确的坐标限制由 EPSG:900913 / EPSG:3785 / OSGEO:41001 等坐标系统定义：</p>
+<ul>
+<li>有效的经度介于 -180 度至 180 度之间。</li>
+<li>有效的纬度介于 -85.05112878 度至 85.05112878 度之间。</li>
+</ul>
+<p>当输入一个超出范围的经度或者纬度时， <code>GEOADD</code> 命令将返回一个错误。</p>
+<p>2.<code>GEODIST</code>指定单位的参数 <code>unit</code> 必须是以下单位：</p>
+<ul>
+<li><code>m</code> :米。</li>
+<li><code>km</code>:千米。</li>
+<li><code>mi</code> 表示单位为英里。</li>
+<li><code>ft</code> 表示单位为英尺。</li>
+</ul>
+<p>如果没有显式地指定单位参数， 那么 <code>GEODIST</code> 默认使用米作为单位。<code>GEODIST</code> 命令在计算距离时会假设地球为完美的球形， 在极限情况下，该假设最大会造成 0.5% 的误差。</p>
+<p>3.<code>GEORADIUS</code>以下可选项时命令会返回额外信息：</p>
+<ul>
+<li><code>WITHDIST</code>:在返回位置元素的同时， 将位置元素与中心之间的距离也一并返回。 距离的单位和用户给定的范围单位保持一致。</li>
+<li><code>WITHCOORD</code>:将位置元素的经度和维度也一并返回。</li>
+<li><code>WITHHASH</code>:以 52 位有符号整数的形式， 返回位置元素经过原始 geohash 编码的有序集合分值(底层应用和调试)。</li>
+</ul>
+<p>命令默认返回未排序的位置元素。 以下两个参数可以指定被返回位置元素的排序方式：</p>
+<ul>
+<li><code>ASC</code>:根据中心的位置， 按照从近到远的方式返回位置元素。</li>
+<li><code>DESC</code>:根据中心的位置， 按照从远到近的方式返回位置元素。</li>
+</ul>
+<p>在默认情况下， <code>GEORADIUS</code> 命令会返回所有匹配的位置元素。</p>
+<p>虽然使用 <code>COUNT &lt;count&gt;</code> 选项去获取前 N 个匹配元素， 但命令内部可能会需要对所有被匹配的元素进行处理， 所以对一个非常大的区域进行搜索时， 即使只使用 <code>COUNT</code> 选项去获取少量元素，命令的执行速度也可能会非常慢。 但是从另一方面来说， 使用 <code>COUNT</code> 选项去减少需要返回的元素数量， 对于减少带宽来说仍然非常有用。</p>
+</blockquote>
+<hr>
+<p>Stream</p>
+<blockquote>
+<p>1.Redis Stream 主要用于消息队列（MQ，Message Queue），Redis 本身有 Redis 发布订阅 (pub/sub) 来实现消息队列的功能，但消息无法持久化，如果出现网络断开、Redis 宕机等，消息就会被丢弃，即发布订阅 (pub/sub) 可以分发消息，但无法记录历史消息。</p>
+<p>2.Redis Stream 提供了消息的持久化和主备复制功能，可以让任何客户端访问任何时刻的数据，并且能记住每一个客户端的访问位置，保证消息不丢失。</p>
+<p>3.消费者组最早是由Kafka引入的。Redis用完全不同术语实现相似的概念，但目标是相同的：允许一组客户端相互配合来消费同一个Stream的不同部分的消息。</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p21.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>Redis Streams is an incredibly powerful data structure for managing high-velocity data streams (like a message queue). With out-of-the-box partitioning, replication, and persistence, it can capture and process millions of data points per second at sub-millisecond latency. Redis Streams is based on an efficient radix-tree implementation, which makes the range and lookup queries extremely fast. It connects producers and consumers with asynchronous calls and supports consumer groups.</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p22.png" style="zoom: 80%;" />
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">XADD key ID field value [field value …]</td>
+<td align="center">向队列添加消息，如果指定的队列不存在，则创建一个队列。key:队列名称，如果不存在就创建。ID:消息id，* 表示由 redis 生成，自定义需要保证递增性。 field value:记录</td>
+</tr>
+<tr>
+<td align="center">XTRIM key MAXLEN | MINID [ = | ~] threshold [LIMIT count]</td>
+<td align="center">对流进行修剪，限制长度</td>
+</tr>
+<tr>
+<td align="center">XDEL key ID [ID …]</td>
+<td align="center">删除消息</td>
+</tr>
+<tr>
+<td align="center">XLEN key</td>
+<td align="center">获取流包含的元素数量，即消息长度</td>
+</tr>
+<tr>
+<td align="center">XRANGE key start end [COUNT count]</td>
+<td align="center">获取消息列表，自动过滤已经删除的消息</td>
+</tr>
+<tr>
+<td align="center">XREVRANGE key end start [COUNT count]</td>
+<td align="center">获取消息列表，自动过滤已经删除的消息</td>
+</tr>
+<tr>
+<td align="center">XREAD [COUNT count] [BLOCK milliseconds] STREAMS key [key …] id [id …]</td>
+<td align="center">以阻塞或非阻塞方式获取消息列表</td>
+</tr>
+<tr>
+<td align="center">XGROUP [CREATE key groupname id-or-$] [SETID key groupname id-or-$] [DESTROY key groupname] [DELCONSUMER key groupname consumername]</td>
+<td align="center">创建消费者组</td>
+</tr>
+<tr>
+<td align="center">XREADGROUP GROUP group consumer [COUNT count] [BLOCK milliseconds] [NOACK] STREAMS key [key …] ID [ID …]</td>
+<td align="center">读取消费组中的消息</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><blockquote>
+<p>1.Redis 事务(Redis Transactions)可以一次执行多个命令，以命令 MULTI、EXEC、DISCARD 和 WATCH 为中心， 并且有两个重要的保证：</p>
+<ul>
+<li>事务中的所有命令都会序列化、按顺序地执行。</li>
+<li>事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。</li>
+</ul>
+<p>2.单个 Redis 命令的执行是原子性的，但 Redis 事务上并没有维持原子性的机制，所以 Redis 事务的执行并非原子性的。</p>
+<p>3.事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令中止执行。</p>
+<p>4.一个事务从开始到执行经历三个阶段：</p>
+<ul>
+<li>开始事务</li>
+<li>命令入队</li>
+<li>执行事务</li>
+</ul>
+<p>5.Redis不支持回滚（roll back）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DISCARD</td>
+<td align="center">取消事务，放弃执行事务块内的所有命令</td>
+</tr>
+<tr>
+<td align="center">EXEC</td>
+<td align="center">执行所有事务块内的命令</td>
+</tr>
+<tr>
+<td align="center">MULTI</td>
+<td align="center">标记一个事务块的开始。</td>
+</tr>
+<tr>
+<td align="center">UNWATCH</td>
+<td align="center">取消 WATCH 命令对所有 key 的监视。</td>
+</tr>
+<tr>
+<td align="center">WATCH key [key …]</td>
+<td align="center">监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断</td>
+</tr>
+</tbody></table>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>&gt; clear</span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>&gt; multi</span><br><span class="line"><span class="attribute">OK</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>(TX)&gt; set k<span class="number">1</span> v<span class="number">1</span></span><br><span class="line"><span class="attribute">QUEUED</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>(TX)&gt; set k<span class="number">2</span> v<span class="number">2</span></span><br><span class="line"><span class="attribute">QUEUED</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>(TX)&gt; get k<span class="number">2</span></span><br><span class="line"><span class="attribute">QUEUED</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>(TX)&gt; exec</span><br><span class="line"><span class="attribute">1</span>) OK</span><br><span class="line"><span class="attribute">2</span>) OK</span><br><span class="line"><span class="attribute">3</span>) <span class="string">&quot;v2&quot;</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>&gt; keys *</span><br><span class="line"><span class="attribute">1</span>) <span class="string">&quot;k1&quot;</span></span><br><span class="line"><span class="attribute">2</span>) <span class="string">&quot;k2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>&gt; multi</span><br><span class="line"><span class="attribute">OK</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>(TX)&gt; set k<span class="number">3</span> v<span class="number">3</span></span><br><span class="line"><span class="attribute">QUEUED</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>(TX)&gt; get k<span class="number">3</span></span><br><span class="line"><span class="attribute">QUEUED</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>(TX)&gt; discard</span><br><span class="line"><span class="attribute">OK</span></span><br><span class="line"><span class="attribute">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">6379</span>&gt; keys *</span><br><span class="line"><span class="attribute">1</span>) <span class="string">&quot;k1&quot;</span></span><br><span class="line"><span class="attribute">2</span>) <span class="string">&quot;k2&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>事务错误：</p>
+<ul>
+<li>事务在执行EXEC之前，入队的命令可能会出错。如命令可能会产生语法错误（参数名错误），或者内存不足等问题( Redis 2.6.5 开始，服务器会对命令入队失败的情况进行记录，并在客户端调用EXEC命令时，拒绝执行并自动放弃这个事务)。</li>
+<li>命令可能在EXEC调用之后失败。如事务中命令可能处理了错误类型的键，将列表命令用在字符串键上不会进行特别处理，即使事务中有某个/某些命令在执行时产生了错误，事务中的其他命令仍然会继续执行)。</li>
+</ul>
+</blockquote>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; multi</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; set k3 v3</span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; set k4 v4</span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; getset k3</span><br><span class="line">(error) ERR wrong number of arguments for &#x27;getset&#x27; command</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; set k5 v5</span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; exec</span><br><span class="line">(error) EXECABORT Transaction discarded because of previous errors.</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; keys *</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;k1&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;k2&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; set k3 v3</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; multi</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; incr k1</span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; set k4 v4</span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; set k5 v5</span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; get k4</span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; exec</span><br><span class="line"><span class="number">1</span>) (error) ERR value is not an integer or out of range</span><br><span class="line"><span class="number">2</span>) OK</span><br><span class="line"><span class="number">3</span>) OK</span><br><span class="line"><span class="number">4</span>) <span class="string">&quot;v4&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><blockquote>
+<p>1.WATCH命令可以为 Redis 事务提供 check-and-set （CAS）行为。被WATCH的键会被监视，并会发觉这些键是否被改动过。 如果有至少一个被监视的键在 EXEC 执行之前被修改了，那么整个事务都会被取消， EXEC 返回nil-reply来表示事务已经失败。如果在 WATCH执行之后， EXEC 执行之前， 其他客户端修改WATCH监视键的值， 那么当前客户端事务会失败。 程序需要不断重试这个操作，直到没有发生碰撞为止。</p>
+<p>2.WATCH 使得 EXEC 命令需要有条件地执行:事务只能在所有被监视键都没有被修改的前提下执行， 如果这个前提不能满足的话，事务就不会被执行。</p>
+<p>3.WATCH命令可以被调用多次。</p>
+<p>4.对键的监视从 WATCH 执行之后开始生效，直到调用 EXEC为止。当EXEC被调用时， 不管事务是否成功执行，对所有键的监视都会被取消。当客户端断开连接时，该客户端对键的监视也会被取消。</p>
+<p>5.单个 WATCH 命令可以监视任意多个键。</p>
+<p>6.使用无参数的 UNWATCH 命令可以手动取消对所有键的监视。</p>
+</blockquote>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1:6379</span>&gt; set money <span class="number">100</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; watch money</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; multi</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; decrby money <span class="number">20</span></span><br><span class="line">QUEUED</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; exec</span><br><span class="line"><span class="number">1</span>) (integer) <span class="number">80</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; get money</span><br><span class="line"><span class="string">&quot;80&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; watch money</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; multi</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; decrby money <span class="number">32</span></span><br><span class="line">QUEUED</span><br><span class="line"></span><br><span class="line"># 另一客户端</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; incrby money <span class="number">120</span></span><br><span class="line">(integer) <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>(TX)&gt; exec</span><br><span class="line">(nil)</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; get money</span><br><span class="line"><span class="string">&quot;200&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h3 id="Jedis"><a href="#Jedis" class="headerlink" title="Jedis"></a>Jedis</h3><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p23.png" style="zoom: 80%;" />
+
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/redis/jedis">Jedis</a> is a Java client for <a target="_blank" rel="noopener" href="https://github.com/redis/redis">Redis</a> designed for performance and ease of use.</p>
+</blockquote>
+<hr>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>1.连接Redis</p>
+<ul>
+<li>JedisPool</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">JedisPool pool = <span class="keyword">new</span> JedisPool(url, port,username,password); <span class="comment">/* 无username即为null */</span></span><br><span class="line"><span class="keyword">try</span> (Jedis jedis = pool.getResource()) &#123;</span><br><span class="line">    System.out.println(jedis.ping());</span><br><span class="line">    jedis.set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Jedis&quot;</span>);</span><br><span class="line">    System.out.println(jedis.get(<span class="string">&quot;name&quot;</span>) );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JedisPooled</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">JedisPooled jedis = <span class="keyword">new</span> JedisPooled(url, port,username,password);</span><br><span class="line">jedis.set(<span class="string">&quot;Name&quot;</span>,<span class="string">&quot;RedisTest&quot;</span>);</span><br><span class="line">System.out.println(jedis.get(<span class="string">&quot;Name&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Jedis</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Jedis jedis = <span class="keyword">new</span> Jedis(<span class="string">&quot;106.52.67.217&quot;</span>, <span class="number">6379</span>);</span><br><span class="line">jedis.auth(<span class="string">&quot;ryuT?=0-U623&quot;</span>);</span><br><span class="line">System.out.println(jedis.ping());</span><br><span class="line">jedis.set(<span class="string">&quot;team&quot;</span>,<span class="string">&quot;Gaming&quot;</span>);</span><br><span class="line">System.out.println(jedis.get(<span class="string">&quot;team&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>1.Key</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1.选择数据库*/</span></span><br><span class="line">System.out.println(jedis.select(<span class="number">2</span>));</span><br><span class="line"><span class="comment">/*2.清空该数据库*/</span></span><br><span class="line">System.out.println(jedis.flushDB());</span><br><span class="line"><span class="comment">/*3.查询键存在*/</span></span><br><span class="line">System.out.println(jedis.exists(<span class="string">&quot;name&quot;</span>));</span><br><span class="line"><span class="comment">/*4.设置键值对*/</span></span><br><span class="line">System.out.println(jedis.set(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;Admin&quot;</span>));</span><br><span class="line">System.out.println(jedis.set(<span class="string">&quot;username&quot;</span>,<span class="string">&quot;Jedis&quot;</span>));</span><br><span class="line">System.out.println(jedis.set(<span class="string">&quot;score&quot;</span>,<span class="string">&quot;12&quot;</span>));</span><br><span class="line"><span class="comment">/*5.查询该数据库所有键值对*/</span></span><br><span class="line">Set&lt;String&gt; keys = jedis.keys(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">System.out.println(keys);</span><br><span class="line"><span class="comment">/*6.删除键*/</span></span><br><span class="line">System.out.println(jedis.del(<span class="string">&quot;username&quot;</span>));</span><br><span class="line"><span class="comment">/*7.查看对应键的值类型*/</span></span><br><span class="line">System.out.println(jedis.type(<span class="string">&quot;name&quot;</span>));</span><br><span class="line"><span class="comment">/*8.当前数据库中随机返回一个key*/</span></span><br><span class="line">System.out.println(jedis.randomKey());</span><br><span class="line"><span class="comment">/*9.重命名key*/</span></span><br><span class="line">System.out.println(jedis.rename(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;usr&quot;</span>));</span><br><span class="line"><span class="comment">/*10.返回当前数据库key数目*/</span></span><br><span class="line">System.out.println(jedis.dbSize());</span><br><span class="line"><span class="comment">/*11.清空所有数据库*/</span></span><br><span class="line">System.out.println(jedis.flushAll());</span><br></pre></td></tr></table></figure>
+
+<p>2.String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1.设置对应key的值*/</span></span><br><span class="line">System.out.println(jedis.set(<span class="string">&quot;k1&quot;</span>,<span class="string">&quot;v1&quot;</span>));</span><br><span class="line">System.out.println(jedis.set(<span class="string">&quot;k2&quot;</span>,<span class="string">&quot;v2&quot;</span>));</span><br><span class="line">System.out.println(jedis.set(<span class="string">&quot;k3&quot;</span>,<span class="string">&quot;v3&quot;</span>));</span><br><span class="line"><span class="comment">/*2.获取指定key的值*/</span></span><br><span class="line">System.out.println(jedis.get(<span class="string">&quot;k1&quot;</span>));</span><br><span class="line"><span class="comment">/*3.删除指定key*/</span></span><br><span class="line">System.out.println(jedis.del(<span class="string">&quot;k1&quot;</span>));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">4.为指定的key追加值</span></span><br><span class="line"><span class="comment">key已存在且是字符串，将value追加到key原来值的末尾</span></span><br><span class="line"><span class="comment">key 不存在，给定key设为value</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">System.out.println(jedis.append(<span class="string">&quot;k2&quot;</span>,<span class="string">&quot; is value&quot;</span>));</span><br><span class="line"><span class="comment">/*5.设置多个键值对*/</span></span><br><span class="line">System.out.println(jedis.mset(<span class="string">&quot;k4&quot;</span>,<span class="string">&quot;v4&quot;</span>,<span class="string">&quot;k5&quot;</span>,<span class="string">&quot;v5&quot;</span>));</span><br><span class="line"><span class="comment">/*6.获取多个键值对*/</span></span><br><span class="line">System.out.println(jedis.mget(<span class="string">&quot;k1&quot;</span>,<span class="string">&quot;k2&quot;</span>,<span class="string">&quot;k3&quot;</span>,<span class="string">&quot;k4&quot;</span>,<span class="string">&quot;k5&quot;</span>));</span><br><span class="line"><span class="comment">/*7.删除多个键值对*/</span></span><br><span class="line">System.out.println(jedis.del(<span class="string">&quot;k1,k3&quot;</span>));</span><br><span class="line"><span class="comment">/*8.指定的key不存在时，为key设置指定的值*/</span></span><br><span class="line">System.out.println(jedis.setnx(<span class="string">&quot;k4&quot;</span>,<span class="string">&quot;val1&quot;</span>));</span><br><span class="line">System.out.println(jedis.setnx(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;value1&quot;</span>));</span><br><span class="line"><span class="comment">/*9.为指定的key设置值及过期时间。key已经存在，将替换旧值*/</span></span><br><span class="line">System.out.println(jedis.setex(<span class="string">&quot;key3&quot;</span>,<span class="number">3</span>,<span class="string">&quot;value3&quot;</span>));</span><br><span class="line">System.out.println(jedis.get(<span class="string">&quot;key3&quot;</span>));</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    TimeUnit.SECONDS.sleep(<span class="number">5</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(jedis.get(<span class="string">&quot;key3&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">/*10.设置指定key的值，返回key的旧值*/</span></span><br><span class="line">System.out.println(jedis.getSet(<span class="string">&quot;key1&quot;</span>,<span class="string">&quot;This is value1&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">/*11.获取存储在指定key中字符串的子字符串。字符串截取范围由start和end两个偏移量决定(包括start和end)*/</span></span><br><span class="line">System.out.println(jedis.getrange(<span class="string">&quot;key1&quot;</span>,<span class="number">2</span>,<span class="number">9</span>));</span><br></pre></td></tr></table></figure>
+
+<p>3.List</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1.将多个值插入列表头部*/</span></span><br><span class="line">jedis.lpush(<span class="string">&quot;techStack&quot;</span>,<span class="string">&quot;Java&quot;</span>,<span class="string">&quot;MySQL&quot;</span>,<span class="string">&quot;SpringBoot&quot;</span>,<span class="string">&quot;MyBatis&quot;</span>);</span><br><span class="line">jedis.lpush(<span class="string">&quot;techStack&quot;</span>,<span class="string">&quot;Redis&quot;</span>,<span class="string">&quot;MongoDB&quot;</span>,<span class="string">&quot;Java&quot;</span>);</span><br><span class="line"><span class="comment">/*2.获取列表指定范围内的元素*/</span></span><br><span class="line">System.out.println(jedis.lrange(<span class="string">&quot;techStack&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>));</span><br><span class="line"><span class="comment">/*3.移除列表中与参数 value 相等指定数量的元素*/</span></span><br><span class="line">System.out.println(jedis.lrem(<span class="string">&quot;techStack&quot;</span>,<span class="number">1</span>,<span class="string">&quot;Java&quot;</span>));</span><br><span class="line"><span class="comment">/*4.保留指定区间内的元素*/</span></span><br><span class="line">System.out.println(jedis.ltrim(<span class="string">&quot;techStack&quot;</span>,<span class="number">0</span>,<span class="number">3</span>));</span><br><span class="line"><span class="comment">/*5.移出并获取列表的第一个元素*/</span></span><br><span class="line">System.out.println(jedis.lpop(<span class="string">&quot;techStack&quot;</span>));</span><br><span class="line"><span class="comment">/*6.在列表尾部添加一个或多个值*/</span></span><br><span class="line">System.out.println(jedis.rpush(<span class="string">&quot;techStack&quot;</span>,<span class="string">&quot;Shiro&quot;</span>,<span class="string">&quot;Kafka&quot;</span>));</span><br><span class="line"><span class="comment">/*7.移除列表的最后一个元素*/</span></span><br><span class="line">System.out.println(jedis.rpop(<span class="string">&quot;techStack&quot;</span>));</span><br><span class="line"><span class="comment">/*8.将列表 key下标为index的元素的值设置为value*/</span></span><br><span class="line">System.out.println(jedis.lset(<span class="string">&quot;techStack&quot;</span>,<span class="number">1</span>,<span class="string">&quot;Docker&quot;</span>));</span><br><span class="line"><span class="comment">/*9.获取列表长度*/</span></span><br><span class="line">System.out.println(jedis.llen(<span class="string">&quot;techStack&quot;</span>));</span><br><span class="line"><span class="comment">/*10.获取列表对应下标的值*/</span></span><br><span class="line">System.out.println(jedis.lindex(<span class="string">&quot;techStack&quot;</span>,<span class="number">1</span>));</span><br><span class="line"><span class="comment">/*11.返回或保存给定列表、集合、有序集合 key 中经过排序的元素。默认以数字作为对象，值被解释为双精度浮点数进行比较*/</span></span><br><span class="line">System.out.println(jedis.lpush(<span class="string">&quot;num&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;6&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;4&quot;</span>, <span class="string">&quot;5&quot;</span>, <span class="string">&quot;7&quot;</span>, <span class="string">&quot;9&quot;</span>));</span><br><span class="line">System.out.println(jedis.lrange(<span class="string">&quot;num&quot;</span>,<span class="number">0</span>,-<span class="number">1</span>));</span><br><span class="line">System.out.println(jedis.sort(<span class="string">&quot;num&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>4.Set</p>
+<h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/bestpractice-dcs/dcs-bp-191113001.html">Redis使用规范</a></p>
+<blockquote>
+<p>Key名称规范：</p>
+<ol>
+<li><p>使用统一的命名规范。</p>
+<p>一般使用业务名(或数据库名)为前缀，用冒号分隔，如<code>业务名:表名:id</code>。</p>
+</li>
+<li><p>控制key名称的长度。</p>
+<p>保证语义清晰的情况下，尽量减少Key的长度。常用单词可使用缩写，如user缩写为u，messages缩写为msg。</p>
+</li>
+<li><p>名称中不要包含特殊字符。</p>
+</li>
+</ol>
+<p>Value值规范：</p>
+<ol>
+<li><p>避免大Key。</p>
+<p>大Key会带来网卡流量风暴和慢查询，一般string类型控制在10KB以内，hash、list、set、zset元素个数不要超过5000。</p>
+</li>
+<li><p>选择合适的数据类型。</p>
+<p>比如存储用户的信息，可用使用多个key，使用<code>set u:1:name &quot;X&quot;</code>、<code>set u:1:age 20</code>这样存储，也可以使用hash数据结构，存储成1个key，设置用户属性时使用hmset一次设置多个，同时这样存储也能节省内存。</p>
+</li>
+<li><p>设置合理的过期时间。</p>
+<p>最好是过期时间打散，不要集中在某个时间点过期。</p>
+</li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Redis/" rel="tag"># Redis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/06/MyBatisPlus%E5%85%A5%E9%97%A8/" rel="prev" title="MyBatisPlus入门">
+                  <i class="fa fa-chevron-left"></i> MyBatisPlus入门
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/12/AliYun%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" rel="next" title="AliYun使用笔记">
+                  AliYun使用笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zero</span>
+</div>
+ <!-- <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+  -->
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
