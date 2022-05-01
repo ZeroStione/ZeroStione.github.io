@@ -49,8 +49,14 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p22.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p23.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p26.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p27.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p3.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p28.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p31.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p32.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p4.jpg">
 <meta property="article:published_time" content="2022-03-11T05:34:40.000Z">
-<meta property="article:modified_time" content="2022-04-25T06:36:43.848Z">
+<meta property="article:modified_time" content="2022-05-01T14:08:28.023Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -145,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL"><span class="nav-number">1.</span> <span class="nav-text">NoSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">2.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">2.3.</span> <span class="nav-text">性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-number">2.5.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-number">2.5.2.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-number">2.5.3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-number">2.5.4.</span> <span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Zset"><span class="nav-number">2.5.5.</span> <span class="nav-text">Zset</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.6.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-number">2.6.1.</span> <span class="nav-text">乐观锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jedis"><span class="nav-number">2.7.</span> <span class="nav-text">Jedis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lettuce"><span class="nav-number">2.8.</span> <span class="nav-text">Lettuce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conf"><span class="nav-number">2.9.</span> <span class="nav-text">Conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">2.10.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RDB"><span class="nav-number">2.10.1.</span> <span class="nav-text">RDB</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E8%8C%83"><span class="nav-number">2.11.</span> <span class="nav-text">规范</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL"><span class="nav-number">1.</span> <span class="nav-text">NoSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis"><span class="nav-number">2.</span> <span class="nav-text">Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">2.3.</span> <span class="nav-text">性能测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">2.4.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#String"><span class="nav-number">2.5.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#List"><span class="nav-number">2.5.2.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set"><span class="nav-number">2.5.3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hash"><span class="nav-number">2.5.4.</span> <span class="nav-text">Hash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Zset"><span class="nav-number">2.5.5.</span> <span class="nav-text">Zset</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">2.6.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-number">2.6.1.</span> <span class="nav-text">乐观锁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jedis"><span class="nav-number">2.7.</span> <span class="nav-text">Jedis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lettuce"><span class="nav-number">2.8.</span> <span class="nav-text">Lettuce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conf"><span class="nav-number">2.9.</span> <span class="nav-text">Conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">2.10.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RDB"><span class="nav-number">2.10.1.</span> <span class="nav-text">RDB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOF"><span class="nav-number">2.10.2.</span> <span class="nav-text">AOF</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A2%E9%98%85"><span class="nav-number">2.11.</span> <span class="nav-text">订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-number">2.12.</span> <span class="nav-text">主从复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.13.</span> <span class="nav-text">哨兵模式</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -241,7 +247,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-04-25 14:36:43" itemprop="dateModified" datetime="2022-04-25T14:36:43+08:00">2022-04-25</time>
+        <time title="修改时间：2022-05-01 22:08:28" itemprop="dateModified" datetime="2022-05-01T22:08:28+08:00">2022-05-01</time>
       </span>
 
   
@@ -1622,7 +1628,234 @@
 </tbody></table>
 <hr>
 <h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p><a target="_blank" rel="noopener" href="https://redis.io/docs/manual/persistence/">Redis persistence</a></p>
-<h4 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h4><h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/bestpractice-dcs/dcs-bp-191113001.html">Redis使用规范</a></p>
+<blockquote>
+<p>1.<strong>RDB</strong> (Redis Database): The RDB persistence performs point-in-time snapshots of your dataset at specified intervals.</p>
+<p>2.<strong>AOF</strong> (Append Only File): The AOF persistence logs every write operation received by the server, that will be played again at server startup, reconstructing the original dataset. Commands are logged using the same format as the Redis protocol itself, in an append-only fashion. Redis is able to rewrite the log in the background when it gets too big.</p>
+<p>3.<strong>No persistence</strong>: If you wish, you can disable persistence completely, if you want your data to just exist as long as the server is running.</p>
+<p>4.<strong>RDB + AOF</strong>: It is possible to combine both AOF and RDB in the same instance. Notice that, in this case, when Redis restarts the AOF file will be used to reconstruct the original dataset since it is guaranteed to be the most complete.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Redis作为一个键值对内存数据库(NoSQL)，数据都存储在内存当中，在处理客户端请求时，所有操作都在内存当中进行，存储在内存当中的数据，只要服务器宕机，内存中就会数据消失。如果Redis仅仅作为缓存来用影响不大，但如果业务数据存储在Redis，Redis的内存数据丢失影响则是毁灭性的。避免内存数据丢失，Redis提供对持久化操作，可以将数据从内存中保存到硬盘当中，使数据持久化保存。</p>
+</blockquote>
+<h4 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h4><blockquote>
+<p>1.RDB是一种快照(Snapshot)存储持久化方式，将Redis某一时刻的内存数据快照保存到磁盘中，默认保存文件名为dump.rdb，在Redis服务器启动时，会重新加载dump.rdb文件的数据到内存当中恢复数据。</p>
+<p>2，RDB持久化方案是按照指定时间间隔对你的数据集生成的时间点快照，是Redis数据库中数据的内存快照，是一个二进制文件，存储了文件生成时Redis数据库中所有的数据内容。可用于Redis的数据备份、转移与恢复。</p>
+</blockquote>
+<p>1.save(同步)</p>
+<blockquote>
+<p>当客户端向服务器发送save命令请求进行持久化时，服务器会阻塞save命令之后的其他客户端的请求，直到数据同步完成。如果数据量太大同步数据会执行很久，这期间Redis服务器也无法接收其他请求，最好不要在生产环境使用save命令。</p>
+</blockquote>
+<p>2.bgsave(异步)</p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p27.png" style="zoom: 80%;" />
+
+<blockquote>
+<p>当客户端发出bgsave命令时，Redis服务器主进程会fork一个子进程来处理持久化，在将数据写入到临时rdb文件后，替换原来的快照文件，子进程会退出。与save命令相比，Redis服务器在处理bgsave采用子线程进行IO写入，而主进程仍然可以接收其他请求，但fork子进程是同步的，所以fork子进程时一样不能接收其他请求，即如果fork一个子进程花费的时间太久(一般很快)，bgsave命令仍然有阻塞其他客户的请求的情况发生。</p>
+</blockquote>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#redis.conf</span><br><span class="line">save <span class="number">60</span> <span class="number">5</span></span><br><span class="line">dir ./</span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; config get dir # 备份与自动恢复目录</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;dir&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;/root&quot;</span></span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; save</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; set k1 v1</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; set k2 v2</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; set k3 v3</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; set k4 v4</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0.0.1:6379</span>&gt; set k5 v5</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line"><span class="string">[root@VM-8-3-centos ~]</span># ls</span><br><span class="line">dump.rdb</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>1.RDB文件由主进程生成还是子进程来生成：</p>
+<ul>
+<li>生成临时rdb文件，并写入数据</li>
+<li>完成数据写入，用临时文代替代正式rdb文件</li>
+<li>删除原来的db文件</li>
+</ul>
+<p>2.优点</p>
+<ul>
+<li>与AOF方式相比，通过rdb文件恢复数据比较快</li>
+<li>rdb文件紧凑(二进制文件)，适合于数据备份、全量复制</li>
+<li>通过RDB进行数据备份使用子进程生成时对Redis服务器性能影响较小</li>
+<li>对灾难恢复、数据迁移非常友好，rdb文件可转移至需要的地方重新加载</li>
+</ul>
+<p>3.缺点</p>
+<ul>
+<li>服务器宕机会造成某个时段内数据的丢失（无法实时持久化）</li>
+<li>save会造成服务器阻塞，直接数据同步完成才能接收后续请求</li>
+<li>bgsave命令在fork子进程时，如果数据量太大forks的过程也会发生阻塞，另外forks进程会耗费内存</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h4><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p3.jpg" style="zoom:80%;" />
+
+<blockquote>
+<p>AOF（Append Only File）持久化功能，AOF持久化会把被执行的写命令写到AOF文件的末尾，记录数据的变化。默认情况下，Redis不开启AOF持久化，开启后每执行一条更改Redis数据命令，都会把该命令追加到AOF文件（appendonly.aof），虽然会降低Redis的性能，但大部分情况下能够接受，使用较快硬盘可以提高AOF的性能。</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># redis.conf</span></span><br><span class="line">appendonly <span class="literal">yes</span></span><br><span class="line"><span class="comment"># The name of the append only file (default: &quot;appendonly.aof&quot;)</span></span><br><span class="line">appendfilename <span class="string">&quot;appendonly.aof&quot;</span></span><br><span class="line"></span><br><span class="line">redis-server /usr/local/redis/etc/redis.conf </span><br><span class="line">&gt; ls</span><br><span class="line">appendonly.aof  dump.rdb</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; <span class="builtin-name">set</span> k1 v1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; <span class="builtin-name">set</span> k2 v2</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; <span class="builtin-name">set</span> k3 v3</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; <span class="builtin-name">set</span> k4 v4</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line"><span class="comment"># appendonly.aof </span></span><br><span class="line"><span class="number">*2</span></span><br><span class="line"><span class="variable">$6</span></span><br><span class="line">SELECT</span><br><span class="line"><span class="variable">$1</span></span><br><span class="line">0</span><br><span class="line"><span class="number">*3</span></span><br><span class="line"><span class="variable">$3</span></span><br><span class="line"><span class="builtin-name">set</span></span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">k1</span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">v1</span><br><span class="line"><span class="number">*3</span></span><br><span class="line"><span class="variable">$3</span></span><br><span class="line"><span class="builtin-name">set</span></span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">k2</span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">v2</span><br><span class="line"><span class="number">*3</span></span><br><span class="line"><span class="variable">$3</span></span><br><span class="line"><span class="builtin-name">set</span></span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">k3</span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">v3</span><br><span class="line"><span class="number">*3</span></span><br><span class="line"><span class="variable">$3</span></span><br><span class="line"><span class="builtin-name">set</span></span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">k4</span><br><span class="line"><span class="variable">$2</span></span><br><span class="line">v4</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.aof文件出错时会导致Redis无法启动，需要redis-check-aof来修复aof文件。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-check-aof --fix appendonly.aof</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>优点：</p>
+<ul>
+<li>数据更完整，安全性更高，秒级数据丢失（取决fsync策略）</li>
+<li>AOF文件只进行追加，内容可读，适合误删紧急恢复</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>对于相同的数据集，AOF文件体积大于RDB文件，数据恢复比较慢</li>
+<li>根据所使用的fsync策略，AOF的速度可能会慢于RDB</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h3><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p28.png" style="zoom:80%;" />
+
+<blockquote>
+<ol>
+<li>发送者（发送信息的客户端）不是将信息直接发送给特定的接收者（接收信息的客户端）， 而是将信息发送给频道（channel）， 然后由频道将信息转发给所有对这个频道感兴趣的订阅者。</li>
+</ol>
+<p>2.Redis 发布订阅 (pub/sub) 是一种消息通信模式：发送者 (pub) 发送消息，订阅者 (sub) 接收消息。</p>
+<p>3.Redis 客户端可以订阅任意数量的频道。</p>
+<p>4.底层是通过字典实现的，这个字典就用于保存订阅频道的信息：字典的键为正在被订阅的频道，而字典的值则是一个链表，链表中保存了所有订阅这个频道的客户端。当发送消息时首先根据 channel 定位到字典的键，然后将信息发送给字典值链表中的所有客户端。</p>
+</blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p31.png" style="zoom:80%;" />
+
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">PSUBSCRIBE pattern [pattern …]</td>
+<td align="center">订阅一个或多个符合给定模式的频道</td>
+</tr>
+<tr>
+<td align="center">PUBSUB subcommand [argument [argument …]]</td>
+<td align="center">查看订阅与发布系统状态</td>
+</tr>
+<tr>
+<td align="center">PUBLISH channel message</td>
+<td align="center">将信息发送到指定的频道</td>
+</tr>
+<tr>
+<td align="center">PUNSUBSCRIBE [pattern [pattern …]]</td>
+<td align="center">退订所有给定模式的频道</td>
+</tr>
+<tr>
+<td align="center">SUBSCRIBE channel [channel …]</td>
+<td align="center">订阅给定的一个或多个频道的信息</td>
+</tr>
+<tr>
+<td align="center">UNSUBSCRIBE [channel [channel …]]</td>
+<td align="center">指退订给定的频道</td>
+</tr>
+</tbody></table>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 发送端</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> publish Gaming CSGO</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> publish Gaming Apex</span><br><span class="line">(integer) <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收端</span></span><br><span class="line"><span class="meta">127.0.0.1:6379&gt;</span> subscribe Gaming</span><br><span class="line">Reading messages... (press Ctrl-C to quit)</span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;subscribe&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Gaming&quot;</span></span><br><span class="line"><span class="number">3</span>) (integer) <span class="number">1</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;message&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Gaming&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;CSGO&quot;</span></span><br><span class="line"><span class="number">1</span>) <span class="string">&quot;message&quot;</span></span><br><span class="line"><span class="number">2</span>) <span class="string">&quot;Gaming&quot;</span></span><br><span class="line"><span class="number">3</span>) <span class="string">&quot;Apex&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p32.png" style="zoom:80%;" />
+
+<blockquote>
+<p>1.主从复制，是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(master/leader)，后者称为从节点(slave/follower)；数据的复制是单向的，只能由主节点到从节点。默认情况下，每台Redis服务器都是主节点；且一个主节点可以有多个从节点(或没有从节点)，但一个从节点只能有一个主节点。</p>
+<p>2.作用</p>
+<ul>
+<li>数据冗余</li>
+<li>故障恢复</li>
+<li>负载均衡：在主从复制的基础上，配合读写分离，可以由主节点提供写服务，由从节点提供读服务（写Redis数据时应用连接主节点，读Redis数据时应用连接从节点），分担服务器负载，在写少读多的场景下，通过多个从节点分担读负载，可以大大提高Redis服务器的并发量。</li>
+<li>高可用基石：主从复制是哨兵和集群能够实施的基础</li>
+</ul>
+<p>3.保存主节点信息-&gt;主从建立socket连接-&gt;发送ping命令-&gt;权限验证-&gt;同步数据集-&gt;命令持续复制</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SLAVEOF host port</td>
+<td align="center">将当前服务器转变为指定服务器的从属服务器或者停止对旧主服务器的同步转而对新主服务器进行同步</td>
+</tr>
+<tr>
+<td align="center">SLAVEOF NO ONE</td>
+<td align="center">使得该从属服务器关闭复制功能，并从从属服务器转变回主服务器，原来同步所得的数据集不会被丢弃</td>
+</tr>
+<tr>
+<td align="center">ROLE</td>
+<td align="center">返回实例在复制中担任的角色(master 、slave或者sentinel)以及其他信息：主服务器将返回属下从服务器的 IP 地址和端口，从服务器将返回自己正在复制的主服务器的 IP 地址、端口、连接状态以及复制偏移量，Sentinel 将返回自己正在监视的主服务器列表</td>
+</tr>
+</tbody></table>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ls</span></span><br><span class="line">redis.conf</span><br><span class="line"><span class="comment"># cp redis.conf redis79.conf</span></span><br><span class="line"><span class="comment"># cp redis.conf redis80.conf</span></span><br><span class="line"><span class="comment"># cp redis.conf redis81.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#redis80.conf</span></span><br><span class="line">port 6380</span><br><span class="line">replicaof &lt;masterip&gt; &lt;masterport&gt;</span><br><span class="line">masterauth &lt;master-password&gt;</span><br><span class="line">pidfile /var/run/redis_6380.pid</span><br><span class="line">logfile <span class="string">&quot;redis6380.log&quot;</span></span><br><span class="line">dbfilename dump6380.rdb</span><br><span class="line"></span><br><span class="line">redis-server /usr/local/redis/etc/redis81.conf </span><br><span class="line"></span><br><span class="line"><span class="comment"># ps -ef|grep redis</span></span><br><span class="line">root     32221     1  0 15:15 ?        00:00:00 redis-server *:6380</span><br><span class="line">root     32280     1  0 15:15 ?        00:00:00 redis-server *:6381</span><br><span class="line">root     32531     1  0 15:17 ?        00:00:00 redis-server *:6379</span><br><span class="line">root     32542 31790  0 15:17 pts/1    00:00:00 grep --color=auto redis</span><br><span class="line"></span><br><span class="line"><span class="section">127.0.0.1:6379&gt; info replication</span></span><br><span class="line"><span class="comment"># Replication</span></span><br><span class="line"><span class="section">role:master</span></span><br><span class="line"><span class="section">connected_slaves:0</span></span><br><span class="line"><span class="section">master_failover_state:no-failover</span></span><br><span class="line"><span class="section">master_replid:85958e18b498d2498d7df202f153954361c237f2</span></span><br><span class="line"><span class="section">master_replid2:0000000000000000000000000000000000000000</span></span><br><span class="line"><span class="section">master_repl_offset:0</span></span><br><span class="line"><span class="section">second_repl_offset:-1</span></span><br><span class="line"><span class="section">repl_backlog_active:0</span></span><br><span class="line"><span class="section">repl_backlog_size:1048576</span></span><br><span class="line"><span class="section">repl_backlog_first_byte_offset:0</span></span><br><span class="line"><span class="section">repl_backlog_histlen:0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># slaveof host port 无密码 一次性</span></span><br><span class="line"><span class="section">127.0.0.1:6380&gt; info replication</span></span><br><span class="line"><span class="comment"># Replication</span></span><br><span class="line"><span class="section">role:slave</span></span><br><span class="line"><span class="section">master_host:127.0.0.1</span></span><br><span class="line"><span class="section">master_port:6379</span></span><br><span class="line"><span class="section">master_link_status:up</span></span><br><span class="line"><span class="section">master_last_io_seconds_ago:2</span></span><br><span class="line"><span class="section">master_sync_in_progress:0</span></span><br><span class="line"><span class="section">slave_repl_offset:42</span></span><br><span class="line"><span class="section">slave_priority:100</span></span><br><span class="line"><span class="section">slave_read_only:1</span></span><br><span class="line"><span class="section">replica_announced:1</span></span><br><span class="line"><span class="section">connected_slaves:0</span></span><br><span class="line"><span class="section">master_failover_state:no-failover</span></span><br><span class="line"><span class="section">master_replid:9e9dcc696ee088ad017f9d8dae3a3cddb6d5b71c</span></span><br><span class="line"><span class="section">master_replid2:0000000000000000000000000000000000000000</span></span><br><span class="line"><span class="section">master_repl_offset:42</span></span><br><span class="line"><span class="section">second_repl_offset:-1</span></span><br><span class="line"><span class="section">repl_backlog_active:1</span></span><br><span class="line"><span class="section">repl_backlog_size:1048576</span></span><br><span class="line"><span class="section">repl_backlog_first_byte_offset:1</span></span><br><span class="line"><span class="section">repl_backlog_histlen:42</span></span><br><span class="line"></span><br><span class="line"><span class="section">127.0.0.1:6379&gt; info replication</span></span><br><span class="line"><span class="comment"># Replication</span></span><br><span class="line"><span class="section">role:master</span></span><br><span class="line"><span class="section">connected_slaves:1</span></span><br><span class="line"><span class="section">slave0:ip=127.0.0.1,port=6380,state=online,offset=56,lag=0</span></span><br><span class="line"><span class="section">master_failover_state:no-failover</span></span><br><span class="line"><span class="section">master_replid:9e9dcc696ee088ad017f9d8dae3a3cddb6d5b71c</span></span><br><span class="line"><span class="section">master_replid2:0000000000000000000000000000000000000000</span></span><br><span class="line"><span class="section">master_repl_offset:56</span></span><br><span class="line"><span class="section">second_repl_offset:-1</span></span><br><span class="line"><span class="section">repl_backlog_active:1</span></span><br><span class="line"><span class="section">repl_backlog_size:1048576</span></span><br><span class="line"><span class="section">repl_backlog_first_byte_offset:1</span></span><br><span class="line"><span class="section">repl_backlog_histlen:56</span></span><br><span class="line"></span><br><span class="line"><span class="section">127.0.0.1:6380&gt; set name admin   #从机无法设值，只能用于读取</span></span><br><span class="line">(error) READONLY You can&#x27;t write against a read only replica.</span><br><span class="line"><span class="section">127.0.0.1:6379&gt; set name admin</span></span><br><span class="line">OK</span><br><span class="line"><span class="section">127.0.0.1:6380&gt; get name</span></span><br><span class="line"><span class="string">&quot;admin&quot;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>在Redis2.8以前，从节点向主节点发送sync命令请求同步数据，同步方式为全量复制，在Redis2.8及以后，从节点可以发送psync命令请求同步数据，根据主从节点当前状态的不同，同步方式可能是全量复制或部分复制。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">全量复制</td>
+<td align="center">用于初次复制场景，把主节点全部数据一次性发送给从节点，当数据量较大时，会对主从节点和网络造成极大开销</td>
+</tr>
+<tr>
+<td align="center">部分复制</td>
+<td align="center">用于处理在主从复制中网络中断等原因造成的数据丢失，当从节点再次连上主节点后，如果条件允许，主节点会补发中断期间执行的写命令给从节点，与全量复制相比更加高效</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="哨兵模式"><a href="#哨兵模式" class="headerlink" title="哨兵模式"></a>哨兵模式</h3><img src="https://zerostione.github.io/ImageUp//Image/Blog/Redis/p4.jpg" style="zoom:80%;" />
+
+<blockquote>
+<p>1.哨兵(sentinel)是Redis的一种运行模式，专注于对Redis实例（主节点、从节点）运行状态的监控，并能够在主节点发生故障时通过一系列的机制实现选主及主从切换，实现故障转移，确保整个Redis系统的可用性。未配置哨兵之前，master宕机需要手动选择一个正常的slave成为新的主节点，效率低、故障感知滞后，不具备生产实用性。</p>
+<ul>
+<li>监控（Monitoring）： Sentinel 会不断地检查你的主服务器和从服务器是否运作正常。</li>
+<li>提醒/通知（Notification）： 当被监控的某个 Redis 服务器出现问题时， Sentinel 可以通过 API 向管理员或者其他应用程序发送通知。</li>
+<li>自动故障迁移（Automatic failover）： 当一个主服务器不能正常工作时， Sentinel 会开始一次自动故障迁移操作， 它会将失效主服务器的其中一个从服务器升级为新的主服务器， 并让失效主服务器的其他从服务器改为复制新的主服务器； 当客户端试图连接失效的主服务器时， 集群也会向客户端返回新主服务器的地址， 使得集群可以使用新主服务器代替失效服务器。</li>
+</ul>
+<p>​    Redis Sentinel 是一个分布式系统， 可以在一个架构中运行多个 Sentinel 进程（progress）， 这些进程使用流言协议（gossip protocols)来接收关于主服务器是否下线的信息，并使用投票协议（agreement protocols）来决定是否执行自动故障迁移，以及选择哪个从服务器作为新的主服务器。</p>
+<p>2.sentinel可以让redis实现主从复制，当一个集群中的master失效之后，sentinel可以选举出一个新的master用于自动接替master的工作，集群中的其他redis服务器自动指向新的master同步数据。一般建议sentinel采取奇数台，防止某一台sentinel无法连接到master导致误切换。</p>
+<p>3.哨兵通过<code>PING</code>命令实现对主从节点的故障检测。哨兵以集群方式工作，官方建议至少要有三个节点，每个节点都以相同的方式对主从节点进行监控与故障检测。单个哨兵对节点的故障检测可能无法代表其真实状态，为了降低误判，哨兵之间需要对节点的故障状态进行协商。</p>
+<ul>
+<li><p>主观宕机（Subjective Down, SDOWN）：是指一个哨兵实例通过检测发现某个主节点发生故障的一种状态。</p>
+</li>
+<li><p>客观宕机（Objective Down, ODOWN）：是指哨兵检测到某个主节点发生故障，通过命令<code>SENTINEL is-master-down-by-addr</code>与其他哨兵节点协商，并且在指定时间内接收到指定数量的其他哨兵的确认反馈时的一种状态。</p>
+<p> SDOWN是该哨兵认为节点宕机，而ODOWN是不但该哨兵认为节点宕机，而且该哨兵与其他节点沟通后，达到一定数量的哨兵都认为节点宕机。</p>
+</li>
+</ul>
+<p>4.主节点客观宕机后，Sentinel Leader会从该主节点存活的从节点中选出一个新的主节点，之后让其他存活的从节点以该节点为主节点，然后向该节点发起主从复制。</p>
+</blockquote>
+<hr>
+<p>1.配置哨兵配置文件</p>
+<blockquote>
+<p>sentinel &lt;选项的名字&gt; &lt;主服务器的名字&gt; &lt;选项的值&gt;</p>
+</blockquote>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sentinel<span class="built_in"> monitor </span>mymaster 127.0.0.1 6379 2  <span class="comment"># 监视mymaster主服务器， 该主服务器的IP地址为 127.0.0.1 ， 端口为 6379 ，将这个主服务器判断为失效至少需要2个Sentinel同意</span></span><br><span class="line">sentinel down-after-milliseconds mymaster 60000 <span class="comment"># 判断服务器已经断线所需的毫秒数</span></span><br><span class="line">sentinel failover-timeout mymaster 180000 <span class="comment"># 与故障转移超时的判断有关，用来判断其几个子阶段的超时，例如主节点晋升从节点时间超过timeout，或从节点向新的主节点发起复制操作的时间(不包括复制数据的时间)超过timeout，都会导致故障转移超时失败</span></span><br><span class="line">sentinel parallel-syncs mymaster 1  <span class="comment"># 在执行故障转移时，最多可以有多少个从服务器同时对新的主服务器进行同步</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># sentinel.conf</span><br><span class="line">sentinel monitor myredis <span class="number">127.0.0.1</span> <span class="number">6379</span> <span class="number">1</span></span><br><span class="line">sentinel auth-pass myredis <span class="number">123456</span>     #连接master密码</span><br><span class="line"></span><br><span class="line">&gt; redis-sentinel  /usr/local/redis/etc/sentinel.conf </span><br><span class="line"></span><br><span class="line"><span class="number">28053</span>:X <span class="number">01</span> May <span class="number">2022 21:33</span>:<span class="number">10</span>.<span class="number">035</span> * +slave slave <span class="number">127.0.0.1</span>:<span class="number">6380 127.0</span>.<span class="number">0.1 6380</span> @ myredis <span class="number">127.0.0.1</span> <span class="number">6381</span></span><br><span class="line"><span class="number">28053</span>:X <span class="number">01</span> May <span class="number">2022 21:33</span>:<span class="number">10</span>.<span class="number">035</span> * +slave slave <span class="number">127.0.0.1</span>:<span class="number">6379 127.0</span>.<span class="number">0.1 6379</span> @ myredis <span class="number">127.0.0.1</span> <span class="number">6381</span></span><br><span class="line"><span class="number">28053</span>:X <span class="number">01</span> May <span class="number">2022 21:33</span>:<span class="number">40</span>.<span class="number">096</span> # +sdown slave <span class="number">127.0.0.1</span>:<span class="number">6379 127.0</span>.<span class="number">0.1 6379</span> @ myredis <span class="number">127.0.0.1</span> <span class="number">6381</span></span><br><span class="line"></span><br><span class="line"><span class="number">127.0.0.1</span>:<span class="number">6379</span>&gt; shutdown</span><br><span class="line"><span class="number">127.0.0.1</span>:<span class="number">6381</span>&gt; info replication</span><br><span class="line"># Replication</span><br><span class="line">role:master</span><br><span class="line">connected_slaves:<span class="number">1</span></span><br><span class="line">slave0:ip=<span class="number">127.0.0.1</span>,port=<span class="number">6380</span>,state=online,offset=<span class="number">9336</span>,lag=<span class="number">0</span></span><br><span class="line">master_failover_state:no-failover</span><br><span class="line">master_replid:<span class="number">5d</span>ed70a045bbdfa227bc4e7f5f98e4f347ba3a54</span><br><span class="line">master_replid2:aed8ad31232bf77921784659206a9a0a<span class="number">682b2367</span></span><br><span class="line">master_repl_offset:<span class="number">9336</span></span><br><span class="line">second_repl_offset:<span class="number">2852</span></span><br><span class="line">repl_backlog_active:<span class="number">1</span></span><br><span class="line">repl_backlog_size:<span class="number">1048576</span></span><br><span class="line">repl_backlog_first_byte_offset:<span class="number">1</span></span><br><span class="line">repl_backlog_histlen:<span class="number">9336</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>优点：</p>
+<ol>
+<li><p>基于主从复制模式</p>
+</li>
+<li><p>故障自动转移，高可用</p>
+</li>
+<li><p>增强了系统的健壮性</p>
+</li>
+</ol>
+<p>缺点：    </p>
+<ol>
+<li>集群容量一旦到达上限，在线扩容困难</li>
+<li>哨兵模式配置繁琐</li>
+<li>始终只有一个Redis主机来接收和处理写请求，易受单机瓶颈影响</li>
+<li>集群里所有节点保存的都是全量数据，没有实现分布式存储(Redis Sharding)</li>
+</ol>
+</blockquote>
+<p><a href="https://zerostione.github.io/ImageUp/Source/configure/sentinel.conf">sentinel.conf</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/bestpractice-dcs/dcs-bp-191113001.html">Redis使用规范</a></p>
 <blockquote>
 <p>Key名称规范：</p>
 <ol>
