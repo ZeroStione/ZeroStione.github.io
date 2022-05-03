@@ -27,16 +27,17 @@
 <meta property="og:site_name" content="Zero">
 <meta property="og:description" content="Apache Shiro是一个开源安全框架，提供身份验证、授权、密码学和会话管理。Shiro框架直观、易用，同时能提供健壮的安全性。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p1.jpg">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p7.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p2.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p4.png">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p5.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p6.png">
 <meta property="article:published_time" content="2022-04-16T12:33:21.000Z">
-<meta property="article:modified_time" content="2022-05-03T06:23:10.360Z">
+<meta property="article:modified_time" content="2022-05-03T08:05:27.121Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="shiro">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p1.jpg">
+<meta name="twitter:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p7.png">
 
 
 <link rel="canonical" href="https://zerostione.github.io/2022/04/16/Shiro%E5%AD%A6%E4%B9%A0/">
@@ -223,7 +224,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-05-03 14:23:10" itemprop="dateModified" datetime="2022-05-03T14:23:10+08:00">2022-05-03</time>
+        <time title="修改时间：2022-05-03 16:05:27" itemprop="dateModified" datetime="2022-05-03T16:05:27+08:00">2022-05-03</time>
       </span>
 
   
@@ -237,7 +238,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>Apache Shiro是一个开源安全框架，提供身份验证、授权、密码学和会话管理。Shiro框架直观、易用，同时能提供健壮的安全性。</p>
-<img src="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p1.jpg" style="zoom: 80%;" />
+<img src="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p7.png" style="zoom: 20%;" />
 
 <span id="more"></span>
 
@@ -345,7 +346,25 @@
 <li>Principal(身份信息)：主体进行身份认证的标识，标识具有唯一性，如用户名、手机号、邮箱地址等，一个主体可以有多个身份，但必须有一个主身份(Primary Principal)</li>
 <li>credential(凭证信息):只有主体知道的安全信息，如密码、证书等。</li>
 </ul>
+<p>2.shiro 配置文件(.ini)</p>
+<ul>
+<li><strong>INI文件</strong>是一种无固定标准格式的配置文件。它以简单的文字与简单的结构组成，常常使用在Windows操作系统上(后用注册表代替)，许多程序也会采用INI文件做为配置文件之用。</li>
+<li>节 [section]</li>
+<li>参数 name=value</li>
+<li>注解 分号(<code>;</code>)</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">;last modified 1 April 2001 by John Doe</span></span><br><span class="line">&gt;<span class="section">[owner]</span></span><br><span class="line">&gt;<span class="attr">name</span>=John Doe</span><br><span class="line">&gt;<span class="attr">organization</span>=Acme Products</span><br><span class="line"></span><br><span class="line">&gt;<span class="section">[database]</span></span><br><span class="line">&gt;<span class="attr">server</span>=<span class="number">192.0</span>.<span class="number">2.42</span> </span><br><span class="line">&gt;<span class="attr">port</span>=<span class="number">143</span></span><br><span class="line">&gt;<span class="attr">file</span>=<span class="string">&quot;acme payroll.dat&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>shiro.ini文件默认在/WEB-INF/或classpath下，INI配置文件一般适用于用户少且不需要在运行时动态创建的情景下使用(学习中模拟系统权限数据)。</li>
+</ul>
 </blockquote>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p6.png" style="zoom:80%;" />
+
+<hr>
+<p>1.导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
