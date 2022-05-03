@@ -28,8 +28,9 @@
 <meta property="og:description" content="Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/Swagger/p1.png">
+<meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/Swagger/p2.png">
 <meta property="article:published_time" content="2022-05-02T04:44:37.000Z">
-<meta property="article:modified_time" content="2022-05-02T05:08:16.818Z">
+<meta property="article:modified_time" content="2022-05-03T03:48:36.602Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="Swagger">
 <meta name="twitter:card" content="summary">
@@ -124,7 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Swagger"><span class="nav-number">1.</span> <span class="nav-text">Swagger</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Swagger"><span class="nav-number">1.</span> <span class="nav-text">Swagger</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot%E9%9B%86%E6%88%90"><span class="nav-number">1.1.</span> <span class="nav-text">SpringBoot集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESwagger"><span class="nav-number">1.1.1.</span> <span class="nav-text">配置Swagger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Swagger%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.1.2.</span> <span class="nav-text">Swagger注解</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -139,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,10 +213,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-05-02 12:44:37 / 修改时间：13:08:16" itemprop="dateCreated datePublished" datetime="2022-05-02T12:44:37+08:00">2022-05-02</time>
+      <time title="创建时间：2022-05-02 12:44:37" itemprop="dateCreated datePublished" datetime="2022-05-02T12:44:37+08:00">2022-05-02</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-05-03 11:48:36" itemprop="dateModified" datetime="2022-05-03T11:48:36+08:00">2022-05-03</time>
+      </span>
 
   
 </div>
@@ -233,8 +240,347 @@
 <span id="more"></span>
 
 <h1 id="Swagger"><a href="#Swagger" class="headerlink" title="Swagger"></a>Swagger</h1><p><a target="_blank" rel="noopener" href="https://swagger.io/">Swagger</a></p>
+<img src="https://zerostione.github.io/ImageUp//Image/Blog2/Swagger/p2.png" style="zoom: 80%;" />
+
 <blockquote>
-<p>Swagger 是一款RESTFUL接口的文档在线自动生成与功能测试功能软件。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。 文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。 Swagger 让部署管理和使用功能强大的API从未如此简单。</p>
+<p>1.Swagger 是一款RESTFUL接口的文档在线自动生成与功能测试功能软件。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。 文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。 Swagger 让部署管理和使用功能强大的API从未如此简单。</p>
+<p>2.Swagger将项目中接口展现在页面上，并进行接口调用和测试，Swagger遵循OpenAPI(<em>The <strong>OpenAPI Specification</strong>, previously known as the <strong>Swagger Specification</strong>, is a specification for machine-readable interface files for describing, producing, consuming, and visualizing RESTful web services</em>)规范。</p>
+<ul>
+<li>项目中接口展现在页面上</li>
+<li>接口更新只需要修改代码中的 Swagger 描述就可实时生成新接口文档</li>
+<li>通过Swagger页面可直接进行接口调用和测试</li>
+</ul>
+<p>3.Swagger 是一套基于 OpenAPI 规范（OpenAPI Specification，OAS）构建的开源工具，后来成为了 Open API 标准的主要定义者，现在最新的版本为17年发布的 Swagger3（Open Api3）。 国内绝大部分人】还在用过时的swagger2（17年停止维护并更名为swagger3）。</p>
+<p>4.Swagger 提供了一套通过代码和注解自动生成文档的方法。 SpringFox是 spring 社区维护的一个项目（非官方），帮助使用者将 swagger2 集成到 Spring 中。 </p>
+</blockquote>
+<hr>
+<h2 id="SpringBoot集成"><a href="#SpringBoot集成" class="headerlink" title="SpringBoot集成"></a>SpringBoot集成</h2><p>1.导入依赖</p>
+<blockquote>
+<p>SpringFox 的前身是 swagger-springmvc，是一个开源的 API doc 框架，可以将 Controller 的方法以文档的形式展现。</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--自动生成描述API的json文件--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--将描述API的json文件解析--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>1.NullPointerException(springboot2.6.0中将SpringMVC默认路径匹配策略从AntPathMatcher更改为PathPatternParser)</p>
+<ul>
+<li>降低SpringBoot版本</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Plugin &#x27;org.springframework.boot:spring-boot-maven-plugin:&#x27; not found--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;project.parent.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Project’org.springframework.boot:spring-boot-starter-parent:’ not found: File -&gt; Invalidate Caches / Restart…</p>
+</blockquote>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.mvc.pathmatch.matching-strategy</span>=<span class="string">ANT_PATH_MATCHER</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主启动类加上注解: <code>@EnableWebMvc</code></li>
+</ul>
+<hr>
+<p>2.<a target="_blank" rel="noopener" href="http://localhost:8080/swagger-ui.html">swagger-ui.html</a>无法打开（在swagger3.x(<code>/resources/webjars/springfox-swagger-ui/index.html</code>)与swagger2.x(<code>/resources/swagger-ui.html</code>)命名及位置变化)</p>
+<ul>
+<li>springfox依赖降级</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置类(需要去掉主启动类的@EnableWebMvc注解)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMVCConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/**&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/static/&quot;</span>);</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 配置swagger-ui显示文档</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;swagger-ui.html&quot;</span>)</span><br><span class="line">                .addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/&quot;</span>);</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/webjars/**&quot;</span>)</span><br><span class="line">                .addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/webjars/&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更换依赖</li>
+</ul>
+<blockquote>
+<p>1.主启动类添加<code>@EnableOpenApi</code>注解</p>
+<p>2.访问<a target="_blank" rel="noopener" href="http://localhost:8080/swagger-ui/index.html">http://localhost:8080/swagger-ui/index.html</a></p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<p>2.测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(value = &quot;/hello&quot;,method = RequestMethod.GET)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello Swagger&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="配置Swagger"><a href="#配置Swagger" class="headerlink" title="配置Swagger"></a>配置Swagger</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Docket</span> <span class="keyword">implements</span> <span class="title">DocumentationPlugin</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_GROUP_NAME = <span class="string">&quot;default&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> DocumentationType documentationType;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;SecurityContext&gt; securityContexts = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;RequestMethod, List&lt;ResponseMessage&gt;&gt; responseMessages = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Map&lt;HttpMethod, List&lt;Response&gt;&gt; responses = <span class="keyword">new</span> HashMap();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Parameter&gt; globalOperationParameters = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Function&lt;TypeResolver, AlternateTypeRule&gt;&gt; ruleBuilders = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Set&lt;Class&gt; ignorableParameterTypes = <span class="keyword">new</span> HashSet();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Set&lt;String&gt; protocols = <span class="keyword">new</span> HashSet();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Set&lt;String&gt; produces = <span class="keyword">new</span> LinkedHashSet();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Set&lt;String&gt; consumes = <span class="keyword">new</span> LinkedHashSet();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Set&lt;ResolvedType&gt; additionalModels = <span class="keyword">new</span> HashSet();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Set&lt;Tag&gt; tags = <span class="keyword">new</span> HashSet();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Server&gt; servers = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    <span class="keyword">private</span> PathProvider pathProvider;</span><br><span class="line">    <span class="keyword">private</span> List&lt;SecurityScheme&gt; securitySchemes;</span><br><span class="line">    <span class="keyword">private</span> Comparator&lt;ApiListingReference&gt; apiListingReferenceOrdering;</span><br><span class="line">    <span class="keyword">private</span> Comparator&lt;ApiDescription&gt; apiDescriptionOrdering;</span><br><span class="line">    <span class="keyword">private</span> Comparator&lt;Operation&gt; operationOrdering;</span><br><span class="line">    <span class="keyword">private</span> ApiInfo apiInfo;</span><br><span class="line">    <span class="keyword">private</span> String groupName;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> enabled;</span><br><span class="line">    <span class="keyword">private</span> GenericTypeNamingStrategy genericsNamingStrategy;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> applyDefaultResponseMessages;</span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="keyword">private</span> Optional&lt;String&gt; pathMapping;</span><br><span class="line">    <span class="keyword">private</span> ApiSelector apiSelector;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> enableUrlTemplating;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;VendorExtension&gt; vendorExtensions;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;RequestParameter&gt; globalRequestParameters;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Docket</span><span class="params">(DocumentationType documentationType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.apiInfo = ApiInfo.DEFAULT;</span><br><span class="line">        <span class="keyword">this</span>.groupName = <span class="string">&quot;default&quot;</span>;</span><br><span class="line">        <span class="keyword">this</span>.enabled = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.genericsNamingStrategy = <span class="keyword">new</span> DefaultGenericTypeNamingStrategy();</span><br><span class="line">        <span class="keyword">this</span>.applyDefaultResponseMessages = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">this</span>.host = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">this</span>.pathMapping = Optional.empty();</span><br><span class="line">        <span class="keyword">this</span>.apiSelector = ApiSelector.DEFAULT;</span><br><span class="line">        <span class="keyword">this</span>.enableUrlTemplating = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">this</span>.vendorExtensions = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">this</span>.globalRequestParameters = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">this</span>.documentationType = documentationType;</span><br><span class="line">    &#125;</span><br><span class="line">   ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DocumentationType</span> <span class="keyword">extends</span> <span class="title">SimplePluginMetadata</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> DocumentationType SWAGGER_12 = <span class="keyword">new</span> DocumentationType(<span class="string">&quot;swagger&quot;</span>, <span class="string">&quot;1.2&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> DocumentationType SWAGGER_2 = <span class="keyword">new</span> DocumentationType(<span class="string">&quot;swagger&quot;</span>, <span class="string">&quot;2.0&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> DocumentationType OAS_30 = <span class="keyword">new</span> DocumentationType(<span class="string">&quot;openApi&quot;</span>, <span class="string">&quot;3.0&quot;</span>);</span><br><span class="line">    <span class="comment">/** <span class="doctag">@deprecated</span> */</span></span><br><span class="line">    <span class="meta">@Deprecated</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> DocumentationType SPRING_WEB = <span class="keyword">new</span> DocumentationType(<span class="string">&quot;spring-web&quot;</span>, <span class="string">&quot;5.2&quot;</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> MediaType mediaType;</span><br><span class="line">    .......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiInfo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Contact DEFAULT_CONTACT = <span class="keyword">new</span> Contact(<span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> ApiInfo DEFAULT;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String version;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String title;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String description;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String termsOfServiceUrl;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String license;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String licenseUrl;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Contact contact;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;VendorExtension&gt; vendorExtensions;</span><br><span class="line">    .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*API分组*/</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docketOther</span><span class="params">(Environment environment)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2).groupName(<span class="string">&quot;Stone&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">(Environment environment)</span></span>&#123;</span><br><span class="line">        <span class="comment">/*设置显示Swagger环境*/</span></span><br><span class="line">        Profiles profiles = Profiles.of(<span class="string">&quot;dev&quot;</span>,<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">/*environment.acceptsProfiles获取当前环境*/</span></span><br><span class="line">        <span class="keyword">boolean</span> flag = environment.acceptsProfiles(profiles);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                <span class="comment">/*是否启用swagger的访问*/</span></span><br><span class="line">                .enable(flag)</span><br><span class="line">                .groupName(<span class="string">&quot;Zero&quot;</span>)</span><br><span class="line">                .select()</span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                RequestHandlerSelectors 配置扫描方式</span></span><br><span class="line"><span class="comment">                basePackage 基于包</span></span><br><span class="line"><span class="comment">                any 全部</span></span><br><span class="line"><span class="comment">                none 不扫描</span></span><br><span class="line"><span class="comment">                withClassAnnotation 扫描有该注解的类</span></span><br><span class="line"><span class="comment">                withMethodAnnotation 扫描有该注解的方法</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.example.swaggerdemo.controller&quot;</span>))</span><br><span class="line">                <span class="comment">/*过滤路径*/</span></span><br><span class="line">                <span class="comment">/*.paths(PathSelectors.ant(&quot;/example/**&quot;))*/</span></span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*配置Swagger*/</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">&quot;Zero&quot;</span>,<span class="string">&quot;http://zerostone.cn&quot;</span>,<span class="string">&quot;example@qq.com&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(</span><br><span class="line">             <span class="string">&quot;Zero&quot;</span>,</span><br><span class="line">             <span class="string">&quot;API文档&quot;</span>,</span><br><span class="line">             <span class="string">&quot;1.0.0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://zerostone.cn&quot;</span>,</span><br><span class="line">                contact,</span><br><span class="line">                <span class="string">&quot;Apache 2.0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://www.licenseUrl.com&quot;</span>,</span><br><span class="line">                <span class="keyword">new</span> ArrayList()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">spring.mvc.pathmatch.matching-strategy</span>=<span class="string">ANT_PATH_MATCHER</span></span><br><span class="line"><span class="meta">spring.profiles.active</span>=<span class="string">dev</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(&quot;swagger&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerProperties</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否开启swagger，生产环境一般关闭，所以这里定义一个变量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Boolean enable;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 项目应用名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String applicationName;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 项目版本信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String applicationVersion;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 项目描述信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String applicationDescription;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 接口调试地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String tryHost;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Boolean <span class="title">getEnable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> enable;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEnable</span><span class="params">(Boolean enable)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.enable = enable;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getApplicationName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> applicationName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationName</span><span class="params">(String applicationName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.applicationName = applicationName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getApplicationVersion</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> applicationVersion;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationVersion</span><span class="params">(String applicationVersion)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.applicationVersion = applicationVersion;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getApplicationDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> applicationDescription;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationDescription</span><span class="params">(String applicationDescription)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.applicationDescription = applicationDescription;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getTryHost</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tryHost;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTryHost</span><span class="params">(String tryHost)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.tryHost = tryHost;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">pathmatch:</span></span><br><span class="line">      <span class="attr">matching-strategy:</span> <span class="string">ANT_PATH_MATCHER</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Swagger</span> <span class="string">Demo</span></span><br><span class="line"><span class="comment"># 配置Swagger信息    </span></span><br><span class="line"><span class="attr">swagger:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">application-name:</span> <span class="string">$&#123;spring.application.name&#125;</span></span><br><span class="line">  <span class="attr">application-version:</span> <span class="number">5.0</span></span><br><span class="line">  <span class="attr">application-description:</span> <span class="string">Springfox</span> <span class="string">Swagger</span></span><br><span class="line">  <span class="attr">try-host:</span> <span class="string">http://localhost:$&#123;server.port&#125;</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableOpenApi</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfiguration</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> SwaggerProperties swaggerProperties;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SwaggerConfiguration</span><span class="params">(SwaggerProperties swaggerProperties)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.swaggerProperties = swaggerProperties;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Docket docket = <span class="keyword">new</span> Docket(DocumentationType.OAS_30).pathMapping(<span class="string">&quot;/&quot;</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment">/* 定义是否开启swagger，false为关闭，可以通过变量控制*/</span></span><br><span class="line">                .enable(swaggerProperties.getEnable())</span><br><span class="line"></span><br><span class="line">                <span class="comment">/* 将api的元信息设置为包含在json ResourceListing响应中 */</span></span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line"></span><br><span class="line">                <span class="comment">/* 接口调试地址 */</span></span><br><span class="line">                .host(swaggerProperties.getTryHost())</span><br><span class="line"></span><br><span class="line">                <span class="comment">/* 选择接口作为swagger的doc发布*/</span></span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.any())</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build()</span><br><span class="line"></span><br><span class="line">                <span class="comment">/* 支持的通讯协议集合 */</span></span><br><span class="line">                .protocols(newHashSet(<span class="string">&quot;https&quot;</span>, <span class="string">&quot;http&quot;</span>))</span><br><span class="line"></span><br><span class="line">                <span class="comment">/* 授权信息设置，必要的header token等认证信息*/</span></span><br><span class="line">                .securitySchemes(securitySchemes())</span><br><span class="line"></span><br><span class="line">                <span class="comment">/* 授权信息全局应用*/</span></span><br><span class="line">                .securityContexts(securityContexts());</span><br><span class="line">        <span class="keyword">return</span> docket;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * API 页面上半部分展示信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder().title(swaggerProperties.getApplicationName() + <span class="string">&quot; Api Doc&quot;</span>)</span><br><span class="line">                .description(swaggerProperties.getApplicationDescription())</span><br><span class="line">                .contact(<span class="keyword">new</span> Contact(<span class="string">&quot;lighter&quot;</span>, <span class="keyword">null</span>, <span class="string">&quot;123456@gmail.com&quot;</span>))</span><br><span class="line">                .version(<span class="string">&quot;Application Version: &quot;</span> + swaggerProperties.getApplicationVersion() + <span class="string">&quot;, Spring Boot Version: &quot;</span> + SpringBootVersion.getVersion())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置授权信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;SecurityScheme&gt; <span class="title">securitySchemes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ApiKey apiKey = <span class="keyword">new</span> ApiKey(<span class="string">&quot;BASE_TOKEN&quot;</span>, <span class="string">&quot;token&quot;</span>, In.HEADER.toValue());</span><br><span class="line">        <span class="keyword">return</span> Collections.singletonList(apiKey);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 授权信息全局应用</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;SecurityContext&gt; <span class="title">securityContexts</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Collections.singletonList(</span><br><span class="line">                SecurityContext.builder()</span><br><span class="line">                        .securityReferences(Collections.singletonList(<span class="keyword">new</span> SecurityReference(<span class="string">&quot;BASE_TOKEN&quot;</span>, <span class="keyword">new</span> AuthorizationScope[]&#123;<span class="keyword">new</span> AuthorizationScope(<span class="string">&quot;global&quot;</span>, <span class="string">&quot;&quot;</span>)&#125;)))</span><br><span class="line">                        .build()</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SafeVarargs</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">newHashSet</span><span class="params">(T... ts)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ts.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> LinkedHashSet&lt;&gt;(Arrays.asList(ts));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通用拦截器排除swagger设置，所有拦截器都会自动加swagger相关的资源排除信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field registrationsField = FieldUtils.getField(InterceptorRegistry.class, <span class="string">&quot;registrations&quot;</span>, <span class="keyword">true</span>);</span><br><span class="line">            List&lt;InterceptorRegistration&gt; registrations = (List&lt;InterceptorRegistration&gt;) ReflectionUtils.getField(registrationsField, registry);</span><br><span class="line">            <span class="keyword">if</span> (registrations != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (InterceptorRegistration interceptorRegistration : registrations) &#123;</span><br><span class="line">                    interceptorRegistration</span><br><span class="line">                            .excludePathPatterns(<span class="string">&quot;/swagger**/**&quot;</span>)</span><br><span class="line">                            .excludePathPatterns(<span class="string">&quot;/webjars/**&quot;</span>)</span><br><span class="line">                            .excludePathPatterns(<span class="string">&quot;/v3/**&quot;</span>)</span><br><span class="line">                            .excludePathPatterns(<span class="string">&quot;/doc.html&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-lang3<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.12.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Swagger注解"><a href="#Swagger注解" class="headerlink" title="Swagger注解"></a>Swagger注解</h3><blockquote>
+<p>注意:swagger注解对于代码的侵入性较强</p>
+</blockquote>
+<p>1.Api</p>
+<blockquote>
+<p>用在Controller类上，说明该类的作用</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">value</td>
+<td align="center">类作用</td>
+</tr>
+<tr>
+<td align="center">tags</td>
+<td align="center">类作用，非空时会覆盖value的值</td>
+</tr>
+<tr>
+<td align="center">description</td>
+<td align="center">api描述，在 1.5 版本后不再支持</td>
+</tr>
+<tr>
+<td align="center">basePath</td>
+<td align="center">基本路径，在 1.5 版本后不再支持</td>
+</tr>
+<tr>
+<td align="center">position</td>
+<td align="center">如果配置多个 Api 想改变显示的顺序位置，在 1.5 版本后不再支持</td>
+</tr>
+<tr>
+<td align="center">produces</td>
+<td align="center">设置 MIME 类型列表（output），如application/json, application/xml</td>
+</tr>
+<tr>
+<td align="center">consumes</td>
+<td align="center">设置 MIME 类型列表（input），如application/json, application/xml</td>
+</tr>
+<tr>
+<td align="center">protocols</td>
+<td align="center">设置特定协议，如http， https， ws， wss</td>
+</tr>
+<tr>
+<td align="center">authorizations</td>
+<td align="center">获取授权列表（安全声明），未设置则返回空的授权值</td>
+</tr>
+<tr>
+<td align="center">hidden</td>
+<td align="center">默认为 false，配置为 true 将在文档中隐藏</td>
+</tr>
+</tbody></table>
+<p>2.ApiOperation</p>
+<blockquote>
+<p>用在方法上，说明方法的作用</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">value</td>
+<td align="center">方法说明</td>
+</tr>
+<tr>
+<td align="center">notes</td>
+<td align="center">方法备注说明</td>
+</tr>
+<tr>
+<td align="center">tags</td>
+<td align="center">操作标签，非空时将覆盖value的值</td>
+</tr>
+<tr>
+<td align="center">response</td>
+<td align="center">响应类型（返回对象）</td>
+</tr>
+<tr>
+<td align="center">responseContainer</td>
+<td align="center">声明包装的响应容器（返回对象类型）。有效值为List Set Map</td>
+</tr>
+<tr>
+<td align="center">responseReference</td>
+<td align="center">指定对响应类型的引用</td>
+</tr>
+<tr>
+<td align="center">httpMethod</td>
+<td align="center">指定HTTP方法</td>
+</tr>
+<tr>
+<td align="center">position</td>
+<td align="center">改变显示的顺序位置， 1.5 版本后不再支持</td>
+</tr>
+<tr>
+<td align="center">nickname</td>
+<td align="center">第三方工具唯一标识，默认为空</td>
+</tr>
+<tr>
+<td align="center">responseHeaders</td>
+<td align="center">响应头列表</td>
+</tr>
+<tr>
+<td align="center">code</td>
+<td align="center">响应的HTTP状态代码</td>
+</tr>
+<tr>
+<td align="center">extensions</td>
+<td align="center">扩展属性列表数组</td>
+</tr>
+<tr>
+<td align="center">produces</td>
+<td align="center">设置 MIME 类型列表（output），如application/json, application/xml，默认为空</td>
+</tr>
+<tr>
+<td align="center">consumes</td>
+<td align="center">设置 MIME 类型列表（input），如application/json, application/xml，默认为空</td>
+</tr>
+<tr>
+<td align="center">protocols</td>
+<td align="center">设置特定协议，如http， https， ws， wss</td>
+</tr>
+<tr>
+<td align="center">authorizations</td>
+<td align="center">获取授权列表（安全声明）</td>
+</tr>
+<tr>
+<td align="center">hidden</td>
+<td align="center">默认为 false，配置为 true 将在文档中隐藏</td>
+</tr>
+</tbody></table>
+<p>3.ApiParam </p>
+<blockquote>
+<p>一般用在请求体参数上，描述请求体信息</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">name</td>
+<td align="center">参数名称，参数名称可覆盖方法参数名称，路径参数必须与方法参数一致</td>
+</tr>
+<tr>
+<td align="center">value</td>
+<td align="center">参数说明</td>
+</tr>
+<tr>
+<td align="center">required</td>
+<td align="center">参数是否必须传，默认为 false （路径参数必填）</td>
+</tr>
+<tr>
+<td align="center">defaultValue</td>
+<td align="center">参数默认值</td>
+</tr>
+<tr>
+<td align="center">allowableValues</td>
+<td align="center">限制参数的可接受值</td>
+</tr>
+<tr>
+<td align="center">access</td>
+<td align="center">允许从API文档中过滤参数</td>
+</tr>
+<tr>
+<td align="center">allowMultiple</td>
+<td align="center">指定参数是否可通过具有多个事件接受多个值，默认为 false</td>
+</tr>
+<tr>
+<td align="center">example</td>
+<td align="center">单个示例</td>
+</tr>
+<tr>
+<td align="center">examples</td>
+<td align="center">参数示例，仅适用于 BodyParameters</td>
+</tr>
+<tr>
+<td align="center">hidden</td>
+<td align="center">默认为 false，配置为 true 将在文档中隐藏</td>
+</tr>
+</tbody></table>
+<p>4.@ApiImplicitParams/@ApiImplicitParam</p>
+<blockquote>
+<p><code>@ApiImplicitParams</code>用在请求方法上，表示一组参数说明，里面是<code>@ApiImplicitParam</code>列表,<code>ApiImplicitParam</code>用于请求参数的说明</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">属性名称</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">name</td>
+<td align="center">参数名称，参数名称可以覆盖方法参数名称，路径参数必须与方法参数一致</td>
+</tr>
+<tr>
+<td align="center">value</td>
+<td align="center">参数说明</td>
+</tr>
+<tr>
+<td align="center">required</td>
+<td align="center">参数是否必须传，默认为 false （路径参数必填）</td>
+</tr>
+<tr>
+<td align="center">paramType</td>
+<td align="center">参数的位置</br>header：<code>@RequestHeader</code></br>query：<code>@RequestParam</code></br>path（restful 接口）：<code>@PathVariable</code></br>body:<code>@RequestBody</code></br>form:<code>@ModelAttribute</code></td>
+</tr>
+<tr>
+<td align="center">dataType</td>
+<td align="center">参数类型，默认 String</td>
+</tr>
+<tr>
+<td align="center">defaultValue</td>
+<td align="center">参数的默认值</td>
+</tr>
+<tr>
+<td align="center">allowableValues</td>
+<td align="center">限制参数的可接受值。1.以逗号分隔的列表 2.范围值 3.设置最小值/最大值</td>
+</tr>
+<tr>
+<td align="center">access</td>
+<td align="center">允许从API文档中过滤参数</td>
+</tr>
+<tr>
+<td align="center">allowMultiple</td>
+<td align="center">指定参数是否可以通过具有多个事件接受多个值，默认为 false</td>
+</tr>
+<tr>
+<td align="center">example</td>
+<td align="center">单个示例</td>
+</tr>
+<tr>
+<td align="center">examples</td>
+<td align="center">参数示例，仅适用于 BodyParameters</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>@ApiModel：描述对象 </p>
+<p>@ApiModelProperty：描述对象属性 </p>
+<p>@ApiImplicitParams：描述接口参数</p>
+<p>@ApiResponses：描述接口响应 </p>
+<p>@ApiIgnore：忽略接口方法</p>
+<p>@Api： 用于类，标识这个类是swagger的资源<br>@ApiIgnore： 用于类，忽略该 Controller，指不对当前类做扫描<br>@ApiOperation： 用于方法，描述 Controller类中的 method接口<br>@ApiParam： 用于参数，单个参数描述，与 @ApiImplicitParam不同的是，他是写在参数左侧的。如（ @ApiParam(name=”username”,value=”用户名”)Stringusername）<br>@ApiModel： 用于类，表示对类进行说明，用于参数用实体类接收<br>@ApiProperty：用于方法，字段，表示对model属性的说明或者数据操作更改<br>@ApiImplicitParam： 用于方法，表示单独的请求参数<br>@ApiImplicitParams： 用于方法，包含多个 @ApiImplicitParam<br>@ApiResponse： 用于方法，描述单个出参信息<br>@ApiResponses： 用于方法，包含多个@ApiResponse<br>@ApiError： 用于方法，接口错误所返回的信息</p>
 </blockquote>
 
     </div>
@@ -257,6 +603,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/05/02/ElasticSearch%E5%85%A5%E9%97%A8/" rel="next" title="ElasticSearch入门">
+                  ElasticSearch入门 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
