@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p3.jpg">
 <meta property="og:image" content="https://zerostione.github.io/ImageUp//Image/Blog2/shiro/p10.png">
 <meta property="article:published_time" content="2022-04-16T12:33:21.000Z">
-<meta property="article:modified_time" content="2022-05-07T09:14:23.715Z">
+<meta property="article:modified_time" content="2022-05-13T13:12:44.464Z">
 <meta property="article:author" content="Zero">
 <meta property="article:tag" content="shiro">
 <meta name="twitter:card" content="summary">
@@ -132,7 +132,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shiro"><span class="nav-number">1.</span> <span class="nav-text">Shiro</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">权限管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%81"><span class="nav-number">1.3.</span> <span class="nav-text">认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Realm%E8%AE%A4%E8%AF%81"><span class="nav-number">1.3.1.</span> <span class="nav-text">自定义Realm认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5-Salt"><span class="nav-number">1.3.2.</span> <span class="nav-text">MD5 Salt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%88%E6%9D%83"><span class="nav-number">1.4.</span> <span class="nav-text">授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot%E9%9B%86%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">SpringBoot集成</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Shiro"><span class="nav-number">1.</span> <span class="nav-text">Shiro</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">权限管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%81"><span class="nav-number">1.3.</span> <span class="nav-text">认证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89Realm%E8%AE%A4%E8%AF%81"><span class="nav-number">1.3.1.</span> <span class="nav-text">自定义Realm认证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MD5-Salt"><span class="nav-number">1.3.2.</span> <span class="nav-text">MD5 Salt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%88%E6%9D%83"><span class="nav-number">1.4.</span> <span class="nav-text">授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot%E9%9B%86%E6%88%90"><span class="nav-number">1.5.</span> <span class="nav-text">SpringBoot集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">过滤器</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -228,7 +228,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-05-07 17:14:23" itemprop="dateModified" datetime="2022-05-07T17:14:23+08:00">2022-05-07</time>
+        <time title="修改时间：2022-05-13 21:12:44" itemprop="dateModified" datetime="2022-05-13T21:12:44+08:00">2022-05-13</time>
       </span>
 
   
@@ -461,6 +461,81 @@
 
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="attr">context-path:</span> <span class="string">/shiro</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span> <span class="string">/shiro</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">view:</span></span><br><span class="line">      <span class="attr">prefix:</span> <span class="string">/</span></span><br><span class="line">      <span class="attr">suffix:</span> <span class="string">.jsp</span></span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>1.SpringMVC+Shiro初次访问URL出现jsessionid 报400 Bad Request错误:</p>
+<p><em>Set to true to disable support for using URL rewriting to track session IDs for clients of this Context. URL rewriting is an optional component of the servlet 2.5 specification but disabling URL rewriting will result in non-compliant behaviour since the specification requires that there must be a way to retain sessions if the client doesn’t allow session cookies. If not specified, the specification compliant default value of false will be used.</em></p>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">server.servlet.session.tracking-modes</span>=<span class="string">cookie</span></span><br><span class="line"><span class="meta">server.servlet.session.cookie.http-only</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改Shiro配置类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解决shiro的初次访问URL出现jsessionid 报400 Bad Request错误</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DefaultWebSessionManager <span class="title">sessionManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    DefaultWebSessionManager sessionManager = <span class="keyword">new</span> DefaultWebSessionManager();</span><br><span class="line">    sessionManager.setSessionIdUrlRewritingEnabled(<span class="keyword">false</span>);</span><br><span class="line">    <span class="keyword">return</span> sessionManager;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DefaultWebSecurityManager <span class="title">getDefaultWebSecurityManager</span><span class="params">(Realm realm)</span></span>&#123;</span><br><span class="line">    DefaultWebSecurityManager defaultWebSecurityManager = <span class="keyword">new</span> DefaultWebSecurityManager();</span><br><span class="line">    defaultWebSecurityManager.setRealm(realm);</span><br><span class="line">    defaultWebSecurityManager.setSessionManager(sessionManager());</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    设置cookie管理器</span></span><br><span class="line"><span class="comment">    securityManager.setRememberMeManager(rememberMeManager());</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">return</span> defaultWebSecurityManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+<hr>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><table>
+<thead>
+<tr>
+<th align="center">Filter Name</th>
+<th align="center">Class</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">anon</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/AnonymousFilter.html">AnonymousFilter</a></td>
+</tr>
+<tr>
+<td align="center">authc</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/FormAuthenticationFilter.html">FormAuthenticationFilter</a></td>
+</tr>
+<tr>
+<td align="center">authcBasic</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/BasicHttpAuthenticationFilter.html">BasicHttpAuthenticationFilter</a></td>
+</tr>
+<tr>
+<td align="center">authcBearer</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/BearerHttpAuthenticationFilter.html">BearerHttpAuthenticationFilter</a></td>
+</tr>
+<tr>
+<td align="center">invalidRequest</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/InvalidRequestFilter.html">InvalidRequestFilter</a></td>
+</tr>
+<tr>
+<td align="center">logout</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/LogoutFilter.html">LogoutFilter</a></td>
+</tr>
+<tr>
+<td align="center">noSessionCreation</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/session/NoSessionCreationFilter.html">NoSessionCreationFilter</a></td>
+</tr>
+<tr>
+<td align="center">perms</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/PermissionsAuthorizationFilter.html">PermissionsAuthorizationFilter</a></td>
+</tr>
+<tr>
+<td align="center">port</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/PortFilter.html">PortFilter</a></td>
+</tr>
+<tr>
+<td align="center">rest</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/HttpMethodPermissionFilter.html">HttpMethodPermissionFilter</a></td>
+</tr>
+<tr>
+<td align="center">roles</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/RolesAuthorizationFilter.html">RolesAuthorizationFilter</a></td>
+</tr>
+<tr>
+<td align="center">ssl</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authz/SslFilter.html">SslFilter</a></td>
+</tr>
+<tr>
+<td align="center">user</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://shiro.apache.org/static/current/apidocs/org/apache/shiro/web/filter/authc/UserFilter.html">UserFilter</a></td>
+</tr>
+</tbody></table>
 
     </div>
 
